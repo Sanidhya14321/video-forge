@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Editing"
+  short_description: "Video Editing workflows for technical creators"
+  default_prompt: "Use $video-editing to help with my video production task."

@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "timeline": "output",
+  "words": [
+    {
+      "text": "Binary",
+      "start": 0,
+      "end": 0.6
+    },
+    {
+      "text": "search",
+      "start": 0.6,
+      "end": 0.98
+    },
+    {
+      "text": "halves",
+      "start": 0.98,
+      "end": 1.4
+    },
+    {
+      "text": "the",
+      "start": 1.4,
+      "end": 1.58
+    },
+    {
+      "text": "search",
+      "start": 1.58,
+      "end": 1.82
+    },
+    {
+      "text": "space.",
+      "start": 1.82,
+      "end": 2.34
+    },
+    {
+      "text": "Compare",
+      "start": 2.74,
+      "end": 3.12
+    },
+    {
+      "text": "the",
+      "start": 3.12,
+      "end": 3.32
+    },
+    {
+      "text": "middle",
+      "start": 3.32,
+      "end": 3.48
+    },
+    {
+      "text": "value,",
+      "start": 3.48,
+      "end": 3.9
+    },
+    {
+      "text": "then",
+      "start": 4.16,
+      "end": 4.46
+    },
+    {
+      "text": "discard",
+      "start": 4.46,
+      "end": 4.78
+    },
+    {
+      "text": "the",
+      "start": 4.78,
+      "end": 5.04
+    },
+    {
+      "text": "half",
+      "start": 5.04,
+      "end": 5.3
+    },
+    {
+      "text": "that",
+      "start": 5.3,
+      "end": 5.54
+    },
+    {
+      "text": "cannot",
+      "start": 5.54,
+      "end": 5.82
+    },
+    {
+      "text": "contain",
+      "start": 5.82,
+      "end": 6.24
+    },
+    {
+      "text": "your",
+      "start": 6.24,
+      "end": 6.46
+    },
+    {
+      "text": "target.",
+      "start": 6.46,
+      "end": 6.78
+    }
+  ]
+}

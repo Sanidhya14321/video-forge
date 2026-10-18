@@ -1,0 +1,10 @@
+{
+  "name": "video-forge-local",
+  "interface": {"displayName": "Video Forge"},
+  "plugins": [{
+    "name": "video-forge",
+    "source": {"source": "local", "path": "./"},
+    "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+    "category": "Productivity"
+  }]
+}

@@ -1,0 +1,14 @@
+---
+name: video-audio
+description: "Generate local or optional OpenAI narration, prepare music and sound effects, and mix audio for technical videos."
+---
+
+# Video Audio
+
+Read [audio workflows](references/workflows.md). Prefer approved audio or local Kokoro. Verify pronunciation of symbols, names, abbreviations, and code before the full export. A script that reads well may not speak well.
+
+Use `narration.provider: file` for supplied audio, `kokoro` for local synthesis, or `openai` for an explicitly selected paid speech call. OpenAI requires a verified per-character rate and a cloud reservation budget; supported models are documented in the project contract. Credentials belong in environment variables.
+
+The runner rejects narration longer than the scene timeline. Short narration leaves the remaining visual duration intact. Music loops at the configured volume and is attenuated while timestamped caption words are active. Generated voice receives measured two-pass loudness normalization before mixing. Supplied voice levels are preserved. Inspect actual audio and avoid claiming a loudness target that was not measured.
+
+Generated narration must be disclosed in publishing copy. Custom voice cloning and hosted music generation are reference workflows. Preserve audio credits separately from the toolkit's code license.

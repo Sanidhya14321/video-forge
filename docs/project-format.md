@@ -1,0 +1,95 @@
+# Project format, version 1
+
+The agent writes an explicit JSON production plan. The CLI validates and executes it; it does not perform LLM scriptwriting or semantic editing internally. Paths resolve relative to the project JSON, never relative to the plugin installation.
+
+`src/schema.ts` is the authoritative runtime contract. `docs/project.schema.json` is the generated JSON Schema for editors. Unknown fields are rejected. Examples are executable jobs.
+
+```json
+{
+  "version": 1,
+  "name": "my-demo",
+  "workflow": "product-demo",
+  "renderer": "remotion",
+  "fps": 30,
+  "scenes": [
+    {"kind": "title", "duration": 3, "title": "A concrete promise", "body": "One useful explanation."},
+    {"kind": "image", "duration": 4, "title": "Evidence", "src": "assets/screenshot.png"},
+    {"kind": "code", "duration": 3, "title": "Try it", "code": "npm run build"}
+  ],
+  "exports": [{"preset": "landscape"}, {"preset": "vertical"}]
+}
+```
+
+## Scene and theme inputs
+
+`workflow`: `product-demo`, `algorithm-explainer`, or `footage-repurpose`. Product and algorithm jobs require scenes. Footage jobs use `footage` instead. All use Remotion for the final composition.
+
+A scene has `kind`, `duration` in seconds, and an optional title (up to 100 characters), body (350), or note (200). `code` requires `code` text. `image` and `video` require a local `src`. `chart` and `algorithm` require `values`: one to twelve nonnegative finite numbers. Optional labels must match that array's length. `highlight` contains zero-based indices. These scenes show supplied data; they do not compute algorithms or render arbitrary graph structures. The example trace is computed in the project.
+
+FPS may be 24, 30, or 60. Each scene duration rounds independently to frames. A title/body is a layout input, not a promise that any maximum-length string will fit; visually review the chosen aspect ratio. Split long text across scenes.
+
+`theme` supports six-digit hex `background`, `foreground`, `accent`, `muted` colors and a local CSS font stack. Defaults use a dark navy background, light text, and mint accents. Optional `brand` and `tagline` add a footer; both are empty by default, so ordinary exports have no toolkit watermark. A scene may set an optional `eyebrow` label. No remote font is fetched.
+
+## Footage and captions
+
+```json
+{
+  "version": 1, "name": "my-clip", "workflow": "footage-repurpose",
+  "footage": {
+    "src": "recording.mp4",
+    "segments": [{"start": 8.2, "end": 17.8}, {"start": 30.1, "end": 40.2}],
+    "removeSilence": false, "silenceDb": -35, "silenceSeconds": 0.6,
+    "crop": "contain"
+  },
+  "captions": {"transcript": "words.json", "maxWords": 5},
+  "exports": [{"preset": "vertical"}]
+}
+```
+
+Segments are source-relative seconds and play in listed order. Overlap/repetition is permitted for intentional replays. Without segments, the full recording is selected. With `removeSilence`, selected ranges are intersected with audible intervals; meaningful pauses may need restoring by editing the job. Center cropping with `cover` does not track faces.
+
+`captions` requires exactly one of:
+
+- `words`: an array of `{text, start, end}` with times in seconds.
+- `transcript`: local JSON containing that array, or `{ "words": [...] }`.
+- `transcribe: true`: local faster-whisper recognition; optional `language` (default `en`) and `model` (`base` default; tiny/small/medium/large-v3/turbo also accepted).
+
+Word end must follow start, starts must be ordered, and output timing must fit the video. Original-audio footage jobs expect source-time supplied captions, which are remapped after cuts. With replacement narration, supplied captions describe that narration timeline. Automatic transcription always runs on the final selected audio.
+
+`maxWords` is 1–8 (default 5). It controls phrase grouping along with a character heuristic. Long identifiers or non-Latin writing still require visual review. Transcript output is JSON with output-time words; SRT uses individual word cues to preserve timing. Sentence grouping, translation, bilingual layouts, and ASS export are reference workflows, not implicit features.
+
+## Audio
+
+`narration.provider` defaults to `none`. Use `file` plus `src` for approved local audio. Use `kokoro` plus `text` and a suitable voice (`af_heart` default) for local synthesis. Use `openai` plus `text`, a built-in voice, and an explicitly verified `rateUsdPerMillionCharacters` for paid speech. Supported budgeted models are `tts-1` (default) and `tts-1-hd`; token-priced speech models need a different estimator and are rejected.
+
+The runner will not stretch speech to fit. It rejects narration longer than the planned video. Shorter narration leaves the remaining scene time intact. Add a generated-voice disclosure to publication copy.
+
+`music: {"src": "music.wav", "volume": 0.12}` adds a looping local bed. When captions align with narration, music attenuates to 55% of that volume during word intervals. Generated narration receives a measured two-pass FFmpeg loudness normalization targeting -16 LUFS and -1.5 dBTP before mixing. Supplied audio is preserved. The final combined mix still needs review; no denoising is applied automatically.
+
+## Optional paid generation
+
+```json
+{
+  "cloud": {"enabled": true, "maxUsd": 0.5, "reservedUsd": 0},
+  "generation": [{
+    "id": "broll", "provider": "fal",
+    "endpoint": "fal-ai/your-verified-endpoint",
+    "input": {"prompt": "Use the endpoint's current documented schema"},
+    "resultType": "video", "maxCostUsd": 0.3
+  }]
+}
+```
+
+This fragment must be included in a complete project. It is a schema example, not a valid model selection. Verify an endpoint's exact input, pricing, duration, and response shape before enabling it. Reference results with `src: "generated:broll"`. The adapter handles `images[0].url` or `video.url` results and does not upload local reference files. Use environment variables `FAL_KEY` and `OPENAI_API_KEY`.
+
+`maxUsd` limits client reservations for this run, including failed/ambiguous requests. OpenAI character estimates include 10% slack. fal uses the declared per-request maximum, which the provider does not enforce. Actual provider billing can differ; use account-side provider spending limits for a hard billing cap. Reservations do not span processes automatically. A new output directory creates a new run; carry unresolved known commitments into `reservedUsd` before intentionally retrying elsewhere. There are no automatic paid retries or provider fallbacks. `spending.json` retains request IDs so existing jobs can be investigated.
+
+## Exports, assets, and outputs
+
+Presets: `landscape` 1920x1080, `vertical` 1080x1920, `square` 1080x1080, `portrait` 1080x1350. Optional paired `width` and `height` allow even preview dimensions of 240–3840 pixels. Presets must be unique in one job.
+
+The output directory must not exist. A failed run is preserved for diagnosis; choose a new directory for another attempt. Assets are copied to content-hashed filenames. The source project records original paths; `render-props.json` points to staged assets used by the bundled composition.
+
+Provide optional asset credits as `assets: [{"path":"asset.png", "origin":"source URL or original work", "license":"license identifier or terms", "credit":"credit line"}]`. Unspecified user assets stay labeled unspecified. No ownership is inferred.
+
+A successful run retains the job, storyboard, assets and manifest, composition source and bundle, render props, JSON transcript, SRT, thumbnail, MP4 variants, `quality.json`, edit decisions where relevant, and a publishing draft. Technical checks decode the full stream but cannot establish editorial quality or caption accuracy.

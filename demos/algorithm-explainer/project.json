@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "name": "algorithm-explainer",
+  "workflow": "algorithm-explainer",
+  "renderer": "remotion",
+  "fps": 30,
+  "theme": {
+    "background": "#0b1020",
+    "foreground": "#f1f5f9",
+    "accent": "#68e0cf",
+    "muted": "#a8b3cc",
+    "font": "Arial, sans-serif",
+    "brand": "VIDEO FORGE",
+    "tagline": "EDITABLE BY DESIGN"
+  },
+  "scenes": [
+    {
+      "kind": "title",
+      "duration": 2.5,
+      "title": "Binary search.",
+      "eyebrow": "VIDEO FORGE / MADE WITH CODE",
+      "body": "A smaller problem with every comparison."
+    },
+    {
+      "kind": "algorithm",
+      "duration": 1.7,
+      "title": "Compare the middle.",
+      "eyebrow": "VIDEO FORGE / ALGORITHMS",
+      "values": [
+        2,
+        5,
+        8,
+        12,
+        16,
+        23,
+        38
+      ],
+      "highlight": [
+        3
+      ],
+      "note": "Find target 23 in a sorted array."
+    },
+    {
+      "kind": "algorithm",
+      "duration": 2.8,
+      "title": "Keep the right half.",
+      "eyebrow": "VIDEO FORGE / ALGORITHMS",
+      "values": [
+        16,
+        23,
+        38
+      ],
+      "labels": [
+        "[4]",
+        "[5]",
+        "[6]"
+      ],
+      "highlight": [
+        1
+      ],
+      "note": "12 < 23: discard the left half."
+    },
+    {
+      "kind": "code",
+      "duration": 2,
+      "title": "Found in two comparisons.",
+      "eyebrow": "VIDEO FORGE / BUILD IN PUBLIC",
+      "code": "mid = (low + high) // 2\n\nif values[mid] == target:\n    return mid",
+      "note": "Illustrative search trace, not a performance benchmark."
+    }
+  ],
+  "narration": {
+    "provider": "kokoro",
+    "text": "Binary search halves the search space. Compare the middle value, then discard the half that cannot contain your target.",
+    "voice": "af_heart"
+  },
+  "captions": {
+    "transcribe": true,
+    "language": "en",
+    "model": "base",
+    "maxWords": 5
+  },
+  "generation": [],
+  "exports": [
+    {
+      "preset": "landscape",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "preset": "vertical",
+      "width": 540,
+      "height": 960
+    }
+  ],
+  "assets": []
+}

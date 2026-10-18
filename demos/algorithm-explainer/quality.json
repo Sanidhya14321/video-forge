@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "checks": [
+    {
+      "file": "landscape.mp4",
+      "duration": 9.003,
+      "width": 960,
+      "height": 540,
+      "videoCodec": "h264",
+      "audio": true,
+      "audioCodec": "aac",
+      "fps": "30/1",
+      "decoded": true,
+      "captionWords": 19
+    },
+    {
+      "file": "vertical.mp4",
+      "duration": 9.003,
+      "width": 540,
+      "height": 960,
+      "videoCodec": "h264",
+      "audio": true,
+      "audioCodec": "aac",
+      "fps": "30/1",
+      "decoded": true,
+      "captionWords": 19
+    }
+  ],
+  "visualReview": {
+    "status": "sampled frames reviewed",
+    "method": "assistant visual inspection",
+    "sampleSeconds": [
+      1,
+      3.2,
+      5.8,
+      8.2
+    ],
+    "limits": "Not an exhaustive per-frame or human review"
+  }
+}

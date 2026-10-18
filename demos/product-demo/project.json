@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "name": "product-demo",
+  "workflow": "product-demo",
+  "renderer": "remotion",
+  "fps": 30,
+  "theme": {
+    "background": "#0b1020",
+    "foreground": "#f1f5f9",
+    "accent": "#68e0cf",
+    "muted": "#a8b3cc",
+    "font": "Arial, sans-serif",
+    "brand": "VIDEO FORGE",
+    "tagline": "EDITABLE BY DESIGN"
+  },
+  "scenes": [
+    {
+      "kind": "title",
+      "duration": 3,
+      "title": "Your next idea, in motion.",
+      "eyebrow": "VIDEO FORGE / MADE WITH CODE",
+      "body": "From a product brief to an editable film.",
+      "note": "One source. Every format."
+    },
+    {
+      "kind": "image",
+      "duration": 4,
+      "title": "Show the real product.",
+      "eyebrow": "VIDEO FORGE / MADE WITH CODE",
+      "src": "assets/dashboard.svg"
+    },
+    {
+      "kind": "code",
+      "duration": 3,
+      "title": "Build. Review. Share.",
+      "eyebrow": "VIDEO FORGE / BUILD IN PUBLIC",
+      "code": "video-forge run product.json\n\n✓ composition + captions\n✓ checked MP4 exports"
+    }
+  ],
+  "narration": {
+    "provider": "none",
+    "voice": "af_heart"
+  },
+  "music": {
+    "src": "assets/ambient.wav",
+    "volume": 0.2
+  },
+  "generation": [],
+  "exports": [
+    {
+      "preset": "landscape",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "preset": "vertical",
+      "width": 540,
+      "height": 960
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/dashboard.svg",
+      "origin": "Original fictional UI drawn for Video Forge",
+      "license": "MIT"
+    },
+    {
+      "path": "assets/ambient.wav",
+      "origin": "Original synthesized sine-wave audio",
+      "license": "MIT"
+    }
+  ]
+}

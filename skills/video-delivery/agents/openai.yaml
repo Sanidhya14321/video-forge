@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Delivery"
+  short_description: "Video Delivery workflows for technical creators"
+  default_prompt: "Use $video-delivery to help with my video production task."

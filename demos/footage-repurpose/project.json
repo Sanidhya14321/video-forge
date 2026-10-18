@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "name": "footage-repurpose",
+  "workflow": "footage-repurpose",
+  "renderer": "remotion",
+  "fps": 30,
+  "theme": {
+    "background": "#0b1020",
+    "foreground": "#f1f5f9",
+    "accent": "#68e0cf",
+    "muted": "#a8b3cc",
+    "font": "Arial, sans-serif",
+    "brand": "",
+    "tagline": ""
+  },
+  "scenes": [],
+  "footage": {
+    "src": "assets/sample-recording.mp4",
+    "segments": [
+      {
+        "start": 0,
+        "end": 2.3699999999999997
+      },
+      {
+        "start": 2.7100000000000004,
+        "end": 6.9
+      }
+    ],
+    "removeSilence": false,
+    "silenceDb": -35,
+    "silenceSeconds": 0.6,
+    "crop": "contain"
+  },
+  "narration": {
+    "provider": "none",
+    "voice": "af_heart"
+  },
+  "captions": {
+    "transcript": "assets/sample-transcript.json",
+    "transcribe": false,
+    "language": "en",
+    "model": "base",
+    "maxWords": 4
+  },
+  "generation": [],
+  "exports": [
+    {
+      "preset": "vertical",
+      "width": 540,
+      "height": 960
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/sample-recording.mp4",
+      "origin": "Video Forge synthetic recording fixture: original animation and Kokoro narration, without burned captions",
+      "license": "MIT original animation; Kokoro model output terms apply"
+    }
+  ]
+}

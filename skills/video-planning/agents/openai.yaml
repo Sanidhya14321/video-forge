@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Planning"
+  short_description: "Video Planning workflows for technical creators"
+  default_prompt: "Use $video-planning to help with my video production task."

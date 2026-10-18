@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Forge"
+  short_description: "Video Forge workflows for technical creators"
+  default_prompt: "Use $video-forge to help with my video production task."

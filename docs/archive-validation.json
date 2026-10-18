@@ -1,0 +1,26 @@
+[
+  {
+    "host": "source",
+    "exitCode": 0,
+    "result": "Validated 8 skills, both compatibility manifests, links, lockfiles, and all 100 source records.",
+    "error": ""
+  },
+  {
+    "host": "claude",
+    "exitCode": 0,
+    "result": "Validated 8 skills, both compatibility manifests, links, lockfiles, and all 100 source records.",
+    "error": ""
+  },
+  {
+    "host": "codex",
+    "exitCode": 0,
+    "result": "Validated 8 skills, both compatibility manifests, links, lockfiles, and all 100 source records.",
+    "error": ""
+  },
+  {
+    "host": "standalone",
+    "exitCode": 0,
+    "result": "Validated 8 skills, both compatibility manifests, links, lockfiles, and all 100 source records.",
+    "error": ""
+  }
+]

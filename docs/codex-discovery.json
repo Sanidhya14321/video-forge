@@ -1,0 +1,23 @@
+{
+  "installed": [],
+  "available": [
+    {
+      "pluginId": "video-forge@video-forge-local",
+      "name": "video-forge",
+      "marketplaceName": "video-forge-local",
+      "version": "0.1.0",
+      "installed": false,
+      "enabled": false,
+      "source": {
+        "source": "local",
+        "path": "<plugin-root>"
+      },
+      "marketplaceSource": {
+        "sourceType": "local",
+        "source": "<plugin-root>"
+      },
+      "installPolicy": "AVAILABLE",
+      "authPolicy": "ON_INSTALL"
+    }
+  ]
+}

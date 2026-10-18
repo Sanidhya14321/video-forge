@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Audio"
+  short_description: "Video Audio workflows for technical creators"
+  default_prompt: "Use $video-audio to help with my video production task."

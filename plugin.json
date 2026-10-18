@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "video-forge",
+  "version": "0.1.0",
+  "description": "Local video production for technical creators, with optional cloud media adapters",
+  "author": {
+    "name": "Video Forge contributors"
+  },
+  "license": "MIT"
+}

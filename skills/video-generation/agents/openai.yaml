@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Generation"
+  short_description: "Video Generation workflows for technical creators"
+  default_prompt: "Use $video-generation to help with my video production task."

@@ -1,0 +1,13 @@
+node_modules/
+.venv/
+.cache/
+__pycache__/
+*.pyc
+.env
+.env.*
+!\.env.example
+runs/
+*.zip
+
+# Re-renderable browser bundles are generated artifacts.
+composition-bundle/

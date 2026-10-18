@@ -1,0 +1,27 @@
+video-forge 0.1.0
+  Description: Local video production for technical creators, with optional cloud media adapters
+  Source: video-forge@inline
+
+Component inventory
+  Skills (8)  video-audio, video-captions, video-delivery, video-editing, video-forge, video-generation, video-motion, video-planning
+  Agents (0)
+  Hooks (0)
+  MCP servers (0)
+  LSP servers (0)
+
+Projected token cost
+  Always-on:   ~305 tok   added to every session
+
+Per-component (rounded)
+  component         always-on  on-invoke
+  video-planning          ~40       ~240
+  video-editing           ~40       ~310
+  video-captions          ~40       ~270
+  video-motion            ~30       ~290
+  video-generation        ~40       ~310
+  video-audio             ~30       ~290
+  video-forge             ~50       ~750
+  video-delivery          ~40       ~280
+
+  On-invoke cost is paid each time a skill or agent fires.
+  Token counts are estimates and may differ from actual usage.

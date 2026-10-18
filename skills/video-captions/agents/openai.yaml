@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Captions"
+  short_description: "Video Captions workflows for technical creators"
+  default_prompt: "Use $video-captions to help with my video production task."

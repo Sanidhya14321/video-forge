@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "name": "algorithm-explainer",
+  "workflow": "algorithm-explainer",
+  "scenes": [
+    {
+      "kind": "title",
+      "duration": 2.5,
+      "title": "Binary search.",
+      "body": "A smaller problem with every comparison.",
+      "eyebrow": "VIDEO FORGE / MADE WITH CODE"
+    },
+    {
+      "kind": "algorithm",
+      "duration": 1.7,
+      "title": "Compare the middle.",
+      "values": [
+        2,
+        5,
+        8,
+        12,
+        16,
+        23,
+        38
+      ],
+      "highlight": [
+        3
+      ],
+      "note": "Find target 23 in a sorted array.",
+      "eyebrow": "VIDEO FORGE / ALGORITHMS"
+    },
+    {
+      "kind": "algorithm",
+      "duration": 2.8,
+      "title": "Keep the right half.",
+      "values": [
+        16,
+        23,
+        38
+      ],
+      "highlight": [
+        1
+      ],
+      "note": "12 < 23: discard the left half.",
+      "labels": [
+        "[4]",
+        "[5]",
+        "[6]"
+      ],
+      "eyebrow": "VIDEO FORGE / ALGORITHMS"
+    },
+    {
+      "kind": "code",
+      "duration": 2,
+      "title": "Found in two comparisons.",
+      "code": "mid = (low + high) // 2\n\nif values[mid] == target:\n    return mid",
+      "note": "Illustrative search trace, not a performance benchmark.",
+      "eyebrow": "VIDEO FORGE / BUILD IN PUBLIC"
+    }
+  ],
+  "narration": {
+    "provider": "kokoro",
+    "text": "Binary search halves the search space. Compare the middle value, then discard the half that cannot contain your target.",
+    "voice": "af_heart"
+  },
+  "captions": {
+    "transcribe": true,
+    "model": "base",
+    "language": "en",
+    "maxWords": 5
+  },
+  "exports": [
+    {
+      "preset": "landscape",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "preset": "vertical",
+      "width": 540,
+      "height": 960
+    }
+  ],
+  "theme": {
+    "brand": "VIDEO FORGE",
+    "tagline": "EDITABLE BY DESIGN"
+  }
+}

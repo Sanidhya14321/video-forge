@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Motion"
+  short_description: "Video Motion workflows for technical creators"
+  default_prompt: "Use $video-motion to help with my video production task."

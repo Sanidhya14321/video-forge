@@ -1,0 +1,1 @@
+Binary search halves the search space. Compare the middle value, then discard the half that cannot contain your target.
