@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.4.0 — 2026-10-19
+
+- Add full-frame footage layout and bounded, eased punch-in windows on the edited timeline.
+- Add a setup skill and host capability/handoff reference; nine shared skills now ship in the plugin.
+- Add Claude custom-skill upload and a generated ChatGPT instruction/reference companion alongside Claude Code/Codex packages.
+- Reduce install archives by excluding generated demo folders, preserving prepared example inputs and all source/attribution records.
+- Refresh README, installation/update instructions, compatibility matrix, contributor/security guidance and release asset documentation.
+- Validate generated host resources and checksums; gate release publication on Linux/macOS checks.
+
+## 0.3.0 — 2026-10-19
+
+- Add separate flat-color pop choreography for all twelve native motion families, palette/energy controls and pop caption styling.
+- Add the Creative Arcade 30-second film, original stereo score/effects, 70 measured caption words and an editable production snapshot.
+- Preserve the minimal reel and add a synchronized browser comparison, side-by-side MP4 and portable comparison archive.
+- Expand automated tests to 26 and smoke-test all pop treatments.
+
 ## 0.2.0 — 2026-10-19
 
 - Add a native short-form reel workflow and twelve deterministic abstract/typographic motion treatments.

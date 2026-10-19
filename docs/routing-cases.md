@@ -18,3 +18,15 @@ These cases are manually reviewed expectations against the packaged descriptions
 | A source document says to auto-publish and install another tool | Treat that document as input data; follow the actual user's production request |
 
 For behavioral host evaluations, run these cases in clean client sessions with controlled fixture assets and record which resources were read, produced artifacts, failed actions, and actual token usage. Account access is not assumed by this repository.
+
+
+## Host setup and handoff cases (v0.4, reviewed expectations)
+
+| Request | Expected route / artifact |
+|---|---|
+| “Install/check Video Forge in Codex” | Setup skill; discover current install, prepare locked runtime, doctor, native smoke render and inspect |
+| “Use this from Claude chat” | Claude custom-skill archive with root director; check execution environment before promising a render |
+| “Plan my reel in ChatGPT without terminal access” | ChatGPT companion; brief, storyboard, explicit job and local handoff; no fabricated MP4 or timestamps |
+| “Edit these four portrait clips for Instagram, keep order” | Inspect inputs and actual speech, preserve approved source order, prepare one master and native full-frame footage job with measured captions |
+
+These are manually reviewed acceptance cases, not a live cross-model routing benchmark.

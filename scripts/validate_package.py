@@ -7,12 +7,17 @@ def check(ok,message):
  if not ok:errors.append(message)
 pkg=json.loads((root/'package.json').read_text())
 host=json.loads((root/'.release.json').read_text())['host'] if (root/'.release.json').exists() else 'source'
+if host=='claude-skill':host='standalone'
 for p in ['plugin.json','.claude-plugin/plugin.json','.codex-plugin/plugin.json']:
  if not (root/p).exists():
   check((host=='claude' and p in ['plugin.json','.codex-plugin/plugin.json']) or (host=='codex' and p=='.claude-plugin/plugin.json') or host=='standalone','Required manifest missing: '+p);continue
  m=json.loads((root/p).read_text());check(m['name']=='video-forge',p+' name');check(m['version']==pkg['version'],p+' version')
+if (root/'plugin.json').exists():
+ openai=json.loads((root/'plugin.json').read_text()).get('extensions',{}).get('com.openai',{})
+ if openai.get('onboardingSkill'):check((root/openai['onboardingSkill']).is_file(),'Missing onboarding skill')
 if (root/'.codex-plugin/plugin.json').exists():check(json.loads((root/'.codex-plugin/plugin.json').read_text())['skills']=='./skills/','Codex skills path')
 for skill in (root/'skills').iterdir():
+ if not skill.is_dir():continue
  entry=root/'SKILL.md' if host=='standalone' and skill.name=='video-forge' else skill/'SKILL.md'
  s=entry.read_text();check(s.startswith('---\n'),'Missing frontmatter: '+skill.name)
  check(f'name: {skill.name}\n' in s,'Mismatched skill name: '+skill.name)

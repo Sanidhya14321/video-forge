@@ -1,101 +1,97 @@
 # Video Forge
 
-An agent-directed video toolkit for technical creators. One portable skill collection consolidates the techniques in a 100-entry video-skills report into focused workflows, with an executable Remotion/FFmpeg core.
+[![Checks](https://github.com/Sanidhya14321/video-forge/actions/workflows/check.yml/badge.svg)](https://github.com/Sanidhya14321/video-forge/actions/workflows/check.yml) [![Release](https://img.shields.io/github/v/release/Sanidhya14321/video-forge)](https://github.com/Sanidhya14321/video-forge/releases/latest) [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 
-**v0.3.0:** flat-color creative arcade and minimal motion treatments, fast abstract reels, kinetic typography, product demos, array-based algorithm explainers, and captioned footage repurposing. The agent prepares the story and edit decisions; the CLI renders the explicit job. No account or paid API is needed for the local examples.
+**Turn a brief or recording into an editable video.** A compact directing skill coordinates planning, motion, editing, captions, audio, generation and delivery, backed by local Remotion/FFmpeg execution. Use it from Claude Code, Codex or a compatible local agent; use the Claude custom-skill or ChatGPT companion for their respective surfaces.
 
-## Install in Claude or Codex
+One shared toolkit, two different visual directions:
+
+| Minimal | Creative Arcade |
+|---|---|
+| [![Minimal reel](demos/reel-showcase/thumbnail.png)](https://github.com/Sanidhya14321/video-forge/releases/download/v0.3.0/video-forge-reel-0.3.0.mp4) | [![Color reel](demos/pop-showcase/thumbnail.png)](https://github.com/Sanidhya14321/video-forge/releases/download/v0.3.0/video-forge-color-pop-0.3.0.mp4) |
+| Monochrome abstract motion · 20 shots | Flat color, original characters and comic effects · 22 shots |
+
+Both are 30 seconds, with original synthesized music, local AI voice and measured captions. [Watch side by side](https://github.com/Sanidhya14321/video-forge/releases/download/v0.3.0/video-forge-style-comparison-0.3.0.mp4). These demonstrate creative range; scripts, timing and music differ, so they are not a controlled performance benchmark.
+
+## Choose your host
+
+| Host | Install / use |
+|---|---|
+| **Codex CLI / desktop** | Commands below; nine skills plus setup and local rendering |
+| **Claude Code** | Commands below; `/video-forge:video-forge` |
+| **Claude chat / Cowork** | Upload the `claude-skill` archive as a custom skill; rendering depends on its runtime |
+| **ChatGPT Work, local execution** | Codex/OpenAI package; run the setup skill in a local-capable session |
+| **ChatGPT chat** | `chatgpt` companion: focused instructions/reference files for planning, code and a local render handoff |
+| **Other Agent Skills hosts** | `standalone` archive with root `SKILL.md` and bundled resources |
+
+[Installation and updates](docs/installation.md) · [Compatibility and verification](docs/compatibility.md) · [Download release packages](https://github.com/Sanidhya14321/video-forge/releases/latest)
+
+### Codex
 
 ```bash
-claude plugin install video-forge --marketplace Sanidhya14321/video-forge
-codex plugin marketplace add Sanidhya14321/video-forge
+codex plugin marketplace add Sanidhya14321/video-forge --ref v0.4.0
+codex plugin add video-forge@video-forge-local
 ```
 
-In Codex, install Video Forge from that source in the Plugins Directory after registration. Invoke `/video-forge:video-forge` in Claude, or use the standalone `$video-forge` skill in a compatible agent. Prepare the runtime with `npm ci && npm run setup:binaries && npm run build` in the installed toolkit directory. [Full setup](docs/installation.md).
+Start a new turn/session, select Video Forge or use `$video-forge`. Run `$video-forge-setup` to prepare the local runtime. Adding a marketplace alone does not install the plugin.
 
-[![Video Forge reel demo](demos/reel-showcase/thumbnail.png)](https://github.com/Sanidhya14321/video-forge/releases/download/v0.2.0/video-forge-reel-0.2.0.mp4)
-
-[Watch the minimal reel demo](https://github.com/Sanidhya14321/video-forge/releases/download/v0.2.0/video-forge-reel-0.2.0.mp4)
-
-## Same toolkit, contrasting styles
-
-[![Creative Arcade — color-pop reel](demos/pop-showcase/thumbnail.png)](https://github.com/Sanidhya14321/video-forge/releases/download/v0.3.0/video-forge-color-pop-0.3.0.mp4)
-
-[Watch color-pop](https://github.com/Sanidhya14321/video-forge/releases/download/v0.3.0/video-forge-color-pop-0.3.0.mp4) · [Watch side by side](https://github.com/Sanidhya14321/video-forge/releases/download/v0.3.0/video-forge-style-comparison-0.3.0.mp4)
-
-Creative Arcade is a new 30-second, 22-shot film with original flat vector characters, chunky comic typography, clapperboard assembly, gear locks, skateboarding, scissors, pumping boomboxes, particles, scene-aligned sound effects, stereo music and measured captions. No gradients or paid generation are used. The 12 native presets now each support a separate `pop` choreography alongside the original `minimal` style. This is a creative range demonstration; script, music and shot timing differ, so it is not a controlled performance experiment.
+### Claude Code
 
 ```bash
-node dist/cli.js review examples/pop-showcase.json
-node dist/cli.js preview examples/pop-showcase.json --out /tmp/video-forge-pop-preview
-node dist/cli.js run examples/pop-showcase.json --out /tmp/video-forge-pop
+claude plugin marketplace add Sanidhya14321/video-forge
+claude plugin install video-forge@video-forge
 ```
 
-The examples include prepared speech/music assets; optional Python models are needed only to regenerate them. [Production and skill-use record](demos/pop-showcase/PRODUCTION.md).
+Use `/video-forge:video-forge` and `/video-forge:video-forge-setup`. For local development: `claude --plugin-dir /absolute/video-forge`.
 
-## Fast reel preview
+### Try a brief
+
+> Use Video Forge to make a 30-second launch reel about my project. Explain the problem, show its actual features, and finish with one clear action. Bold flat colors, no gradients, playful character motion, original sound effects and timed captions. Preserve editable sources.
+
+The skill chooses a visual language and uses relevant modules. It does not load the complete 100-source catalog for every request. Without an executable environment it delivers the production plan and job; it never labels an unrendered plan as an MP4.
+
+## Local quick start
+
+Node 22+ (Node 24 tested), npm, and first-use network access for pinned dependencies/browser. In the installed or extracted toolkit directory:
 
 ```bash
 npm ci
 npm run setup:binaries
 npm run build
-node dist/cli.js review examples/reel-showcase.json
-node dist/cli.js preview examples/reel-showcase.json --out /tmp/video-forge-reel-preview
-node dist/cli.js run examples/reel-showcase.json --out /tmp/video-forge-reel
-```
-
-The showcase is a complete 30-second, 20-shot, 1080×1920 monochrome production with an original 160 BPM score, local AI narration and measured captions. Twelve frame-driven treatments include fragments, orbits, signals, ribbons, crop transforms, timeline cuts, waveform motion, code, data, kinetic words and radial forms. Preview creates entry/peak/exit stills before a full render. The included audio means the showcase does not require installing speech models to render.
-
-The directing skill selects a visual language and maps ideas to physical transformations instead of treating every video as a deck of UI cards. It preserves explicit user choices such as minimal colors and no gradients. [Creative direction](skills/video-forge/references/reels.md) and [evaluation limits](docs/reel-evaluation.md) explain what is improved and what remains unmeasured.
-
-Download versioned Claude, Codex, standalone and source archives from [GitHub Releases](https://github.com/Sanidhya14321/video-forge/releases). [Installation](docs/installation.md) covers both agent hosts. This GitHub distribution is not a public plugin-directory submission.
-
-## Quick start
-
-```bash
-npm ci
-npm run build
 node dist/cli.js doctor
-node dist/cli.js run examples/product-demo.json
-node dist/cli.js inspect /absolute/path/to/output/landscape.mp4
+node dist/cli.js review examples/pop-showcase.json
+node dist/cli.js preview examples/pop-showcase.json --out /absolute/new/preview
+node dist/cli.js run examples/pop-showcase.json --out /absolute/new/film
 ```
 
-For local narration and transcription:
+The examples include prepared narration/music, so optional Python speech models are unnecessary for these renders. User media paths resolve from the project JSON; output folders must be new. [Runtime/Python details](docs/installation.md#prepare-the-local-runtime).
 
-```bash
-uv sync --project python --python 3.11 --locked
-node dist/cli.js run examples/algorithm-explainer.json
-```
+## Capabilities
 
-See [installation](docs/installation.md), [the project format](docs/project-format.md), and [validation results](docs/validation.md). The demonstration footage is synthetic: it is the algorithm example reused as a source recording, with measured local speech timestamps and explicit cuts.
+- **Three complete production workflows:** screenshot product demos, supplied-state algorithm explainers and captioned footage repurposing; plus native short-form reels.
+- **Twelve motion families, two treatments:** abstract minimal or colorful comic/character choreography; kinetic type, fragments, connections, reframing, cuts, code, data and more. Flat surfaces by default.
+- **Editing/audio/captions:** explicit segment edits, optional threshold silence removal, local voice/transcription, music mixing, measured word highlighting and SRT. Silence detection does not perform semantic footage selection by itself.
+- **Editable delivery:** project and renderer snapshots, staged assets/credits, transcripts, captions, thumbnails, MP4 presets and full-stream decoding checks.
+- **Optional providers:** local Kokoro/faster-whisper and budget-gated OpenAI speech/fal adapters. Cloud transport tests are mocked; live paid services remain separately verified.
+- **CLI:** `doctor`, `review`, `preview`, `run`, `inspect`. [Project format](docs/project-format.md) · [Creative direction](skills/video-forge/references/reels.md).
 
-## What's included
+The [100-entry register](sources/INDEX.md) preserves coverage, revisions, attribution and unresolved names. It is **not 100 installed engines**. HyperFrames, Manim, avatar/pro-editor and publishing integrations remain reference guidance. [Audit](sources/AUDIT.md) · [Validation](docs/validation.md).
 
-- A compact [directing skill](skills/video-forge/SKILL.md) and seven focused production skills.
-- A TypeScript CLI: `doctor`, `run`, `inspect`, `review`, and `preview`; schema validation and dry runs.
-- Twelve original abstract/typographic reel treatments plus React scenes for titles, screenshots, video inserts, code, nonnegative bar charts, and supplied algorithm array states.
-- Ordered footage cuts, optional threshold-based silence removal, source-to-output word-time remapping, word-highlight captions, and SRT.
-- Optional local Kokoro voice and faster-whisper transcription in a locked CPU environment.
-- Optional OpenAI speech and fal queue adapters, tested with mocks. Live cloud execution is not verified in this delivery.
-- Four aspect-ratio presets, thumbnails, editable production material, asset provenance, and full-stream technical validation.
-- A [100-entry source register](sources/INDEX.md) with revisions, evidence hashes, disposition, mapping, and explicit unresolved entries.
+## Release packages
 
-## Coverage is explicit
+| Asset | Purpose |
+|---|---|
+| `codex` / `claude` | Native plugin manifests, nine shared skills, runtime and prepared example inputs |
+| `claude-skill` | A self-contained root skill for Claude upload |
+| `standalone` | Portable root skill for other compatible agents |
+| `chatgpt` | Small planning/reference/handoff companion; no renderer |
+| `source` | Full repository source and saved demo outputs |
+| Demo MP4s / comparison ZIP | Watch or compare the finished films independently |
 
-The register distinguishes implemented/tested scoped behavior, reference guidance, and unverified/unavailable names. Source inspection can be exact-skill, package-skills, or README-only; these are not interchangeable. No unresolved entry is silently omitted. Read [the audit report](sources/AUDIT.md) for counts and methodology.
+Install archives omit generated demo folders and installed dependencies. The source archive preserves them as saved artifacts (excluding generated browser bundles/dependency caches). Every release includes SHA-256 checksums and a machine-readable asset manifest. [Release procedure](docs/releasing.md) · [Changelog](CHANGELOG.md).
 
-HyperFrames, Manim, avatars, professional editor integrations, advanced image transforms, and social publishing have reference workflows. They are not native execution backends in this release. Remotion is an independent dependency with its own [license](https://www.remotion.dev/docs/license); the MIT license on this repository does not change it.
+## Contribute and trust
 
-## Development and packaging
+Run `npm ci`, `npm run setup:binaries`, `npm run check` and `npm run build`. CI validates Linux/macOS, both motion vocabularies, packaged resources and host adapters. [Development](docs/development.md) · [Contributing](CONTRIBUTING.md) · [Report a vulnerability](SECURITY.md).
 
-```bash
-npm run check
-npm run examples
-npm run package
-```
-
-The examples command creates `demos/` and requires the local Python models. Move or remove an earlier generated `demos/` before rerunning; output directories are never overwritten. Releases contain the runtime source, compiled CLI, lockfiles, instructions, references, and examples, excluding installed dependencies and model caches. `npm run package` writes Claude, Codex, standalone, and source archives beside this directory.
-
-The renderer source is in `renderer/Root.tsx`, `renderer/Reel.tsx` and `renderer/PopReel.tsx`. Edit a project copy for custom components. A completed run retains `composition.tsx`, render props, schema types, and a browser composition bundle as an editable/re-renderable snapshot. Detailed instructions are in [the development guide](docs/development.md).
-
-The included production tools do not install themselves into personal agent settings or publish social posts. Repository releases distribute the toolkit; publishing a video remains a separate action.
+Code is MIT; Remotion, model weights and assets retain their own terms. [Notices and asset attribution](NOTICE.md). Local production needs no account, credentials, hooks or hosted service. Paid providers are opt-in; publishing is a separately authorized action. GitHub distribution does not imply submission to a public plugin directory.

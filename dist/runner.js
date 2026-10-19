@@ -127,6 +127,7 @@ export async function snapshotRenderer(out) {
     }
     await copyFile(path.join(root, "src/schema.ts"), path.join(out, "schema.ts"));
     await copyFile(path.join(root, "src/reel-layout.ts"), path.join(out, "reel-layout.ts"));
+    await copyFile(path.join(root, "src/footage-layout.ts"), path.join(out, "footage-layout.ts"));
 }
 /** Render storyboard stills without executing narration, edits or cloud jobs. */
 export async function previewProject(file, output) {
@@ -333,6 +334,8 @@ export async function runProject(file, output) {
         ? Math.round((await probe(path.join(assetsDir, footage))).duration * project.fps)
         : project.scenes.reduce((n, s) => n + Math.round(s.duration * project.fps), 0);
     const duration = durationFrames / project.fps;
+    if (project.footage?.punchIns.some(p => p.end > duration + .03))
+        throw new Error("Punch-in timing exceeds the edited output duration");
     if (narration &&
         (await probe(path.join(assetsDir, narration))).duration > duration + 0.08)
         throw new Error("Narration exceeds the planned video duration. Extend scenes or shorten the script.");

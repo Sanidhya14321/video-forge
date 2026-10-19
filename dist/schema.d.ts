@@ -190,6 +190,15 @@ export declare const projectSchema: z.ZodObject<{
             contain: "contain";
             cover: "cover";
         }>>;
+        layout: z.ZodDefault<z.ZodEnum<{
+            framed: "framed";
+            "full-frame": "full-frame";
+        }>>;
+        punchIns: z.ZodDefault<z.ZodArray<z.ZodObject<{
+            start: z.ZodNumber;
+            end: z.ZodNumber;
+            scale: z.ZodNumber;
+        }, z.core.$strict>>>;
     }, z.core.$strict>>;
     narration: z.ZodDefault<z.ZodObject<{
         provider: z.ZodDefault<z.ZodEnum<{

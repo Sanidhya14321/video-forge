@@ -1,8 +1,15 @@
 name: check
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:
+permissions:
+  contents: read
 jobs:
   validate:
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
@@ -27,3 +34,5 @@ jobs:
         run: node dist/cli.js run examples/pop-smoke.json --out /tmp/video-forge-pop-smoke
       - run: python3 scripts/package.py --out release-assets
       - run: python3 scripts/validate-archives.py release-assets
+      - run: python3 scripts/prepare-release.py --out release-assets
+      - run: python3 scripts/verify-release.py release-assets

@@ -139,3 +139,10 @@ node dist/cli.js run examples/reel-showcase.json --out /new/render-folder
 ```
 
 The pop waveform/boombox is illustrative, not an audio analysis. Score and sound effects in the showcase are synthesized locally and are not automatic effects added by the scene renderer. For fractional beat durations, round cumulative beat boundaries to frames and subtract adjacent boundaries before converting to seconds. `examples/pop-showcase.json` demonstrates this at 160 BPM with 22 scenes and exactly 900 frames.
+
+
+### Full-frame footage and editorial punch-ins (v0.4.0)
+
+`footage.layout` is `framed` by default, preserving the prior padded recording layout. `full-frame` fills the export canvas; use `crop: cover` for a vertical talking-head reel and review the crop. Optional `punchIns` contains `{start,end,scale}` windows on the **final edited timeline**, with scale 1–1.35 and 0.18-second eased edges (short windows use shorter ramps). The transform centers at 50% across / 30% down to favor a portrait speaker. It does not track a face. Overlapping windows use the largest active scale; windows must fit the output duration. The source recording is preserved.
+
+Multiple input recordings can be normalized/concatenated in the approved source order with FFmpeg before the footage job; preserve original filenames and the input-to-output cut map. The native runner's `footage.src` still refers to one prepared source. Do not imply that the CLI selects source order or transcribes brand spellings perfectly.

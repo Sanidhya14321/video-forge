@@ -1,0 +1,10 @@
+name: Feature request
+description: Suggest a concrete production or integration improvement
+body:
+  - type: textarea
+    id: workflow
+    attributes:
+      label: What should the creator be able to do?
+      description: Include an example request, expected artifact and current limitation.
+    validations:
+      required: true

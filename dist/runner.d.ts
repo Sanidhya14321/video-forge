@@ -78,6 +78,12 @@ export declare function loadProject(file: string): Promise<{
         silenceDb: number;
         silenceSeconds: number;
         crop: "contain" | "cover";
+        layout: "framed" | "full-frame";
+        punchIns: {
+            start: number;
+            end: number;
+            scale: number;
+        }[];
         segments?: {
             start: number;
             end: number;

@@ -3,10 +3,18 @@ on:
   push:
     tags: ['v*']
 permissions:
-  contents: write
+  contents: read
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
+  validate:
+    uses: ./.github/workflows/check.yml
   release:
+    needs: validate
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -20,25 +28,18 @@ jobs:
         run: test "$GITHUB_REF_NAME" = "v$(node -p "require('./package.json').version")"
       - run: npm ci
       - run: npm run setup:binaries
-      - run: npm run check
       - run: npm run build
-      - name: Render all native reel treatments
-        run: node dist/cli.js run examples/reel-smoke.json --out "$RUNNER_TEMP/reel-smoke"
-      - name: Render all pop treatments
-        run: node dist/cli.js run examples/pop-smoke.json --out "$RUNNER_TEMP/pop-smoke"
       - run: python3 scripts/package.py --out release-assets
       - run: python3 scripts/validate-archives.py release-assets
-      - name: Prepare demonstration assets
-        run: |
-          VF_VERSION="$(node -p "require('./package.json').version")"
-          cp demos/reel-showcase/vertical.mp4 "release-assets/video-forge-reel-${VF_VERSION}.mp4"
-          cp demos/reel-showcase/thumbnail.png "release-assets/video-forge-reel-${VF_VERSION}.png"
-          cp demos/pop-showcase/vertical.mp4 "release-assets/video-forge-color-pop-${VF_VERSION}.mp4"
-          cp demos/pop-showcase/thumbnail.png "release-assets/video-forge-color-pop-${VF_VERSION}.png"
-          cp demos/style-comparison/comparison.mp4 "release-assets/video-forge-style-comparison-${VF_VERSION}.mp4"
-          python3 scripts/package-comparison.py --out release-assets
-          sha256sum release-assets/*.zip release-assets/*.mp4 release-assets/*.png > release-assets/SHA256SUMS.txt
-      - name: Publish GitHub release
+      - run: python3 scripts/prepare-release.py --out release-assets
+      - run: python3 scripts/verify-release.py release-assets
+      - name: Upload draft then publish complete release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" release-assets/* --verify-tag --title "Video Forge $GITHUB_REF_NAME" --notes-file "docs/releases/$GITHUB_REF_NAME.md"
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            echo "Release already exists; inspect it instead of overwriting published assets."
+            exit 1
+          fi
+          gh release create "$GITHUB_REF_NAME" release-assets/* --draft --verify-tag --title "Video Forge $GITHUB_REF_NAME" --notes-file "docs/releases/$GITHUB_REF_NAME.md"
+          gh release edit "$GITHUB_REF_NAME" --draft=false --latest

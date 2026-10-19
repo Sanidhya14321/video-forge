@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "strict": true,
+  "target": "<plugin-root>/.claude-plugin/plugin.json",
+  "manifest": {
+    "file": "<plugin-root>/.claude-plugin/plugin.json",
+    "type": "plugin",
+    "errors": [],
+    "warnings": [],
+    "notes": [],
+    "gatingHooks": []
+  },
+  "contents": [],
+  "advice": []
+}

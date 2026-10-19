@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Forge Setup"
+  short_description: "Prepare and verify the local video runtime"
+  default_prompt: "Use $video-forge-setup to check my Video Forge installation and render a local smoke example."

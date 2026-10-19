@@ -1,0 +1,24 @@
+name: Bug report
+description: Report a reproducible runtime, packaging or host integration failure
+title: "[Bug] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: input
+    id: host
+    attributes:
+      label: Host, OS and Video Forge version
+      placeholder: Codex / Claude Code / Claude / ChatGPT; OS; vX.Y.Z
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include a small job and sanitized doctor output. Remove secrets and private media.
+    validations:
+      required: true

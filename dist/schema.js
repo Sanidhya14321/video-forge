@@ -143,6 +143,12 @@ export const projectSchema = z
         silenceDb: z.number().min(-80).max(-10).default(-35),
         silenceSeconds: z.number().min(0.2).max(10).default(0.6),
         crop: z.enum(["contain", "cover"]).default("contain"),
+        layout: z.enum(["framed", "full-frame"]).default("framed"),
+        punchIns: z.array(z.object({
+            start: z.number().nonnegative(),
+            end: z.number().positive(),
+            scale: z.number().min(1).max(1.35),
+        }).strict().refine(p => p.end > p.start, "Punch-in end must follow start")).max(32).default([]),
     })
         .strict()
         .optional(),

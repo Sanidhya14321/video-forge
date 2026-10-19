@@ -17,6 +17,7 @@ import type { RenderProps, Scene, Word } from "../src/schema";
 import {ReelScene} from "./Reel";
 import {PopReelScene} from "./PopReel";
 import {reelLayout,captionGroup} from "../src/reel-layout";
+import {footageScaleAt} from "../src/footage-layout";
 const sample: any = {
   project: {
     fps: 30,
@@ -305,7 +306,8 @@ export const Film: React.FC<RenderProps> = ({
       {footage ? (
         <AbsoluteFill
           style={{
-            padding: `${height * 0.07}px ${width * 0.03}px ${height * 0.22}px`,
+            padding: project.footage?.layout === "full-frame" ? 0 : `${height * 0.07}px ${width * 0.03}px ${height * 0.22}px`,
+            overflow: "hidden",
           }}
         >
           <OffthreadVideo
@@ -315,6 +317,8 @@ export const Film: React.FC<RenderProps> = ({
               width: "100%",
               height: "100%",
               objectFit: project.footage?.crop ?? "contain",
+              transform: `scale(${footageScaleAt(f/fps,project.footage?.punchIns??[])})`,
+              transformOrigin: "50% 30%",
             }}
           />
         </AbsoluteFill>

@@ -11,7 +11,7 @@ Set `workflow` to `footage-repurpose` and specify `footage.src`. `segments` cont
 If a word crosses a chosen boundary, remapping clips its timing but cannot restore the missing sound. Choose boundaries from verified word or phrase edges. Read the edited clip at normal speed; a technically valid concat can still sound abrupt.
 
 ## Framing
-`contain` preserves the source frame within the reserved content area. `cover` fills that area by center cropping. Neither detects faces. On-screen terminals, subtitles already present in the source, and a corner webcam need visual review. Prefer a custom composition for picture-in-picture or subject-tracked reframing.
+`contain` preserves the source frame within the reserved content area. `cover` fills that area by center cropping. Neither detects faces. For full-canvas social footage, set `footage.layout: full-frame`; optional `punchIns` are deliberate eased zoom windows on final output time, not automated face tracking. When combining multiple recordings, concatenate in the user-approved order first and preserve an input/cut map alongside the native job. On-screen terminals, subtitles already present in the source, and a corner webcam need visual review. Prefer a custom composition for picture-in-picture or subject-tracked reframing.
 
 ## Advanced integrations (guidance only)
 FireRed-style intent editing contributes editorial planning; BaoCut contributes an editable timeline and translation/dubbing sequence; OpenChatCut and Premiere tools expose application-owned timeline mechanics. Keep those state formats native. Do not claim Video Forge opens their timelines or implements their entire feature sets.

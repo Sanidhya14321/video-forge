@@ -1,3 +1,17 @@
+# Validation — v0.4.0
+
+Nine shared skills now include setup/onboarding. Runtime TypeScript/actual TSX checks and all 30 tests pass. Six package variants pass CRC, path, dependency-exclusion and resource-resolution checks; the ChatGPT companion also validates its generated links and embedded native job schema.
+
+The Codex runtime archive is about 10.4 MB versus 54.3 MB in v0.3.0, an 80.9% reduction; the source archive retains the demos. The ChatGPT instruction/reference companion is about 36 KB and contains no renderer. [Host evidence and scope](host-validation-v04.json).
+
+Claude Code's strict manifest validation and nine-skill inventory pass. Codex discovers the 0.4.0 portable package and its setup metadata. Live Claude custom upload, separate ChatGPT account invocation and paid provider execution are not claimed as verified. [Compatibility](compatibility.md) distinguishes these paths.
+
+Release verification covers all file hashes and sizes in the asset manifest and rejects altered, missing or unlisted assets. GitHub publication is gated on the Linux/macOS validation workflow. Actual machine-specific install evidence is kept outside the public package.
+
+---
+
+## Archived v0.3.0 baseline
+
 # Validation — v0.3.0
 
 The color-pop release adds a separate native illustration and animation treatment to all twelve reel presets. Existing projects default to the minimal style.

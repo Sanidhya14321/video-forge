@@ -1,81 +1,70 @@
-# Installation
+# Install Video Forge
 
-Video Forge is a local desktop/CLI plugin. A skills-only host without shell, Node, filesystem, or browser-rendering access can use its guidance but cannot run its tools. No MCP server or lifecycle hook is required.
+Choose the host first. The full toolkit renders locally with Node, Remotion, FFmpeg and a browser. The ChatGPT companion supports planning and local handoff when those tools are unavailable. [Compatibility and verification scope](compatibility.md).
 
-## Runtime
+## Codex CLI and desktop
 
-Use Node.js 22 or newer (tested here with Node 24). In the extracted toolkit directory:
-
-```bash
-npm ci
-npm run build
-node dist/cli.js doctor
-node dist/cli.js run examples/product-demo.json
-```
-
-The lockfile pins compatible Remotion packages. FFmpeg and ffprobe are provided through npm dependencies on supported platforms. If npm reports blocked install scripts, review and allow the `ffmpeg-static` and `esbuild` scripts according to your npm version, then reinstall. The included `npm run setup:binaries` executes these known dependency installers explicitly. Alternatively install system FFmpeg and set absolute `FFMPEG_PATH` and `FFPROBE_PATH` values. On unsupported CPU/platform combinations use system binaries.
-
-Remotion downloads Chrome Headless Shell on the first render. Local rendering may need OS browser libraries; use Remotion's documented Linux dependency setup if startup reports a missing shared library. These first-use downloads are not bundled in release archives.
-
-The environment used for this delivery is Linux x64. CI defines Linux/macOS checks, but a successful macOS run has not been observed here. Windows is not yet tested.
-
-## Optional local speech and transcription
-
-Install uv, then from the toolkit directory:
+Register the repository marketplace, then install the plugin. **Adding the marketplace alone does not install it.** Current Codex CLI:
 
 ```bash
-uv sync --project python --python 3.11 --locked
-node dist/cli.js doctor
-node dist/cli.js run examples/algorithm-explainer.json
+codex plugin marketplace add Sanidhya14321/video-forge --ref v0.4.0
+codex plugin add video-forge@video-forge-local
+codex plugin list --marketplace video-forge-local --json
 ```
 
-Python is isolated at `python/.venv`; CPU PyTorch and the English spaCy model are included in the lock. Model weights download on first use. The Python 3.11 environment is deliberate: the host's system Python may be newer than supported ML wheels. Set `VIDEO_FORGE_PYTHON` to another compatible environment's absolute Python executable only when managing dependencies yourself.
+In a desktop client, the Plugins Directory can install the same entry from the registered Video Forge source. Refresh/reopen the client if it does not yet list the newly registered source. Start a fresh turn/session after installation. Select Video Forge or invoke `$video-forge`. Run `$video-forge-setup` to prepare and verify the rendering runtime.
+
+For a local checkout or extracted Codex archive, use `codex plugin marketplace add /absolute/video-forge` followed by the same `plugin add` selector. The marketplace name is **video-forge-local**; it differs from the Claude marketplace name below. Root `plugin.json` is canonical; `.codex-plugin/plugin.json` is a compatibility fallback.
 
 ## Claude Code
-
-For local testing, launch Claude Code with the extracted plugin directory:
-
-```bash
-claude --plugin-dir /absolute/path/to/video-forge
-```
-
-Use `/video-forge:video-forge` for the directing skill or ask a matching natural-language request. Focused commands include `/video-forge:video-motion`, `/video-forge:video-editing`, and the other packaged skill names. Validate the package with `claude plugin validate /absolute/path/to/video-forge`.
-
-For marketplace distribution, the archive includes `.claude-plugin/plugin.json` and the same `skills/` content. The repository also includes a marketplace catalog for GitHub distribution.
-
-## Codex
-
-The package includes portable `plugin.json` and a compatibility `.codex-plugin/plugin.json`, both pointing to the shared skills. Add the extracted package to a local plugin marketplace using the current Codex plugin flow. A repository-scoped example is included at `.agents/plugins/marketplace.json`. Register this root with `codex plugin marketplace add /absolute/path/to/video-forge` when you choose to install it, then use the plugin directory in your client. Merely running the CLI in this folder may not list an unregistered marketplace. Follow the official packaging guide if your installed client uses a different marketplace interface.
-
-For a simple standalone install, extract the standalone archive as `~/.agents/skills/video-forge/` (or the skill directory documented by your agent). It contains a root `SKILL.md`, all workflow references, and the runtime package. Run `npm ci && npm run build` inside that folder. Invoke `$video-forge` in Codex. The installer does not alter user-level configuration automatically.
-
-## Other agents
-
-Use the standalone skill archive in an Agent Skills-compatible directory. Keep the whole folder: its instructions refer to bundled runtime and sibling workflow resources. Only the metadata/frontmatter and workflow instructions are portable; shell permissions, dependency installation, and plugin discovery remain host responsibilities.
-
-## Updates and credentials
-
-Do not auto-update upstream packages during a production run. Change pinned versions deliberately, rerun checks and examples, and rebuild release archives. Store optional API credentials in environment variables; no example or source catalog contains secrets. Default examples use local processing only.
-
-## GitHub distribution (v0.2.0)
-
-Versioned host/source archives, demo media and checksums are published at [Video Forge releases](https://github.com/Sanidhya14321/video-forge/releases). Extract an archive and run `npm ci`, `npm run setup:binaries`, and `npm run build` in its toolkit directory before rendering. The portable skill folder includes the runtime and examples; a lone SKILL.md without its references/runtime is insufficient.
-
-For Claude Code, add this repository's marketplace and install its entry:
 
 ```bash
 claude plugin marketplace add Sanidhya14321/video-forge
 claude plugin install video-forge@video-forge
 ```
 
-Then invoke `/video-forge:video-forge` and describe the film. For a local development checkout, `claude --plugin-dir /absolute/path/to/video-forge` still works. The marketplace catalog and the plugin manifest both point at the shared root skills; [Claude's marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces) explains these commands.
+Invoke `/video-forge:video-forge` for directing and `/video-forge:video-forge-setup` for setup. Other focused skills use the same namespace. For a local test, use `claude --plugin-dir /absolute/video-forge` and `claude plugin validate /absolute/video-forge/.claude-plugin/plugin.json`. Exact versioned archives are available when reproducible production needs a fixed release.
 
-For Codex, register this Git source:
+## Claude chat / Cowork
+
+Download **video-forge-claude-skill-VERSION.zip** from the release. Upload it as a custom skill using the host's Customize > Skills flow, with code execution/file creation enabled. The ZIP contains one `video-forge/` folder with root `SKILL.md` and all referenced resources. The Claude **plugin** archive is a separate package for a plugin upload or Claude Code.
+
+Ask “Use Video Forge to create a 30-second reel…” and provide the actual project facts and assets. The skill checks the current environment before rendering. If the sandbox lacks Node, binaries, a browser or network permissions, it can finish the plan and project JSON, then hand it to a local host. Uploading the skill alone does not establish that the renderer works there. [Claude's upload instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+
+## ChatGPT
+
+For **Work with local execution**, use the Codex/OpenAI package and the setup skill in a local-capable session. Local marketplaces and discovery vary by client; see [OpenAI's local plugin instructions](https://developers.openai.com/plugins/build/plugins).
+
+For **chat without the local runtime**, download **video-forge-chatgpt-VERSION.zip**. Extract it and attach `instructions.md` plus the relevant module files, or use them in the instruction/reference-file facilities available in your saved assistant/project surface. `START-HERE.md` explains the workflow. This companion generates briefs, storyboards and version-1 project JSON; it does not install a plugin, run Node or provide a hosted rendering endpoint.
+
+## Prepare the local runtime
+
+In the actual installed/extracted toolkit directory (not an unrelated working directory):
 
 ```bash
-codex plugin marketplace add Sanidhya14321/video-forge
+npm ci
+npm run setup:binaries
+npm run build
+node dist/cli.js doctor
 ```
 
-Then install Video Forge from that source in the client's Plugins Directory. Adding a source alone does not install a plugin. Alternatively extract the standalone archive into `~/.agents/skills/video-forge/`, prepare its Node runtime as above, and invoke `$video-forge`. See [official OpenAI packaging guidance](https://developers.openai.com/plugins/build/plugins) for marketplace setup. This repository is a GitHub distribution, not a submission to either public universal directory.
+Use Node 22+; Node 24 is tested. FFmpeg/ffprobe come from pinned npm dependencies. `setup:binaries` explicitly runs the known FFmpeg/esbuild installers if install scripts were blocked. Alternatively use absolute `FFMPEG_PATH` / `FFPROBE_PATH` overrides for system binaries. Chrome Headless Shell downloads on the first render and may need browser OS libraries. Follow an actual missing-library diagnostic rather than assuming every machine needs the same setup.
 
-The showcase includes ready-made voice/music and captions, so it renders without optional Python models. Regenerating speech/transcription still needs the locked Python setup. No personal host settings are changed by building or packaging this repository.
+The CLI has no separate global npm installation requirement. Use `node /absolute/toolkit/dist/cli.js …`; this toolkit is not published as an npm package. Keep user jobs/assets and output folders outside the installation. Output directories must be new.
+
+Verify setup without speech models or paid services:
+
+```bash
+node /absolute/toolkit/dist/cli.js run /absolute/toolkit/examples/reel-smoke.json --out /absolute/workspace/new-smoke
+node /absolute/toolkit/dist/cli.js inspect /absolute/workspace/new-smoke/vertical.mp4
+```
+
+Prepared showcase audio is bundled in the runtime examples. To generate local speech/transcription, optionally install `uv`, then run `uv sync --project python --python 3.11 --locked` in the toolkit root. Model weights download on first use. Override `VIDEO_FORGE_PYTHON` only when managing a compatible Python environment. Linux and macOS CI checks pass; Windows remains unverified.
+
+## Updates and removal
+
+Use the host's marketplace update flow, then verify the installed version with `plugin list`/component inventory and run doctor. For a pinned Codex marketplace, deliberately select the next reviewed tag with `codex plugin marketplace add Sanidhya14321/video-forge --ref vX.Y.Z`, refresh that marketplace with `codex plugin marketplace upgrade video-forge-local`, then reinstall/refresh the plugin if needed. Existing jobs and output folders are independent of the plugin cache. Follow the installed CLI help if flags change.
+
+Codex removal: `codex plugin remove video-forge@video-forge-local`; remove the marketplace separately only if you no longer want its catalog. Claude Code: `claude plugin uninstall video-forge@video-forge`. Do not remove unrelated sources or user output folders.
+
+Never update dependencies automatically in the middle of a production. Optional cloud keys belong in environment variables, never project/release files. Paid providers require explicit selection and a positive spending reservation. No hooks, MCP server or remote account is needed for local video rendering. [Security and privacy](../SECURITY.md).

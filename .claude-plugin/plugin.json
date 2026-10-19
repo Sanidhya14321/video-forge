@@ -1,9 +1,18 @@
 {
   "name": "video-forge",
-  "version": "0.3.0",
-  "description": "Editable video production and fast abstract motion reels with local tools",
+  "version": "0.4.0",
+  "description": "Editable video production: reels, demos, explainers and captioned edits with local Remotion/FFmpeg tools",
   "author": {
     "name": "Video Forge contributors"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/Sanidhya14321/video-forge",
+  "repository": "https://github.com/Sanidhya14321/video-forge",
+  "keywords": [
+    "video",
+    "remotion",
+    "ffmpeg",
+    "motion-design",
+    "agent-skills"
+  ]
 }

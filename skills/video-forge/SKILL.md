@@ -1,11 +1,13 @@
 ---
 name: video-forge
-description: "Direct editable video production: fast social reels, abstract motion, product demos, technical explainers, and captioned edits. Select a visual language, then coordinate focused video skills and local rendering tools."
+description: "Direct editable videos, fast reels, demos, technical explainers and captioned edits; select a visual language and coordinate focused production skills with local rendering."
 ---
 
 # Video Forge
 
 Turn a brief or recording into a checked, editable film. Resolve creative direction before choosing templates. A sequence of headings and UI cards is one treatment, not a universal video style.
+
+For setup or a host change, read [host adaptation](references/hosts.md). Render only with a working local runtime; otherwise deliver the explicit project and a local handoff.
 
 ## Route
 
