@@ -63,7 +63,7 @@ Prepared showcase audio is bundled in the runtime examples. To generate local sp
 
 ## Updates and removal
 
-Use the host's marketplace update flow, then verify the installed version with `plugin list`/component inventory and run doctor. For a pinned Codex marketplace, deliberately select the next reviewed tag with `codex plugin marketplace add Sanidhya14321/video-forge --ref vX.Y.Z`, refresh that marketplace with `codex plugin marketplace upgrade video-forge-local`, then reinstall/refresh the plugin if needed. Existing jobs and output folders are independent of the plugin cache. Follow the installed CLI help if flags change.
+Use the host's marketplace update flow, then verify the installed version with `plugin list`/component inventory and run doctor. For a pinned Codex marketplace, select the next reviewed tag deliberately. Some CLI versions reject re-adding the same marketplace at a different ref as a different source. In that case, remove only the catalog registration with `codex plugin marketplace remove video-forge-local`, then register `codex plugin marketplace add Sanidhya14321/video-forge --ref vX.Y.Z` and run `codex plugin add video-forge@video-forge-local`. Existing project files stay outside the cache. `marketplace upgrade` refreshes the configured ref; it does not change a version pin. Existing jobs and output folders are independent of the plugin cache. Follow the installed CLI help if flags change.
 
 Codex removal: `codex plugin remove video-forge@video-forge-local`; remove the marketplace separately only if you no longer want its catalog. Claude Code: `claude plugin uninstall video-forge@video-forge`. Do not remove unrelated sources or user output folders.
 
