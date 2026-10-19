@@ -52,13 +52,14 @@ export async function preflight(project, base) {
     await Promise.all([ensureBinary("ffmpeg"), ensureBinary("ffprobe")]);
     const refs = [
         ...project.scenes.map((s) => s.src),
+        ...project.overlays.flatMap(o => [o.src, o.logo]),
         project.footage?.src,
         project.narration.provider === "file" ? project.narration.src : undefined,
         project.music?.src,
         project.captions?.transcript,
         ...project.assets.map((a) => a.path),
     ].filter((x) => Boolean(x));
-    for (const ref of refs) {
+    for (const ref of new Set(refs)) {
         if (ref.startsWith("generated:")) {
             if (!project.generation.some((g) => `generated:${g.id}` === ref))
                 throw new Error(`Unknown generated asset: ${ref}`);
@@ -103,6 +104,8 @@ export async function preflight(project, base) {
         : (project.captions?.words ?? []);
     if (!project.footage) {
         const planned = project.scenes.reduce((n, s) => n + Math.round(s.duration * project.fps), 0) / project.fps;
+        if (project.overlays.some(o => o.end > planned + .03))
+            throw new Error("Overlay timing exceeds the planned video duration");
         if (initialWords.some((w) => w.end > planned + 0.03))
             throw new Error("Caption timing exceeds the planned video duration");
         if (project.narration.provider === "file" &&
@@ -121,20 +124,21 @@ export async function preflight(project, base) {
     }
 }
 export async function snapshotRenderer(out) {
-    for (const [source, dest] of [["renderer/Root.tsx", "composition.tsx"], ["renderer/Reel.tsx", "Reel.tsx"], ["renderer/PopReel.tsx", "PopReel.tsx"]]) {
+    for (const [source, dest] of [["renderer/Root.tsx", "composition.tsx"], ["renderer/Reel.tsx", "Reel.tsx"], ["renderer/PopReel.tsx", "PopReel.tsx"], ["renderer/Overlays.tsx", "Overlays.tsx"]]) {
         const text = (await readFile(path.join(root, source), "utf8")).replaceAll("../src/", "./");
         await writeFile(path.join(out, dest), text);
     }
     await copyFile(path.join(root, "src/schema.ts"), path.join(out, "schema.ts"));
     await copyFile(path.join(root, "src/reel-layout.ts"), path.join(out, "reel-layout.ts"));
     await copyFile(path.join(root, "src/footage-layout.ts"), path.join(out, "footage-layout.ts"));
+    await copyFile(path.join(root, "src/overlay-timing.ts"), path.join(out, "overlay-timing.ts"));
 }
 /** Render storyboard stills without executing narration, edits or cloud jobs. */
 export async function previewProject(file, output) {
     const base = path.dirname(path.resolve(file)), project = await loadProject(file);
-    if (project.footage)
-        throw new Error("Storyboard preview supports scene jobs; render footage edits with run");
-    const refs = project.scenes.flatMap(scene => scene.src ? [scene.src] : []);
+    if (project.footage && (project.footage.segments?.length || project.footage.removeSilence))
+        throw new Error("Preview footage must be a prepared source without cuts or silence removal; render the edit first");
+    const refs = [...project.scenes.flatMap(scene => scene.src ? [scene.src] : []), ...project.overlays.flatMap(o => [o.src, o.logo].filter((s) => Boolean(s))), ...(project.footage ? [project.footage.src] : [])];
     if (refs.some(ref => ref.startsWith("generated:") || /^https?:/i.test(ref)))
         throw new Error("Preview requires local media; it never executes cloud generation");
     for (const ref of refs)
@@ -146,15 +150,31 @@ export async function previewProject(file, output) {
     const assetsDir = path.join(out, "assets");
     await mkdir(assetsDir);
     const ready = structuredClone(project);
+    const previewStage = async (ref) => {
+        const bytes = await readFile(path.resolve(base, ref));
+        const name = createHash("sha256").update(bytes).digest("hex").slice(0, 16) + path.extname(ref).toLowerCase();
+        await writeFile(path.join(assetsDir, name), bytes);
+        return name;
+    };
     for (const scene of ready.scenes)
-        if (scene.src) {
-            const bytes = await readFile(path.resolve(base, scene.src));
-            const name = createHash("sha256").update(bytes).digest("hex").slice(0, 16) + path.extname(scene.src).toLowerCase();
-            await writeFile(path.join(assetsDir, name), bytes);
-            scene.src = name;
-        }
+        if (scene.src)
+            scene.src = await previewStage(scene.src);
+    for (const o of ready.overlays) {
+        if (o.src)
+            o.src = await previewStage(o.src);
+        if (o.logo)
+            o.logo = await previewStage(o.logo);
+    }
+    const footage = project.footage ? await previewStage(project.footage.src) : undefined;
     const review = reviewProject(project);
-    const props = { project: ready, words, durationFrames: Math.round((review.durationSeconds ?? 0) * project.fps) };
+    const durationFrames = project.footage ? Math.round((await probe(path.resolve(base, project.footage.src))).duration * project.fps) : Math.round((review.durationSeconds ?? 0) * project.fps);
+    if (project.overlays.some(o => o.end > durationFrames / project.fps + .03))
+        throw new Error("Overlay timing exceeds the preview duration");
+    const props = { project: ready, words, footage, durationFrames };
+    const overlayShots = project.overlays.map((o, i) => ({ index: review.timeline.length + i + 1, previewFrames: [Math.min(durationFrames - 1, Math.round(o.start * project.fps) + 5), Math.min(durationFrames - 1, Math.round((o.start + o.end) / 2 * project.fps)), Math.min(durationFrames - 1, Math.round(o.end * project.fps) - 1)] }));
+    const shots = [...review.timeline, ...overlayShots];
+    if (!shots.length)
+        shots.push({ index: 1, previewFrames: [0, Math.floor(durationFrames / 2), durationFrames - 1] });
     await snapshotRenderer(out);
     await writeFile(path.join(out, "render-props.json"), JSON.stringify(props, null, 2));
     const serveUrl = await bundle({ entryPoint: path.join(root, "renderer/Root.tsx"), publicDir: assetsDir, outDir: path.join(out, "composition-bundle") });
@@ -164,7 +184,7 @@ export async function previewProject(file, output) {
         for (const target of project.exports) {
             const [width, height] = target.width ? [target.width, target.height] : dimensions[target.preset];
             const composition = { ...(await selectComposition({ serveUrl, id: "VideoForge", inputProps: props, puppeteerInstance: browser })), width, height };
-            for (const shot of review.timeline)
+            for (const shot of shots)
                 for (const [i, frame] of shot.previewFrames.entries()) {
                     const name = `${target.preset}-${String(shot.index).padStart(2, "0")}-${["entry", "peak", "exit"][i]}.png`;
                     await renderStill({ serveUrl, composition, inputProps: props, frame, scale: Math.min(1, 540 / width), output: path.join(out, name), puppeteerInstance: browser });
@@ -203,8 +223,12 @@ export async function runProject(file, output) {
             license: "provider output terms; verify for intended use",
         });
     }
+    const stagedRefs = new Map();
     const stage = async (ref, metadata) => {
         const source = generated.get(ref) ?? path.resolve(base, ref);
+        const cached = stagedRefs.get(source);
+        if (cached)
+            return cached;
         await readable(source);
         const bytes = await readFile(source);
         const hash = createHash("sha256").update(bytes).digest("hex");
@@ -220,6 +244,7 @@ export async function runProject(file, output) {
             license: credit?.license ?? "unspecified; user-supplied",
             credit: credit?.credit,
         });
+        stagedRefs.set(source, name);
         return name;
     };
     let narration;
@@ -334,6 +359,8 @@ export async function runProject(file, output) {
         ? Math.round((await probe(path.join(assetsDir, footage))).duration * project.fps)
         : project.scenes.reduce((n, s) => n + Math.round(s.duration * project.fps), 0);
     const duration = durationFrames / project.fps;
+    if (project.overlays.some(o => o.end > duration + .03))
+        throw new Error("Overlay timing exceeds the output duration");
     if (project.footage?.punchIns.some(p => p.end > duration + .03))
         throw new Error("Punch-in timing exceeds the edited output duration");
     if (narration &&
@@ -350,6 +377,12 @@ export async function runProject(file, output) {
     for (const scene of ready.scenes)
         if (scene.src)
             scene.src = await stage(scene.src);
+    for (const o of ready.overlays) {
+        if (o.src)
+            o.src = await stage(o.src);
+        if (o.logo)
+            o.logo = await stage(o.logo);
+    }
     const music = project.music ? await stage(project.music.src) : undefined;
     const props = {
         project: ready,

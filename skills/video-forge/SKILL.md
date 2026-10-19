@@ -14,6 +14,7 @@ For setup or a host change, read [host adaptation](references/hosts.md). Render 
 | Intent | Load |
 |---|---|
 | Reels, fast pace, abstract animation, kinetic type | [Reel direction](references/reels.md), then [Motion](../video-motion/SKILL.md) |
+| Real-brand footage, product website/logo evidence | [Brand-led editing](references/brand-edits.md), then Motion/Editing |
 | Script, factual research, story, reference breakdown | [Planning](../video-planning/SKILL.md) |
 | Product footage, code, charts, algorithm states | [Motion](../video-motion/SKILL.md) |
 | Recording cuts, silence, reframing, B-roll selection | [Editing](../video-editing/SKILL.md) |

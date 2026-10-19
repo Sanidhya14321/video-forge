@@ -6,7 +6,7 @@ export declare function loadProject(file: string): Promise<{
     name: string;
     workflow: "product-demo" | "algorithm-explainer" | "footage-repurpose" | "short-form-reel";
     renderer: "remotion";
-    fps: 24 | 30 | 60;
+    fps: 60 | 30 | 24;
     theme: {
         surface: "flat" | "ambient";
         background: string;
@@ -40,6 +40,31 @@ export declare function loadProject(file: string): Promise<{
             palette?: string[] | undefined;
         } | undefined;
     }[];
+    overlays: {
+        kind: "brand" | "call" | "browser" | "steps" | "cta" | "label";
+        start: number;
+        end: number;
+        title: string;
+        layout: "full" | "lower-third" | "top";
+        offsetY: number;
+        fit: "contain" | "cover";
+        aspectRatio: number;
+        body?: string | undefined;
+        eyebrow?: string | undefined;
+        src?: string | undefined;
+        logo?: string | undefined;
+        labels?: string[] | undefined;
+        focus?: {
+            x: number;
+            y: number;
+            scale: number;
+        } | undefined;
+        cursor?: {
+            x: number;
+            y: number;
+            clickAt?: number | undefined;
+        } | undefined;
+    }[];
     narration: {
         provider: "file" | "none" | "kokoro" | "openai";
         voice: string;
@@ -69,7 +94,7 @@ export declare function loadProject(file: string): Promise<{
     }[];
     reel?: {
         bpm: number;
-        captionStyle: "pop" | "standard";
+        captionStyle: "pop" | "brand" | "standard";
         safeArea: "reels" | "clean";
     } | undefined;
     footage?: {

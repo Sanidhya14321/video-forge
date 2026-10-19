@@ -40,6 +40,45 @@ export declare const motionSchema: z.ZodObject<{
         scale: "scale";
     }>>;
 }, z.core.$strict>;
+export declare const overlaySchema: z.ZodObject<{
+    kind: z.ZodEnum<{
+        brand: "brand";
+        call: "call";
+        browser: "browser";
+        steps: "steps";
+        cta: "cta";
+        label: "label";
+    }>;
+    start: z.ZodNumber;
+    end: z.ZodNumber;
+    title: z.ZodDefault<z.ZodString>;
+    body: z.ZodOptional<z.ZodString>;
+    eyebrow: z.ZodOptional<z.ZodString>;
+    src: z.ZodOptional<z.ZodString>;
+    logo: z.ZodOptional<z.ZodString>;
+    layout: z.ZodDefault<z.ZodEnum<{
+        full: "full";
+        "lower-third": "lower-third";
+        top: "top";
+    }>>;
+    offsetY: z.ZodDefault<z.ZodNumber>;
+    labels: z.ZodOptional<z.ZodArray<z.ZodString>>;
+    fit: z.ZodDefault<z.ZodEnum<{
+        contain: "contain";
+        cover: "cover";
+    }>>;
+    aspectRatio: z.ZodDefault<z.ZodNumber>;
+    focus: z.ZodOptional<z.ZodObject<{
+        x: z.ZodDefault<z.ZodNumber>;
+        y: z.ZodDefault<z.ZodNumber>;
+        scale: z.ZodDefault<z.ZodNumber>;
+    }, z.core.$strict>>;
+    cursor: z.ZodOptional<z.ZodObject<{
+        x: z.ZodNumber;
+        y: z.ZodNumber;
+        clickAt: z.ZodOptional<z.ZodNumber>;
+    }, z.core.$strict>>;
+}, z.core.$strict>;
 export declare const sceneSchema: z.ZodObject<{
     kind: z.ZodEnum<{
         title: "title";
@@ -119,6 +158,7 @@ export declare const projectSchema: z.ZodObject<{
         bpm: z.ZodDefault<z.ZodNumber>;
         captionStyle: z.ZodDefault<z.ZodEnum<{
             pop: "pop";
+            brand: "brand";
             standard: "standard";
         }>>;
         safeArea: z.ZodDefault<z.ZodEnum<{
@@ -175,6 +215,45 @@ export declare const projectSchema: z.ZodObject<{
                 push: "push";
                 scale: "scale";
             }>>;
+        }, z.core.$strict>>;
+    }, z.core.$strict>>>;
+    overlays: z.ZodDefault<z.ZodArray<z.ZodObject<{
+        kind: z.ZodEnum<{
+            brand: "brand";
+            call: "call";
+            browser: "browser";
+            steps: "steps";
+            cta: "cta";
+            label: "label";
+        }>;
+        start: z.ZodNumber;
+        end: z.ZodNumber;
+        title: z.ZodDefault<z.ZodString>;
+        body: z.ZodOptional<z.ZodString>;
+        eyebrow: z.ZodOptional<z.ZodString>;
+        src: z.ZodOptional<z.ZodString>;
+        logo: z.ZodOptional<z.ZodString>;
+        layout: z.ZodDefault<z.ZodEnum<{
+            full: "full";
+            "lower-third": "lower-third";
+            top: "top";
+        }>>;
+        offsetY: z.ZodDefault<z.ZodNumber>;
+        labels: z.ZodOptional<z.ZodArray<z.ZodString>>;
+        fit: z.ZodDefault<z.ZodEnum<{
+            contain: "contain";
+            cover: "cover";
+        }>>;
+        aspectRatio: z.ZodDefault<z.ZodNumber>;
+        focus: z.ZodOptional<z.ZodObject<{
+            x: z.ZodDefault<z.ZodNumber>;
+            y: z.ZodDefault<z.ZodNumber>;
+            scale: z.ZodDefault<z.ZodNumber>;
+        }, z.core.$strict>>;
+        cursor: z.ZodOptional<z.ZodObject<{
+            x: z.ZodNumber;
+            y: z.ZodNumber;
+            clickAt: z.ZodOptional<z.ZodNumber>;
         }, z.core.$strict>>;
     }, z.core.$strict>>>;
     footage: z.ZodOptional<z.ZodObject<{

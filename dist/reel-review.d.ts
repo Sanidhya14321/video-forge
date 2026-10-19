@@ -8,6 +8,15 @@ export declare function reviewProject(project: Project): {
     shots: number;
     averageShotSeconds: number;
     uniqueTreatments: number;
+    overlayCount: number;
+    overlayKinds: ("brand" | "call" | "browser" | "steps" | "cta" | "label")[];
+    overlayTimeline: {
+        kind: "brand" | "call" | "browser" | "steps" | "cta" | "label";
+        start: number;
+        end: number;
+        title: string;
+        src: string | undefined;
+    }[];
     timeline: {
         index: number;
         startFrame: number;

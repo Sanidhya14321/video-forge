@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0 — 2026-10-19
+
+- Add reusable brand, call, browser/screenshot, workflow-step, CTA and label overlays on final output time.
+- Align cursor motion to actual screenshot fit/focus geometry, add branded captions and preserve caption priority.
+- Preview prepared footage and every overlay entry/peak/exit without cloud or speech execution.
+- Add brand/evidence planning guidance and source attribution, stage repeated local assets once, and preserve new renderer dependencies.
+- Add overlay geometry/schema/timing tests and synthetic all-overlay smoke validation.
+
+
 ## 0.4.0 — 2026-10-19
 
 - Add full-frame footage layout and bounded, eased punch-in windows on the edited timeline.

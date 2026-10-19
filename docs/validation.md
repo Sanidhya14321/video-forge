@@ -1,4 +1,16 @@
-# Validation — v0.4.0
+# Validation — v0.5.0
+
+This release adds six native production overlay kinds: brand, call, browser, steps, CTA and label. Existing jobs keep their defaults. Thirty-three tests pass, including real FFmpeg operations, frame-derived overlay timing, fitted screenshot/pointer geometry and strict asset/time contracts. Runtime TypeScript and the actual renderer TSX both type-check. All nine shared skills and 100 source records validate.
+
+A six-second synthetic fixture renders and decodes all six overlay kinds. Prepared-footage previews sample entry, peak and exit for each overlay. Screenshot crops and pointer landings require visual review: structural checks do not establish readability, correct claims, face tracking or live product interaction. A screenshot pointer is an attention cue, not proof of a backend action.
+
+The branded private edit used to exercise this workflow is deliberately excluded from the public repository, examples and archives. Its user footage and third-party brand assets retain separate attribution. The bundled smoke fixture is original illustrative artwork.
+
+The comparison archive now uses fixed ZIP metadata so the complete release asset set is reproducible from the same sources. Release CI validates Linux/macOS, host archive references and decoding of the native overlay fixture on Linux before publication. See Actions for each run's outcome. Claude account uploads, separate ChatGPT account invocation and paid providers remain unverified; local package inventory and mocked cloud checks do not imply those live paths work.
+
+---
+
+# Archived validation — v0.4.0
 
 Nine shared skills now include setup/onboarding. Runtime TypeScript/actual TSX checks and all 30 tests pass. Six package variants pass CRC, path, dependency-exclusion and resource-resolution checks; the ChatGPT companion also validates its generated links and embedded native job schema.
 

@@ -29,7 +29,7 @@ Both are 30 seconds, with original synthesized music, local AI voice and measure
 ### Codex
 
 ```bash
-codex plugin marketplace add Sanidhya14321/video-forge --ref v0.4.0
+codex plugin marketplace add Sanidhya14321/video-forge --ref v0.5.0
 codex plugin add video-forge@video-forge-local
 ```
 
@@ -70,6 +70,7 @@ The examples include prepared narration/music, so optional Python speech models 
 
 - **Three complete production workflows:** screenshot product demos, supplied-state algorithm explainers and captioned footage repurposing; plus native short-form reels.
 - **Twelve motion families, two treatments:** abstract minimal or colorful comic/character choreography; kinetic type, fragments, connections, reframing, cuts, code, data and more. Flat surfaces by default.
+- **Brand-led overlays:** actual website/logo evidence, browser focus, illustrative cursors, call routing, animated steps and CTAs; source attribution and prepared-footage previews.
 - **Editing/audio/captions:** explicit segment edits, optional threshold silence removal, local voice/transcription, music mixing, measured word highlighting and SRT. Silence detection does not perform semantic footage selection by itself.
 - **Editable delivery:** project and renderer snapshots, staged assets/credits, transcripts, captions, thumbnails, MP4 presets and full-stream decoding checks.
 - **Optional providers:** local Kokoro/faster-whisper and budget-gated OpenAI speech/fal adapters. Cloud transport tests are mocked; live paid services remain separately verified.

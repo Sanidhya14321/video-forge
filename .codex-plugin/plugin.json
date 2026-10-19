@@ -1,6 +1,6 @@
 {
   "name": "video-forge",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Editable video production: reels, demos, explainers and captioned edits with local Remotion/FFmpeg tools",
   "author": {
     "name": "Video Forge contributors"

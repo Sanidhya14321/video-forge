@@ -32,6 +32,8 @@ jobs:
         run: node dist/cli.js run examples/reel-smoke.json --out /tmp/video-forge-reel-smoke
       - if: runner.os == 'Linux'
         run: node dist/cli.js run examples/pop-smoke.json --out /tmp/video-forge-pop-smoke
+      - if: runner.os == 'Linux'
+        run: node dist/cli.js run examples/overlay-smoke.json --out /tmp/video-forge-overlay-smoke
       - run: python3 scripts/package.py --out release-assets
       - run: python3 scripts/validate-archives.py release-assets
       - run: python3 scripts/prepare-release.py --out release-assets

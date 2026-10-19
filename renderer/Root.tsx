@@ -17,6 +17,7 @@ import type { RenderProps, Scene, Word } from "../src/schema";
 import {ReelScene} from "./Reel";
 import {PopReelScene} from "./PopReel";
 import {reelLayout,captionGroup} from "../src/reel-layout";
+import {ProductionOverlays} from "./Overlays";
 import {footageScaleAt} from "../src/footage-layout";
 const sample: any = {
   project: {
@@ -226,6 +227,7 @@ function Captions({
         position: "absolute",
         left: "8%",
         right: "8%",
+        zIndex: 30,
         bottom: reel ? height-reelLayout(width,height,reel.safeArea).caption.y-reelLayout(width,height,reel.safeArea).caption.height : height * 0.14,
         ...(reel ? {left:reelLayout(width,height,reel.safeArea).caption.x, right:width-reelLayout(width,height,reel.safeArea).caption.x-reelLayout(width,height,reel.safeArea).caption.width} : {}),
         display: "flex",
@@ -240,7 +242,7 @@ function Captions({
           justifyContent: "center",
           gap: "0 .27em",
           background: reel ? "#111111" : "#070c17ed",
-          border: reel?.captionStyle === "pop" ? "3px solid #fff7e5" : `1px solid ${theme.accent}44`,
+          border: reel?.captionStyle === "brand" ? `3px solid ${theme.accent}` : reel?.captionStyle === "pop" ? "3px solid #fff7e5" : `1px solid ${theme.accent}44`,
           borderRadius: width * 0.016,
           padding: `${height * 0.012}px ${width * 0.025}px`,
           fontSize: reel ? Math.min(width*.039,height*.035) : width * (height > width ? 0.05 : 0.032),
@@ -253,7 +255,7 @@ function Captions({
           <span
             key={start + i}
             style={{
-              color: reel ? (start+i===index?(reel.captionStyle === "pop"?"#e5ff3d":"#f4f4ef"):"#b0b0a8") : start + i === index ? theme.accent : theme.foreground,
+              color: reel ? (start+i===index?(reel.captionStyle === "brand"?theme.accent:reel.captionStyle === "pop"?"#e5ff3d":"#f4f4ef"):"#b0b0a8") : start + i === index ? theme.accent : theme.foreground,
               textDecoration: reel && start+i===index ? "underline" : undefined,
               textUnderlineOffset: 7,
               maxWidth: "100%",
@@ -334,6 +336,7 @@ export const Film: React.FC<RenderProps> = ({
           );
         })
       )}
+      <ProductionOverlays project={project}/>
       {narration && <Audio src={staticFile(narration)} />}
       {music && (
         <Audio

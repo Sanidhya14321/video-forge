@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "name": "overlay-smoke",
+  "workflow": "product-demo",
+  "fps": 30,
+  "theme": {
+    "background": "#102f35",
+    "foreground": "#f4f7fa",
+    "accent": "#23ab9a"
+  },
+  "scenes": [
+    {
+      "kind": "title",
+      "duration": 6,
+      "title": "Original demo fixture"
+    }
+  ],
+  "overlays": [
+    {
+      "kind": "brand",
+      "start": 0,
+      "end": 1,
+      "title": "DEMO\nMOTION.",
+      "logo": "assets/overlay-demo.svg",
+      "src": "assets/overlay-demo.svg",
+      "labels": [
+        "PLAN",
+        "BUILD",
+        "CHECK"
+      ],
+      "body": "Illustrative fixture",
+      "eyebrow": "VIDEO FORGE",
+      "layout": "full"
+    },
+    {
+      "kind": "call",
+      "start": 1,
+      "end": 2,
+      "title": "DEMO\nMOTION.",
+      "logo": "assets/overlay-demo.svg",
+      "src": "assets/overlay-demo.svg",
+      "labels": [
+        "PLAN",
+        "BUILD",
+        "CHECK"
+      ],
+      "body": "Illustrative fixture",
+      "eyebrow": "VIDEO FORGE",
+      "layout": "full"
+    },
+    {
+      "kind": "browser",
+      "start": 2,
+      "end": 3,
+      "title": "PRODUCT PROOF.",
+      "logo": "assets/overlay-demo.svg",
+      "src": "assets/overlay-demo.svg",
+      "labels": [
+        "PLAN",
+        "BUILD",
+        "CHECK"
+      ],
+      "body": "Illustrative fixture",
+      "eyebrow": "VIDEO FORGE",
+      "layout": "full",
+      "aspectRatio": 1.5789473684210527,
+      "cursor": {
+        "x": 0.76,
+        "y": 0.76,
+        "clickAt": 0.5
+      }
+    },
+    {
+      "kind": "steps",
+      "start": 3,
+      "end": 4,
+      "title": "DEMO\nMOTION.",
+      "logo": "assets/overlay-demo.svg",
+      "src": "assets/overlay-demo.svg",
+      "labels": [
+        "PLAN",
+        "BUILD",
+        "CHECK"
+      ],
+      "body": "Illustrative fixture",
+      "eyebrow": "VIDEO FORGE",
+      "layout": "full"
+    },
+    {
+      "kind": "cta",
+      "start": 4,
+      "end": 5,
+      "title": "DEMO\nMOTION.",
+      "logo": "assets/overlay-demo.svg",
+      "src": "assets/overlay-demo.svg",
+      "labels": [
+        "PLAN",
+        "BUILD",
+        "CHECK"
+      ],
+      "body": "Illustrative fixture",
+      "eyebrow": "VIDEO FORGE",
+      "layout": "full"
+    },
+    {
+      "kind": "label",
+      "start": 5,
+      "end": 6,
+      "title": "DEMO\nMOTION.",
+      "logo": "assets/overlay-demo.svg",
+      "src": "assets/overlay-demo.svg",
+      "labels": [
+        "PLAN",
+        "BUILD",
+        "CHECK"
+      ],
+      "body": "Illustrative fixture",
+      "eyebrow": "VIDEO FORGE",
+      "layout": "full"
+    }
+  ],
+  "exports": [
+    {
+      "preset": "vertical",
+      "width": 360,
+      "height": 640
+    }
+  ]
+}

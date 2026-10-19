@@ -32,6 +32,29 @@ export const motionSchema = z.object({
   density: z.number().int().min(3).max(16).default(8),
   entrance: z.enum(["cut", "push", "scale"]).default("cut"),
 }).strict();
+export const overlaySchema = z.object({
+  kind: z.enum(["brand", "call", "browser", "steps", "cta", "label"]),
+  start: z.number().nonnegative(),
+  end: z.number().positive(),
+  title: z.string().max(90).default(""),
+  body: z.string().max(160).optional(),
+  eyebrow: z.string().max(60).optional(),
+  src: z.string().min(1).optional(),
+  logo: z.string().min(1).optional(),
+  layout: z.enum(["full", "lower-third", "top"]).default("full"),
+  offsetY: z.number().min(-400).max(400).default(0),
+  labels: z.array(z.string().max(30)).min(2).max(4).optional(),
+  fit: z.enum(["contain", "cover"]).default("contain"),
+  aspectRatio: z.number().min(.2).max(6).default(16/9),
+  focus: z.object({x:z.number().min(0).max(1).default(.5),y:z.number().min(0).max(1).default(.5),scale:z.number().min(1).max(2.5).default(1)}).strict().optional(),
+  cursor: z.object({x:z.number().min(0).max(1),y:z.number().min(0).max(1),clickAt:z.number().nonnegative().optional()}).strict().optional(),
+}).strict().superRefine((o,ctx)=>{
+  if(o.end<=o.start)ctx.addIssue({code:"custom",message:"Overlay end must follow start"});
+  if(o.kind==="browser"&&!o.src)ctx.addIssue({code:"custom",message:"Browser overlay requires a local screenshot src"});
+  if(o.kind==="brand"&&!o.logo)ctx.addIssue({code:"custom",message:"Brand overlay requires a local logo"});
+  if(o.kind==="steps"&&!o.labels)ctx.addIssue({code:"custom",message:"Steps overlay requires labels"});
+  if(o.cursor?.clickAt!==undefined&&o.cursor.clickAt>o.end-o.start)ctx.addIssue({code:"custom",message:"Cursor click must fit the overlay window"});
+});
 export const sceneSchema = z
   .object({
     kind: z.enum(["title", "code", "chart", "algorithm", "image", "video", "reel"]),
@@ -121,10 +144,11 @@ export const projectSchema = z
       }),
     reel: z.object({
       bpm: z.number().min(60).max(200).default(160),
-      captionStyle: z.enum(["standard", "pop"]).default("standard"),
+      captionStyle: z.enum(["standard", "pop", "brand"]).default("standard"),
       safeArea: z.enum(["reels", "clean"]).default("reels"),
     }).strict().optional(),
     scenes: z.array(sceneSchema).max(100).default([]),
+    overlays: z.array(overlaySchema).max(64).default([]),
     footage: z
       .object({
         src: z.string(),

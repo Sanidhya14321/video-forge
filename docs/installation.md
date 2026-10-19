@@ -7,7 +7,7 @@ Choose the host first. The full toolkit renders locally with Node, Remotion, FFm
 Register the repository marketplace, then install the plugin. **Adding the marketplace alone does not install it.** Current Codex CLI:
 
 ```bash
-codex plugin marketplace add Sanidhya14321/video-forge --ref v0.4.0
+codex plugin marketplace add Sanidhya14321/video-forge --ref v0.5.0
 codex plugin add video-forge@video-forge-local
 codex plugin list --marketplace video-forge-local --json
 ```

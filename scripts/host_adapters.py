@@ -13,7 +13,8 @@ def companion_files(root):
   def link(m):
    label,target=m.group(1),m.group(2)
    if target.startswith(('http:','https:','#','mailto:')):return m.group(0)
-   if target.endswith('references/reels.md') or target=='references/reels.md':target='reels.md'
+   if target.endswith('references/brand-edits.md'):target='brand-edits.md'
+   elif target.endswith('references/reels.md') or target=='references/reels.md':target='reels.md'
    elif target.endswith('/SKILL.md'):
     target=target.split('/')[-2].removeprefix('video-')+'.md'
     if target=='forge.md':target='director.md'
@@ -27,6 +28,7 @@ def companion_files(root):
  director=(root/'skills/video-forge/SKILL.md').read_text()
  director=director.replace('4. Locate this plugin\'s root from this file (two parent directories).','4. If a prepared local runtime is available, locate that toolkit directory; companion files do not contain the runtime.')
  files['director.md']=flatten(director).encode()
+ files['brand-edits.md']=flatten((root/'skills/video-forge/references/brand-edits.md').read_text()).encode()
  files['reels.md']=flatten((root/'skills/video-forge/references/reels.md').read_text()).encode()
  for module in ['planning','motion','editing','captions','audio','generation','delivery']:
   folder=root/f'skills/video-{module}'

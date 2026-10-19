@@ -146,3 +146,18 @@ The pop waveform/boombox is illustrative, not an audio analysis. Score and sound
 `footage.layout` is `framed` by default, preserving the prior padded recording layout. `full-frame` fills the export canvas; use `crop: cover` for a vertical talking-head reel and review the crop. Optional `punchIns` contains `{start,end,scale}` windows on the **final edited timeline**, with scale 1–1.35 and 0.18-second eased edges (short windows use shorter ramps). The transform centers at 50% across / 30% down to favor a portrait speaker. It does not track a face. Overlapping windows use the largest active scale; windows must fit the output duration. The source recording is preserved.
 
 Multiple input recordings can be normalized/concatenated in the approved source order with FFmpeg before the footage job; preserve original filenames and the input-to-output cut map. The native runner's `footage.src` still refers to one prepared source. Do not imply that the CLI selects source order or transcribes brand spellings perfectly.
+
+
+## Production overlays (v0.5.0)
+
+`overlays` is an optional array (default empty) on the final output timeline. Each overlay has `kind`, `start`, `end`, `title`, optional `body`, `eyebrow`, local `src`/`logo`, and `layout` (`full`, `lower-third`, `top`). Native kinds are `brand`, `call`, `browser`, `steps`, `cta`, and `label`. `brand` requires a logo, `browser` a screenshot, and `steps` 2–4 labels. Timing must fit the output; ends are exclusive. Ordered overlaps are intentional layers, with captions above them.
+
+`browser` supports `aspectRatio` (actual source width/height; default 16/9), `fit` (`contain` or `cover`), optional `focus: {x,y,scale}`, and `cursor: {x,y,clickAt}`. Coordinates are normalized to the original screenshot, including cropped/letterboxed geometry; clickAt is local seconds. Cursor travel and ripples are illustrative highlights over a captured image, not real UI execution. Runtime rendering uses staged local assets only.
+
+`offsetY` is an optional -400..400 pixel adjustment measured at 1080px width and scaled with the export. Use it to avoid the actual speaker/evidence; it does not detect faces. `reel.captionStyle: brand` uses the theme accent for active words and the caption border. Caption layout remains protected and layers above overlays.
+
+```json
+{"kind":"browser","start":6.5,"end":9.5,"title":"SEE THE PRODUCT.","src":"assets/site.png","logo":"assets/logo.png","body":"Official website reference","aspectRatio":1.77778,"fit":"cover","focus":{"x":0.5,"y":0.3,"scale":1.2},"cursor":{"x":0.6,"y":0.4,"clickAt":1}}
+```
+
+`review` lists the overlay timeline and flags very short screenshot holds. `preview` renders every overlay's entry/peak/exit and can now inspect prepared footage without segments or silence removal. It still performs no cloud generation, narration or automatic transcription. For a cut footage plan, prepare/render the edit first; preview does not silently ignore edits. Native snapshots include `Overlays.tsx` and `overlay-timing.ts`. Reused local assets are staged once per source path with attribution.

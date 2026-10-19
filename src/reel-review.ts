@@ -27,10 +27,12 @@ export function reviewProject(project: Project) {
     const titleCount=project.scenes.filter(s=>s.kind==='title'||s.motion?.preset==='type-impact').length;
     if(project.scenes.length>=6&&titleCount/project.scenes.length>.5)warnings.push({code:'slide-heavy',message:'Most shots are title treatments. Replace explanatory labels with objects that perform the idea, unless this is intentionally a type-led film.'});
   }
+  for(const [i,o] of project.overlays.entries())if(o.kind==="browser"&&o.end-o.start<.8)warnings.push({code:"short-evidence-hold",message:`Overlay ${i+1}: screenshot is visible for less than 0.8s; allow a readable evidence hold.`});
   return {version:1,editorialHeuristics:true,engagementPrediction:false,reel,
     durationSeconds:project.footage?null:frame/project.fps,shots:timeline.length,
     averageShotSeconds:timeline.length?frame/project.fps/timeline.length:0,
     uniqueTreatments:new Set(timeline.map(s=>s.treatment)).size,
+    overlayCount:project.overlays.length,overlayKinds:[...new Set(project.overlays.map(o=>o.kind))],overlayTimeline:project.overlays.map(o=>({kind:o.kind,start:o.start,end:o.end,title:o.title,src:o.src})),
     timeline,warnings,
     layouts:project.exports.map(target=>{const [w,h]=target.width?[target.width,target.height!]:dimensions[target.preset];return {preset:target.preset,width:w,height:h,...reelLayout(w,h,project.reel?.safeArea)};}),
     limits:'Timing and layout heuristics do not establish taste, factual accuracy, caption recognition accuracy, retention, or current platform UI coverage.'};
