@@ -1,0 +1,673 @@
+{
+  "project": {
+    "version": 1,
+    "name": "reel-showcase",
+    "workflow": "short-form-reel",
+    "renderer": "remotion",
+    "fps": 30,
+    "theme": {
+      "surface": "flat",
+      "background": "#111111",
+      "foreground": "#f4f4ef",
+      "accent": "#f4f4ef",
+      "muted": "#85857f",
+      "font": "Arial, Helvetica, sans-serif",
+      "brand": "",
+      "tagline": ""
+    },
+    "reel": {
+      "bpm": 160,
+      "safeArea": "reels"
+    },
+    "scenes": [
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "STOP\nSLIDES.",
+        "note": "Stop making slides.",
+        "motion": {
+          "preset": "type-impact",
+          "invert": false,
+          "seed": 7,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "MAKE\nMOTION.",
+        "note": "Make motion.",
+        "motion": {
+          "preset": "ribbon",
+          "invert": false,
+          "seed": 8,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "VIDEO\nFORGE",
+        "note": "Meet Video Forge.",
+        "motion": {
+          "preset": "fragment-merge",
+          "invert": true,
+          "seed": 17,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "ONE\nBRIEF.",
+        "note": "Start with one brief.",
+        "motion": {
+          "preset": "signal-flow",
+          "invert": false,
+          "seed": 10,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "CLAUDE.",
+        "body": "/video-forge:video-forge",
+        "note": "Use Claude.",
+        "motion": {
+          "preset": "orbit-lock",
+          "invert": false,
+          "seed": 17,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "CODEX.",
+        "body": "$video-forge",
+        "note": "Or Codex.",
+        "motion": {
+          "preset": "orbit-lock",
+          "invert": true,
+          "seed": 17,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "DESCRIBE\nIT.",
+        "body": "A 30-second launch reel.",
+        "note": "Describe your idea.",
+        "motion": {
+          "preset": "type-impact",
+          "invert": true,
+          "seed": 13,
+          "density": 8,
+          "entrance": "push"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "PLAN\nTHE STORY.",
+        "note": "Plan the story.",
+        "motion": {
+          "preset": "signal-flow",
+          "invert": false,
+          "seed": 14,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "BUILD\nTHE MOTION.",
+        "note": "Build the motion.",
+        "motion": {
+          "preset": "radial-burst",
+          "invert": false,
+          "seed": 15,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "CODE\nCOMES ALIVE.",
+        "body": "FRAME-DRIVEN. EDITABLE.",
+        "code": "const f = useCurrentFrame();\nconst x = f * 4;",
+        "note": "Bring code to life.",
+        "motion": {
+          "preset": "code-scan",
+          "invert": true,
+          "seed": 16,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "MAKE\nDATA MOVE.",
+        "body": "SUPPLIED EXAMPLE DATA",
+        "values": [
+          3,
+          8,
+          5,
+          11
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "highlight": [
+          3
+        ],
+        "note": "Make data move.",
+        "motion": {
+          "preset": "data-sculpt",
+          "invert": false,
+          "seed": 17,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "CUT\nTHE PAUSE.",
+        "note": "Cut the pauses.",
+        "motion": {
+          "preset": "timeline-cut",
+          "invert": false,
+          "seed": 18,
+          "density": 8,
+          "entrance": "push"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "FIND\nTHE FRAME.",
+        "note": "Find the right frame.",
+        "motion": {
+          "preset": "frame-morph",
+          "invert": true,
+          "seed": 19,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "GIVE IT\nA VOICE.",
+        "note": "Give it a voice.",
+        "motion": {
+          "preset": "waveform",
+          "invert": false,
+          "seed": 20,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "WORDS\nIN SYNC.",
+        "labels": [
+          "VOICE",
+          "MUSIC",
+          "WORDS"
+        ],
+        "note": "Put words in sync.",
+        "motion": {
+          "preset": "word-pulse",
+          "invert": true,
+          "seed": 21,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "LET RHYTHM\nLEAD.",
+        "note": "Let the rhythm lead.",
+        "motion": {
+          "preset": "ribbon",
+          "invert": false,
+          "seed": 22,
+          "density": 8,
+          "entrance": "push"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "EVERY\nSCREEN.",
+        "body": "9:16 / 16:9 / 1:1 / 4:5",
+        "note": "Fit every screen.",
+        "motion": {
+          "preset": "frame-morph",
+          "invert": false,
+          "seed": 23,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "KEEP\nTHE SOURCE.",
+        "body": "COMPOSITION + ASSETS + CAPTIONS",
+        "note": "Keep every source.",
+        "motion": {
+          "preset": "fragment-merge",
+          "invert": true,
+          "seed": 17,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "ONE\nWORKFLOW.",
+        "note": "One connected workflow.",
+        "motion": {
+          "preset": "orbit-lock",
+          "invert": false,
+          "seed": 17,
+          "density": 8,
+          "entrance": "cut"
+        }
+      },
+      {
+        "kind": "reel",
+        "duration": 1.5,
+        "title": "BRIEF.\nTO FILM.",
+        "body": "VIDEO FORGE / CLAUDE + CODEX",
+        "note": "From brief to film.",
+        "motion": {
+          "preset": "type-impact",
+          "invert": true,
+          "seed": 26,
+          "density": 8,
+          "entrance": "cut"
+        }
+      }
+    ],
+    "narration": {
+      "provider": "file",
+      "src": "assets/reel/voice.wav",
+      "voice": "af_heart"
+    },
+    "captions": {
+      "transcript": "assets/reel/transcript.json",
+      "transcribe": false,
+      "language": "en",
+      "model": "base",
+      "maxWords": 3
+    },
+    "music": {
+      "src": "assets/reel/score.wav",
+      "volume": 0.22
+    },
+    "generation": [],
+    "exports": [
+      {
+        "preset": "vertical"
+      }
+    ],
+    "assets": [
+      {
+        "path": "assets/reel/voice.wav",
+        "origin": "Local Kokoro af_heart AI narration, original authored script",
+        "license": "Synthetic model output; Kokoro model terms apply separately"
+      },
+      {
+        "path": "assets/reel/score.wav",
+        "origin": "Original Python-synthesized 160 BPM score and sound effects",
+        "license": "MIT"
+      }
+    ]
+  },
+  "words": [
+    {
+      "text": "Stop",
+      "start": 0.035,
+      "end": 0.24
+    },
+    {
+      "text": "making",
+      "start": 0.24,
+      "end": 0.54
+    },
+    {
+      "text": "slides.",
+      "start": 0.54,
+      "end": 0.92
+    },
+    {
+      "text": "Make",
+      "start": 1.58,
+      "end": 1.68
+    },
+    {
+      "text": "motion.",
+      "start": 1.68,
+      "end": 2.06
+    },
+    {
+      "text": "Meet",
+      "start": 3.035,
+      "end": 3.2
+    },
+    {
+      "text": "Video",
+      "start": 3.2,
+      "end": 3.5
+    },
+    {
+      "text": "Forge.",
+      "start": 3.5,
+      "end": 3.8
+    },
+    {
+      "text": "Start",
+      "start": 4.535,
+      "end": 4.72
+    },
+    {
+      "text": "with",
+      "start": 4.72,
+      "end": 4.88
+    },
+    {
+      "text": "one",
+      "start": 4.88,
+      "end": 5.06
+    },
+    {
+      "text": "brief.",
+      "start": 5.06,
+      "end": 5.36
+    },
+    {
+      "text": "Use",
+      "start": 6.06,
+      "end": 6.22
+    },
+    {
+      "text": "Claude.",
+      "start": 6.22,
+      "end": 6.66
+    },
+    {
+      "text": "Or",
+      "start": 7.535,
+      "end": 7.62
+    },
+    {
+      "text": "Codex.",
+      "start": 7.62,
+      "end": 8.14
+    },
+    {
+      "text": "Describe",
+      "start": 9.035,
+      "end": 9.36
+    },
+    {
+      "text": "your",
+      "start": 9.36,
+      "end": 9.58
+    },
+    {
+      "text": "idea.",
+      "start": 9.58,
+      "end": 9.84
+    },
+    {
+      "text": "Plan",
+      "start": 10.54,
+      "end": 10.72
+    },
+    {
+      "text": "the",
+      "start": 10.72,
+      "end": 10.86
+    },
+    {
+      "text": "story.",
+      "start": 10.86,
+      "end": 11.14
+    },
+    {
+      "text": "Build",
+      "start": 12.035,
+      "end": 12.2
+    },
+    {
+      "text": "the",
+      "start": 12.2,
+      "end": 12.34
+    },
+    {
+      "text": "motion.",
+      "start": 12.34,
+      "end": 12.68
+    },
+    {
+      "text": "Bring",
+      "start": 13.54,
+      "end": 13.66
+    },
+    {
+      "text": "code",
+      "start": 13.66,
+      "end": 13.94
+    },
+    {
+      "text": "to",
+      "start": 13.94,
+      "end": 14.12
+    },
+    {
+      "text": "life.",
+      "start": 14.12,
+      "end": 14.34
+    },
+    {
+      "text": "Make",
+      "start": 15.06,
+      "end": 15.18
+    },
+    {
+      "text": "data",
+      "start": 15.18,
+      "end": 15.46
+    },
+    {
+      "text": "move.",
+      "start": 15.46,
+      "end": 15.76
+    },
+    {
+      "text": "Cut",
+      "start": 16.56,
+      "end": 16.66
+    },
+    {
+      "text": "the",
+      "start": 16.66,
+      "end": 16.78
+    },
+    {
+      "text": "pauses.",
+      "start": 16.78,
+      "end": 17.2
+    },
+    {
+      "text": "Find",
+      "start": 18.035,
+      "end": 18.22
+    },
+    {
+      "text": "the",
+      "start": 18.22,
+      "end": 18.36
+    },
+    {
+      "text": "right",
+      "start": 18.36,
+      "end": 18.5
+    },
+    {
+      "text": "frame.",
+      "start": 18.5,
+      "end": 18.84
+    },
+    {
+      "text": "Give",
+      "start": 19.535,
+      "end": 19.62
+    },
+    {
+      "text": "it",
+      "start": 19.62,
+      "end": 19.74
+    },
+    {
+      "text": "a",
+      "start": 19.74,
+      "end": 19.8
+    },
+    {
+      "text": "voice.",
+      "start": 19.8,
+      "end": 20.1
+    },
+    {
+      "text": "Put",
+      "start": 21.035,
+      "end": 21.14
+    },
+    {
+      "text": "words",
+      "start": 21.14,
+      "end": 21.34
+    },
+    {
+      "text": "in",
+      "start": 21.34,
+      "end": 21.54
+    },
+    {
+      "text": "sync.",
+      "start": 21.54,
+      "end": 21.86
+    },
+    {
+      "text": "Let",
+      "start": 22.54,
+      "end": 22.62
+    },
+    {
+      "text": "the",
+      "start": 22.62,
+      "end": 22.72
+    },
+    {
+      "text": "rhythm",
+      "start": 22.72,
+      "end": 22.9
+    },
+    {
+      "text": "lead.",
+      "start": 22.9,
+      "end": 23.18
+    },
+    {
+      "text": "Fit",
+      "start": 24.06,
+      "end": 24.16
+    },
+    {
+      "text": "every",
+      "start": 24.16,
+      "end": 24.48
+    },
+    {
+      "text": "screen.",
+      "start": 24.48,
+      "end": 24.8
+    },
+    {
+      "text": "Keep",
+      "start": 25.54,
+      "end": 25.68
+    },
+    {
+      "text": "every",
+      "start": 25.68,
+      "end": 25.98
+    },
+    {
+      "text": "source.",
+      "start": 25.98,
+      "end": 26.24
+    },
+    {
+      "text": "One",
+      "start": 27.035,
+      "end": 27.18
+    },
+    {
+      "text": "connected",
+      "start": 27.18,
+      "end": 27.66
+    },
+    {
+      "text": "workflow.",
+      "start": 27.66,
+      "end": 28.12
+    },
+    {
+      "text": "From",
+      "start": 28.535,
+      "end": 28.66
+    },
+    {
+      "text": "brief",
+      "start": 28.66,
+      "end": 28.9
+    },
+    {
+      "text": "to",
+      "start": 28.9,
+      "end": 29.1
+    },
+    {
+      "text": "film.",
+      "start": 29.1,
+      "end": 29.4
+    }
+  ],
+  "narration": "ebf566f7bf5ca781.wav",
+  "music": "d8b6ebf8f89c3ff4.wav",
+  "durationFrames": 900
+}

@@ -41,7 +41,7 @@ claude --plugin-dir /absolute/path/to/video-forge
 
 Use `/video-forge:video-forge` for the directing skill or ask a matching natural-language request. Focused commands include `/video-forge:video-motion`, `/video-forge:video-editing`, and the other packaged skill names. Validate the package with `claude plugin validate /absolute/path/to/video-forge`.
 
-For marketplace distribution, the archive includes `.claude-plugin/plugin.json` and the same `skills/` content. Marketplace registration or public publication is intentionally left to the repository owner.
+For marketplace distribution, the archive includes `.claude-plugin/plugin.json` and the same `skills/` content. The repository also includes a marketplace catalog for GitHub distribution.
 
 ## Codex
 
@@ -56,3 +56,26 @@ Use the standalone skill archive in an Agent Skills-compatible directory. Keep t
 ## Updates and credentials
 
 Do not auto-update upstream packages during a production run. Change pinned versions deliberately, rerun checks and examples, and rebuild release archives. Store optional API credentials in environment variables; no example or source catalog contains secrets. Default examples use local processing only.
+
+## GitHub distribution (v0.2.0)
+
+Versioned host/source archives, demo media and checksums are published at [Video Forge releases](https://github.com/Sanidhya14321/video-forge/releases). Extract an archive and run `npm ci`, `npm run setup:binaries`, and `npm run build` in its toolkit directory before rendering. The portable skill folder includes the runtime and examples; a lone SKILL.md without its references/runtime is insufficient.
+
+For Claude Code, add this repository's marketplace and install its entry:
+
+```bash
+claude plugin marketplace add Sanidhya14321/video-forge
+claude plugin install video-forge@video-forge
+```
+
+Then invoke `/video-forge:video-forge` and describe the film. For a local development checkout, `claude --plugin-dir /absolute/path/to/video-forge` still works. The marketplace catalog and the plugin manifest both point at the shared root skills; [Claude's marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces) explains these commands.
+
+For Codex, register this Git source:
+
+```bash
+codex plugin marketplace add Sanidhya14321/video-forge
+```
+
+Then install Video Forge from that source in the client's Plugins Directory. Adding a source alone does not install a plugin. Alternatively extract the standalone archive into `~/.agents/skills/video-forge/`, prepare its Node runtime as above, and invoke `$video-forge`. See [official OpenAI packaging guidance](https://developers.openai.com/plugins/build/plugins) for marketplace setup. This repository is a GitHub distribution, not a submission to either public universal directory.
+
+The showcase includes ready-made voice/music and captions, so it renders without optional Python models. Regenerating speech/transcription still needs the locked Python setup. No personal host settings are changed by building or packaging this repository.

@@ -29,3 +29,11 @@ Unresolved PDF entries are retained with reasons and candidate-search notes. Dis
 ## Release
 
 Update package and plugin versions together. Build with `npm run build`, validate, render representative examples, review frames, then run `npm run package`. Packaging uses deterministic member order and timestamps and excludes installed dependencies, virtual environments, caches, Git internals, and generated render bundles. Install dependencies after extraction. No user-level host configuration is changed by packaging.
+
+## Reel renderer and feedback loop (v0.2)
+
+`renderer/Reel.tsx` implements the twelve original treatments. `src/reel-layout.ts` contains deterministic beat, seed and safe-area helpers; `src/reel-review.ts` produces editorial heuristics. The runtime schema accepts reel data without modifying the legacy scene contract. `tsconfig.renderer.json` also checks the actual TSX renderer, which was not covered by the original source-only TypeScript check.
+
+A renderer snapshot now includes `Reel.tsx` and `reel-layout.ts` beside `composition.tsx` and `schema.ts`; their imports resolve within the output folder. `preview` uses the same renderer as `run` and stages only referenced media. It intentionally performs no cloud, voice or ASR execution. Use snapshots or a project copy for choreography that exceeds the preset vocabulary.
+
+The complete 30-second `examples/reel-showcase.json` includes locally generated speech, measured captions and an original score. The 4.8-second `examples/reel-smoke.json` exercises every treatment without speech-model dependencies. To regenerate showcase audio into a **new** directory, use `npx tsx scripts/prepare-reel-showcase.ts /absolute/new/asset-directory` after setting up the optional Python environment. Update the job's relative asset paths if using a different location. The helper refuses to overwrite an existing directory and requires review when the ASR token count differs from the narration script.

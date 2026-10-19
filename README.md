@@ -2,7 +2,37 @@
 
 An agent-directed video toolkit for technical creators. One portable skill collection consolidates the techniques in a 100-entry video-skills report into focused workflows, with an executable Remotion/FFmpeg core.
 
-**v0.1.0:** product demos, array-based algorithm explainers, and captioned footage repurposing. The agent prepares the story and edit decisions; the CLI renders the explicit job. No account or paid API is needed for the local examples.
+**v0.2.0:** fast abstract reels, kinetic typography, product demos, array-based algorithm explainers, and captioned footage repurposing. The agent prepares the story and edit decisions; the CLI renders the explicit job. No account or paid API is needed for the local examples.
+
+## Install in Claude or Codex
+
+```bash
+claude plugin install video-forge --marketplace Sanidhya14321/video-forge
+codex plugin marketplace add Sanidhya14321/video-forge
+```
+
+In Codex, install Video Forge from that source in the Plugins Directory after registration. Invoke `/video-forge:video-forge` in Claude, or use the standalone `$video-forge` skill in a compatible agent. Prepare the runtime with `npm ci && npm run setup:binaries && npm run build` in the installed toolkit directory. [Full setup](docs/installation.md).
+
+[![Video Forge reel demo](demos/reel-showcase/thumbnail.png)](https://github.com/Sanidhya14321/video-forge/releases/download/v0.2.0/video-forge-reel-0.2.0.mp4)
+
+[Watch the new reel demo](https://github.com/Sanidhya14321/video-forge/releases/download/v0.2.0/video-forge-reel-0.2.0.mp4)
+
+## Fast reel preview
+
+```bash
+npm ci
+npm run setup:binaries
+npm run build
+node dist/cli.js review examples/reel-showcase.json
+node dist/cli.js preview examples/reel-showcase.json --out /tmp/video-forge-reel-preview
+node dist/cli.js run examples/reel-showcase.json --out /tmp/video-forge-reel
+```
+
+The showcase is a complete 30-second, 20-shot, 1080×1920 monochrome production with an original 160 BPM score, local AI narration and measured captions. Twelve frame-driven treatments include fragments, orbits, signals, ribbons, crop transforms, timeline cuts, waveform motion, code, data, kinetic words and radial forms. Preview creates entry/peak/exit stills before a full render. The included audio means the showcase does not require installing speech models to render.
+
+The directing skill selects a visual language and maps ideas to physical transformations instead of treating every video as a deck of UI cards. It preserves explicit user choices such as minimal colors and no gradients. [Creative direction](skills/video-forge/references/reels.md) and [evaluation limits](docs/reel-evaluation.md) explain what is improved and what remains unmeasured.
+
+Download versioned Claude, Codex, standalone and source archives from [GitHub Releases](https://github.com/Sanidhya14321/video-forge/releases). [Installation](docs/installation.md) covers both agent hosts. This GitHub distribution is not a public plugin-directory submission.
 
 ## Quick start
 
@@ -26,8 +56,8 @@ See [installation](docs/installation.md), [the project format](docs/project-form
 ## What's included
 
 - A compact [directing skill](skills/video-forge/SKILL.md) and seven focused production skills.
-- A TypeScript CLI: `doctor`, `run`, and `inspect`; schema validation and dry runs.
-- Original React scenes for titles, screenshots, video inserts, code, nonnegative bar charts, and supplied algorithm array states.
+- A TypeScript CLI: `doctor`, `run`, `inspect`, `review`, and `preview`; schema validation and dry runs.
+- Twelve original abstract/typographic reel treatments plus React scenes for titles, screenshots, video inserts, code, nonnegative bar charts, and supplied algorithm array states.
 - Ordered footage cuts, optional threshold-based silence removal, source-to-output word-time remapping, word-highlight captions, and SRT.
 - Optional local Kokoro voice and faster-whisper transcription in a locked CPU environment.
 - Optional OpenAI speech and fal queue adapters, tested with mocks. Live cloud execution is not verified in this delivery.
@@ -50,6 +80,6 @@ npm run package
 
 The examples command creates `demos/` and requires the local Python models. Move or remove an earlier generated `demos/` before rerunning; output directories are never overwritten. Releases contain the runtime source, compiled CLI, lockfiles, instructions, references, and examples, excluding installed dependencies and model caches. `npm run package` writes Claude, Codex, standalone, and source archives beside this directory.
 
-The renderer source is in `renderer/Root.tsx`. Edit a project copy for custom components. A completed run retains `composition.tsx`, render props, schema types, and a browser composition bundle as an editable/re-renderable snapshot. Detailed instructions are in [the development guide](docs/development.md).
+The renderer source is in `renderer/Root.tsx` and `renderer/Reel.tsx`. Edit a project copy for custom components. A completed run retains `composition.tsx`, render props, schema types, and a browser composition bundle as an editable/re-renderable snapshot. Detailed instructions are in [the development guide](docs/development.md).
 
-No website is hosted, repository pushed, plugin installed into user settings, or social post published by the included tools.
+The included production tools do not install themselves into personal agent settings or publish social posts. Repository releases distribute the toolkit; publishing a video remains a separate action.

@@ -1,0 +1,306 @@
+{
+  "version": 1,
+  "editorialHeuristics": true,
+  "engagementPrediction": false,
+  "reel": true,
+  "durationSeconds": 30,
+  "shots": 20,
+  "averageShotSeconds": 1.5,
+  "uniqueTreatments": 12,
+  "timeline": [
+    {
+      "index": 1,
+      "startFrame": 0,
+      "endFrame": 45,
+      "seconds": 1.5,
+      "treatment": "type-impact",
+      "title": "STOP\nSLIDES.",
+      "previewFrames": [
+        5,
+        31,
+        44
+      ]
+    },
+    {
+      "index": 2,
+      "startFrame": 45,
+      "endFrame": 90,
+      "seconds": 1.5,
+      "treatment": "ribbon",
+      "title": "MAKE\nMOTION.",
+      "previewFrames": [
+        50,
+        76,
+        89
+      ]
+    },
+    {
+      "index": 3,
+      "startFrame": 90,
+      "endFrame": 135,
+      "seconds": 1.5,
+      "treatment": "fragment-merge",
+      "title": "VIDEO\nFORGE",
+      "previewFrames": [
+        95,
+        121,
+        134
+      ]
+    },
+    {
+      "index": 4,
+      "startFrame": 135,
+      "endFrame": 180,
+      "seconds": 1.5,
+      "treatment": "signal-flow",
+      "title": "ONE\nBRIEF.",
+      "previewFrames": [
+        140,
+        166,
+        179
+      ]
+    },
+    {
+      "index": 5,
+      "startFrame": 180,
+      "endFrame": 225,
+      "seconds": 1.5,
+      "treatment": "orbit-lock",
+      "title": "CLAUDE.",
+      "previewFrames": [
+        185,
+        211,
+        224
+      ]
+    },
+    {
+      "index": 6,
+      "startFrame": 225,
+      "endFrame": 270,
+      "seconds": 1.5,
+      "treatment": "orbit-lock",
+      "title": "CODEX.",
+      "previewFrames": [
+        230,
+        256,
+        269
+      ]
+    },
+    {
+      "index": 7,
+      "startFrame": 270,
+      "endFrame": 315,
+      "seconds": 1.5,
+      "treatment": "type-impact",
+      "title": "DESCRIBE\nIT.",
+      "previewFrames": [
+        275,
+        301,
+        314
+      ]
+    },
+    {
+      "index": 8,
+      "startFrame": 315,
+      "endFrame": 360,
+      "seconds": 1.5,
+      "treatment": "signal-flow",
+      "title": "PLAN\nTHE STORY.",
+      "previewFrames": [
+        320,
+        346,
+        359
+      ]
+    },
+    {
+      "index": 9,
+      "startFrame": 360,
+      "endFrame": 405,
+      "seconds": 1.5,
+      "treatment": "radial-burst",
+      "title": "BUILD\nTHE MOTION.",
+      "previewFrames": [
+        365,
+        391,
+        404
+      ]
+    },
+    {
+      "index": 10,
+      "startFrame": 405,
+      "endFrame": 450,
+      "seconds": 1.5,
+      "treatment": "code-scan",
+      "title": "CODE\nCOMES ALIVE.",
+      "previewFrames": [
+        410,
+        436,
+        449
+      ]
+    },
+    {
+      "index": 11,
+      "startFrame": 450,
+      "endFrame": 495,
+      "seconds": 1.5,
+      "treatment": "data-sculpt",
+      "title": "MAKE\nDATA MOVE.",
+      "previewFrames": [
+        455,
+        481,
+        494
+      ]
+    },
+    {
+      "index": 12,
+      "startFrame": 495,
+      "endFrame": 540,
+      "seconds": 1.5,
+      "treatment": "timeline-cut",
+      "title": "CUT\nTHE PAUSE.",
+      "previewFrames": [
+        500,
+        526,
+        539
+      ]
+    },
+    {
+      "index": 13,
+      "startFrame": 540,
+      "endFrame": 585,
+      "seconds": 1.5,
+      "treatment": "frame-morph",
+      "title": "FIND\nTHE FRAME.",
+      "previewFrames": [
+        545,
+        571,
+        584
+      ]
+    },
+    {
+      "index": 14,
+      "startFrame": 585,
+      "endFrame": 630,
+      "seconds": 1.5,
+      "treatment": "waveform",
+      "title": "GIVE IT\nA VOICE.",
+      "previewFrames": [
+        590,
+        616,
+        629
+      ]
+    },
+    {
+      "index": 15,
+      "startFrame": 630,
+      "endFrame": 675,
+      "seconds": 1.5,
+      "treatment": "word-pulse",
+      "title": "WORDS\nIN SYNC.",
+      "previewFrames": [
+        635,
+        661,
+        674
+      ]
+    },
+    {
+      "index": 16,
+      "startFrame": 675,
+      "endFrame": 720,
+      "seconds": 1.5,
+      "treatment": "ribbon",
+      "title": "LET RHYTHM\nLEAD.",
+      "previewFrames": [
+        680,
+        706,
+        719
+      ]
+    },
+    {
+      "index": 17,
+      "startFrame": 720,
+      "endFrame": 765,
+      "seconds": 1.5,
+      "treatment": "frame-morph",
+      "title": "EVERY\nSCREEN.",
+      "previewFrames": [
+        725,
+        751,
+        764
+      ]
+    },
+    {
+      "index": 18,
+      "startFrame": 765,
+      "endFrame": 810,
+      "seconds": 1.5,
+      "treatment": "fragment-merge",
+      "title": "KEEP\nTHE SOURCE.",
+      "previewFrames": [
+        770,
+        796,
+        809
+      ]
+    },
+    {
+      "index": 19,
+      "startFrame": 810,
+      "endFrame": 855,
+      "seconds": 1.5,
+      "treatment": "orbit-lock",
+      "title": "ONE\nWORKFLOW.",
+      "previewFrames": [
+        815,
+        841,
+        854
+      ]
+    },
+    {
+      "index": 20,
+      "startFrame": 855,
+      "endFrame": 900,
+      "seconds": 1.5,
+      "treatment": "type-impact",
+      "title": "BRIEF.\nTO FILM.",
+      "previewFrames": [
+        860,
+        886,
+        899
+      ]
+    }
+  ],
+  "warnings": [],
+  "layouts": [
+    {
+      "preset": "vertical",
+      "width": 1080,
+      "height": 1920,
+      "safe": {
+        "x": 86.4,
+        "y": 268.8,
+        "width": 864,
+        "height": 979.2
+      },
+      "content": {
+        "x": 86.4,
+        "y": 268.8,
+        "width": 864,
+        "height": 771.6
+      },
+      "caption": {
+        "x": 86.4,
+        "y": 1064.4,
+        "width": 864,
+        "height": 183.60000000000002
+      },
+      "font": 131.17200000000003,
+      "motif": {
+        "x": 86.4,
+        "y": 577.44,
+        "width": 864,
+        "height": 462.96
+      }
+    }
+  ],
+  "limits": "Timing and layout heuristics do not establish taste, factual accuracy, caption recognition accuracy, retention, or current platform UI coverage."
+}

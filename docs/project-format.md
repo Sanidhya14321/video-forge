@@ -93,3 +93,39 @@ The output directory must not exist. A failed run is preserved for diagnosis; ch
 Provide optional asset credits as `assets: [{"path":"asset.png", "origin":"source URL or original work", "license":"license identifier or terms", "credit":"credit line"}]`. Unspecified user assets stay labeled unspecified. No ownership is inferred.
 
 A successful run retains the job, storyboard, assets and manifest, composition source and bundle, render props, JSON transcript, SRT, thumbnail, MP4 variants, `quality.json`, edit decisions where relevant, and a publishing draft. Technical checks decode the full stream but cannot establish editorial quality or caption accuracy.
+
+## Short-form reels
+
+v0.2.0 adds `workflow: "short-form-reel"` and an explicit `reel: {"bpm":160,"safeArea":"reels"}`. Existing version-1 jobs remain accepted. `theme.surface` is now `flat` by default; `ambient` opts ordinary scenes into the older radial background. Reel scenes always use flat surfaces.
+
+```json
+{
+  "version": 1,
+  "name": "reel",
+  "workflow": "short-form-reel",
+  "reel": {"bpm":160,"safeArea":"reels"},
+  "theme": {"background":"#111111","foreground":"#f4f4ef","accent":"#f4f4ef","muted":"#85857f"},
+  "scenes": [
+    {"kind":"reel","duration":1.5,"title":"ONE\nIDEA.","motion":{"preset":"fragment-merge","seed":17}},
+    {"kind":"reel","duration":1.5,"title":"IN\nMOTION.","motion":{"preset":"ribbon","invert":true}}
+  ],
+  "exports":[{"preset":"vertical"}]
+}
+```
+
+A `reel` scene requires `motion`. Its `preset` is one of `type-impact`, `fragment-merge`, `orbit-lock`, `signal-flow`, `ribbon`, `frame-morph`, `timeline-cut`, `waveform`, `code-scan`, `data-sculpt`, `word-pulse`, or `radial-burst`. `code-scan` requires `code`; `data-sculpt` requires nonnegative `values`. Word-pulse uses optional `labels`. These are actual renderer treatments; the abstract waveform is illustrative motion, not an audio spectrum measurement.
+
+Optional `motion` inputs: `seed` (0–99999 integer, default 7), `density` (3–16, default 8), `invert` (default false), `entrance` (`cut`, `push`, or `scale`; default cut). A two-line title uses a literal newline; short body copy is optional. Beat phase derives from the local frame number, FPS and BPM. Scene durations remain explicit seconds rounded to frames. At 160 BPM, four beats occupy 1.5s; twenty such scenes occupy exactly 900 frames at 30fps.
+
+The `reels` layout preset protects a conservative central content band in vertical output: 14% at the top, 35% at the bottom, 8% at the left and 12% at the right. These are project margins, not guaranteed dimensions for every current app interface. `clean` uses a larger content area for ordinary viewing. Other aspect ratios recompose inside their own bounds. Headline length, caption grouping and proof readability still require actual visual review.
+
+```bash
+node dist/cli.js review examples/reel-showcase.json
+node dist/cli.js preview examples/reel-showcase.json --out /new/storyboard-folder
+node dist/cli.js run examples/reel-showcase.json --dry-run
+node dist/cli.js run examples/reel-showcase.json --out /new/render-folder
+```
+
+`review` needs no browser or external requests. It reports exact scene-frame ranges, expected duration, treatment variety, protected bounds and advisory warnings for slow openings, repeated treatments, excessive title cards and dense code. It does not measure retention or rank creative quality. Footage duration is unknown until probed/edited and is reported as null.
+
+`preview` supports scene-based jobs. It stages only referenced local scene media and renders entry, peak and exit stills for every target at up to 540px width. It never calls cloud generation, narration or automatic transcription. Supplied inline/file word timings appear in the previews; automatic captions need a completed run. It preserves a portable renderer snapshot and `preview.json`. The output directory must be new. Full runs additionally retain `creative-review.json`.

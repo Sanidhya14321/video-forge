@@ -9,6 +9,31 @@ export declare const wordsSchema: z.ZodArray<z.ZodObject<{
     start: z.ZodNumber;
     end: z.ZodNumber;
 }, z.core.$strict>>;
+export declare const motionPresets: readonly ["type-impact", "fragment-merge", "orbit-lock", "signal-flow", "ribbon", "frame-morph", "timeline-cut", "waveform", "code-scan", "data-sculpt", "word-pulse", "radial-burst"];
+export declare const motionSchema: z.ZodObject<{
+    preset: z.ZodEnum<{
+        "type-impact": "type-impact";
+        "fragment-merge": "fragment-merge";
+        "orbit-lock": "orbit-lock";
+        "signal-flow": "signal-flow";
+        ribbon: "ribbon";
+        "frame-morph": "frame-morph";
+        "timeline-cut": "timeline-cut";
+        waveform: "waveform";
+        "code-scan": "code-scan";
+        "data-sculpt": "data-sculpt";
+        "word-pulse": "word-pulse";
+        "radial-burst": "radial-burst";
+    }>;
+    invert: z.ZodDefault<z.ZodBoolean>;
+    seed: z.ZodDefault<z.ZodNumber>;
+    density: z.ZodDefault<z.ZodNumber>;
+    entrance: z.ZodDefault<z.ZodEnum<{
+        cut: "cut";
+        push: "push";
+        scale: "scale";
+    }>>;
+}, z.core.$strict>;
 export declare const sceneSchema: z.ZodObject<{
     kind: z.ZodEnum<{
         title: "title";
@@ -17,6 +42,7 @@ export declare const sceneSchema: z.ZodObject<{
         algorithm: "algorithm";
         image: "image";
         video: "video";
+        reel: "reel";
     }>;
     duration: z.ZodNumber;
     title: z.ZodDefault<z.ZodString>;
@@ -28,6 +54,30 @@ export declare const sceneSchema: z.ZodObject<{
     labels: z.ZodOptional<z.ZodArray<z.ZodString>>;
     highlight: z.ZodOptional<z.ZodArray<z.ZodNumber>>;
     note: z.ZodOptional<z.ZodString>;
+    motion: z.ZodOptional<z.ZodObject<{
+        preset: z.ZodEnum<{
+            "type-impact": "type-impact";
+            "fragment-merge": "fragment-merge";
+            "orbit-lock": "orbit-lock";
+            "signal-flow": "signal-flow";
+            ribbon: "ribbon";
+            "frame-morph": "frame-morph";
+            "timeline-cut": "timeline-cut";
+            waveform: "waveform";
+            "code-scan": "code-scan";
+            "data-sculpt": "data-sculpt";
+            "word-pulse": "word-pulse";
+            "radial-burst": "radial-burst";
+        }>;
+        invert: z.ZodDefault<z.ZodBoolean>;
+        seed: z.ZodDefault<z.ZodNumber>;
+        density: z.ZodDefault<z.ZodNumber>;
+        entrance: z.ZodDefault<z.ZodEnum<{
+            cut: "cut";
+            push: "push";
+            scale: "scale";
+        }>>;
+    }, z.core.$strict>>;
 }, z.core.$strict>;
 export declare const projectSchema: z.ZodObject<{
     version: z.ZodLiteral<1>;
@@ -36,10 +86,15 @@ export declare const projectSchema: z.ZodObject<{
         "product-demo": "product-demo";
         "algorithm-explainer": "algorithm-explainer";
         "footage-repurpose": "footage-repurpose";
+        "short-form-reel": "short-form-reel";
     }>;
     renderer: z.ZodDefault<z.ZodLiteral<"remotion">>;
     fps: z.ZodDefault<z.ZodUnion<readonly [z.ZodLiteral<24>, z.ZodLiteral<30>, z.ZodLiteral<60>]>>;
     theme: z.ZodDefault<z.ZodObject<{
+        surface: z.ZodDefault<z.ZodEnum<{
+            flat: "flat";
+            ambient: "ambient";
+        }>>;
         background: z.ZodDefault<z.ZodString>;
         foreground: z.ZodDefault<z.ZodString>;
         accent: z.ZodDefault<z.ZodString>;
@@ -47,6 +102,13 @@ export declare const projectSchema: z.ZodObject<{
         font: z.ZodDefault<z.ZodString>;
         brand: z.ZodDefault<z.ZodString>;
         tagline: z.ZodDefault<z.ZodString>;
+    }, z.core.$strict>>;
+    reel: z.ZodOptional<z.ZodObject<{
+        bpm: z.ZodDefault<z.ZodNumber>;
+        safeArea: z.ZodDefault<z.ZodEnum<{
+            reels: "reels";
+            clean: "clean";
+        }>>;
     }, z.core.$strict>>;
     scenes: z.ZodDefault<z.ZodArray<z.ZodObject<{
         kind: z.ZodEnum<{
@@ -56,6 +118,7 @@ export declare const projectSchema: z.ZodObject<{
             algorithm: "algorithm";
             image: "image";
             video: "video";
+            reel: "reel";
         }>;
         duration: z.ZodNumber;
         title: z.ZodDefault<z.ZodString>;
@@ -67,6 +130,30 @@ export declare const projectSchema: z.ZodObject<{
         labels: z.ZodOptional<z.ZodArray<z.ZodString>>;
         highlight: z.ZodOptional<z.ZodArray<z.ZodNumber>>;
         note: z.ZodOptional<z.ZodString>;
+        motion: z.ZodOptional<z.ZodObject<{
+            preset: z.ZodEnum<{
+                "type-impact": "type-impact";
+                "fragment-merge": "fragment-merge";
+                "orbit-lock": "orbit-lock";
+                "signal-flow": "signal-flow";
+                ribbon: "ribbon";
+                "frame-morph": "frame-morph";
+                "timeline-cut": "timeline-cut";
+                waveform: "waveform";
+                "code-scan": "code-scan";
+                "data-sculpt": "data-sculpt";
+                "word-pulse": "word-pulse";
+                "radial-burst": "radial-burst";
+            }>;
+            invert: z.ZodDefault<z.ZodBoolean>;
+            seed: z.ZodDefault<z.ZodNumber>;
+            density: z.ZodDefault<z.ZodNumber>;
+            entrance: z.ZodDefault<z.ZodEnum<{
+                cut: "cut";
+                push: "push";
+                scale: "scale";
+            }>>;
+        }, z.core.$strict>>;
     }, z.core.$strict>>>;
     footage: z.ZodOptional<z.ZodObject<{
         src: z.ZodString;

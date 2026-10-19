@@ -14,3 +14,5 @@ Use source-relative transcript words when retaining the original audio; the runn
 Default to `contain` to preserve a code demo or face. `cover` is a center crop and does not track subjects. The built-in footage layout reserves space for captions but cannot guarantee face safety. Inspect the rendered crop. Editable cut decisions are retained as `edit-decisions.json`.
 
 Professional timelines, beat analysis, automatic visual take scoring, and application MCP integrations are reference guidance in this release.
+
+For fast reels, use [reel direction](../video-forge/references/reels.md). Cut on meaning or action, vary shot scale, and preserve a self-contained claim and its proof. A rapid rhythm does not justify removing a qualifier that changes the speaker’s meaning.

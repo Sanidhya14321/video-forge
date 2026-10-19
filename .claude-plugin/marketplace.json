@@ -1,0 +1,6 @@
+{
+  "name": "video-forge",
+  "description": "Video Forge production and abstract reel skills",
+  "owner": {"name": "Sanidhya14321"},
+  "plugins": [{"name":"video-forge","source":"./","description":"Editable video production and fast abstract motion reels"}]
+}

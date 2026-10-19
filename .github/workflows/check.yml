@@ -21,4 +21,7 @@ jobs:
       - run: npm run build
       - if: runner.os == 'Linux'
         run: node dist/cli.js run examples/product-demo.json --out /tmp/video-forge-demo
-      - run: npm run package
+      - if: runner.os == 'Linux'
+        run: node dist/cli.js run examples/reel-smoke.json --out /tmp/video-forge-reel-smoke
+      - run: python3 scripts/package.py --out release-assets
+      - run: python3 scripts/validate-archives.py release-assets

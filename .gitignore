@@ -11,3 +11,4 @@ runs/
 
 # Re-renderable browser bundles are generated artifacts.
 composition-bundle/
+release-assets/

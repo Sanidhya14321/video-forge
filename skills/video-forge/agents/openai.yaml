@@ -1,4 +1,4 @@
 interface:
   display_name: "Video Forge"
-  short_description: "Video Forge workflows for technical creators"
-  default_prompt: "Use $video-forge to help with my video production task."
+  short_description: "Direct editable videos and abstract motion reels"
+  default_prompt: "Use $video-forge to choose a visual direction and create an editable video from my brief."

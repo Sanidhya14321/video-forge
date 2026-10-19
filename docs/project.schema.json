@@ -15,7 +15,8 @@
       "enum": [
         "product-demo",
         "algorithm-explainer",
-        "footage-repurpose"
+        "footage-repurpose",
+        "short-form-reel"
       ]
     },
     "renderer": {
@@ -42,6 +43,7 @@
     },
     "theme": {
       "default": {
+        "surface": "flat",
         "background": "#0b1020",
         "foreground": "#f1f5f9",
         "accent": "#68e0cf",
@@ -52,6 +54,14 @@
       },
       "type": "object",
       "properties": {
+        "surface": {
+          "default": "flat",
+          "type": "string",
+          "enum": [
+            "flat",
+            "ambient"
+          ]
+        },
         "background": {
           "default": "#0b1020",
           "type": "string",
@@ -89,6 +99,7 @@
         }
       },
       "required": [
+        "surface",
         "background",
         "foreground",
         "accent",
@@ -96,6 +107,30 @@
         "font",
         "brand",
         "tagline"
+      ],
+      "additionalProperties": false
+    },
+    "reel": {
+      "type": "object",
+      "properties": {
+        "bpm": {
+          "default": 160,
+          "type": "number",
+          "minimum": 60,
+          "maximum": 200
+        },
+        "safeArea": {
+          "default": "reels",
+          "type": "string",
+          "enum": [
+            "reels",
+            "clean"
+          ]
+        }
+      },
+      "required": [
+        "bpm",
+        "safeArea"
       ],
       "additionalProperties": false
     },
@@ -114,7 +149,8 @@
               "chart",
               "algorithm",
               "image",
-              "video"
+              "video",
+              "reel"
             ]
           },
           "duration": {
@@ -171,6 +207,61 @@
           "note": {
             "type": "string",
             "maxLength": 200
+          },
+          "motion": {
+            "type": "object",
+            "properties": {
+              "preset": {
+                "type": "string",
+                "enum": [
+                  "type-impact",
+                  "fragment-merge",
+                  "orbit-lock",
+                  "signal-flow",
+                  "ribbon",
+                  "frame-morph",
+                  "timeline-cut",
+                  "waveform",
+                  "code-scan",
+                  "data-sculpt",
+                  "word-pulse",
+                  "radial-burst"
+                ]
+              },
+              "invert": {
+                "default": false,
+                "type": "boolean"
+              },
+              "seed": {
+                "default": 7,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 99999
+              },
+              "density": {
+                "default": 8,
+                "type": "integer",
+                "minimum": 3,
+                "maximum": 16
+              },
+              "entrance": {
+                "default": "cut",
+                "type": "string",
+                "enum": [
+                  "cut",
+                  "push",
+                  "scale"
+                ]
+              }
+            },
+            "required": [
+              "preset",
+              "invert",
+              "seed",
+              "density",
+              "entrance"
+            ],
+            "additionalProperties": false
           }
         },
         "required": [

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-import { doctor, runProject, loadProject, preflight } from "./runner.js";
+import { doctor, runProject, loadProject, preflight, previewProject } from "./runner.js";
 import { inspect } from "./media.js";
 import path from "node:path";
+import {reviewProject} from "./reel-review.js";
 const args = process.argv.slice(2);
 const command = args.shift();
 try {
@@ -9,6 +10,10 @@ try {
     console.log(JSON.stringify(await doctor(), null, 2));
   else if (command === "inspect" && args.length === 1)
     console.log(JSON.stringify(await inspect(path.resolve(args[0])), null, 2));
+  else if (command === "review" && args.length === 1)
+    console.log(JSON.stringify(reviewProject(await loadProject(args[0])),null,2));
+  else if (command === "preview" && args.length===3 && args[1]==="--out")
+    console.log(JSON.stringify(await previewProject(args[0],args[2]),null,2));
   else if (command === "run" && args[0]) {
     const outIndex = args.indexOf("--out");
     if (
@@ -27,7 +32,7 @@ try {
       const p = await loadProject(args[0]);
       await preflight(p, path.dirname(path.resolve(args[0])));
       console.log(
-        JSON.stringify({ valid: true, project: p.name, execution: false }),
+        JSON.stringify({ valid: true, project: p.name, execution: false, review:reviewProject(p) }),
       );
     } else
       console.log(
@@ -42,7 +47,7 @@ try {
       );
   } else {
     console.log(
-      "Video Forge\n\n  video-forge doctor\n  video-forge run <project.json> [--out <new-directory>] [--dry-run]\n  video-forge inspect <video>",
+      "Video Forge\n\n  video-forge doctor\n  video-forge run <project.json> [--out <new-directory>] [--dry-run]\n  video-forge inspect <video>\n  video-forge review <project.json>\n  video-forge preview <project.json> --out <new-directory>",
     );
     if (command) process.exitCode = 1;
   }

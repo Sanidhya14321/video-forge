@@ -12,3 +12,5 @@ Use the optional faster-whisper environment for `transcribe: true`. Its timestam
 The renderer groups short phrases and highlights active words; the runner preserves `transcript.json` and SRT. Check punctuation, line length, contrast, interface safe areas, and placement against the subject. Font coverage must be tested for the chosen language.
 
 Translation is an agent-authored reference workflow. Keep the original timing unless meaning requires revised segmentation and alignment. Bilingual styling and ASS sidecars are not built-in outputs in v0.1. Read the reference for available approaches and engine limitations.
+
+For reels, use the protected content band described in [reel direction](../video-forge/references/reels.md). Keep phrase grouping readable across cuts; words can emphasize actual speech, while arbitrary beat timing must not replace measured word timestamps.

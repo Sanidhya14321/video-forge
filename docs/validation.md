@@ -1,3 +1,21 @@
+# Validation — v0.2.0
+
+The current release adds native reel execution, creative direction, timing/layout review, and preview stills. See [reel evaluation](reel-evaluation.md) for the distinction between executed checks and subjective or unmeasured claims.
+
+- Source and actual TSX type-checking; 24 automated tests, including real FFmpeg operations and mocked cloud transports.
+- A 30-second, 900-frame, 1080×1920 native reel with 20 shots, twelve motion families, original 160 BPM audio and 64 measured caption words. [Media measurements](reel-validation.json) distinguish exact video duration from AAC container padding.
+- Sixty entry/peak/exit preview stills. Exported phone-size frames reviewed for readable copy, crop framing, caption placement and visual density; a label/body overlap and cross-sentence subtitle grouping were corrected before the final release render.
+- A completed renderer snapshot was independently re-bundled and rendered from its saved files.
+- Claude validates the plugin and marketplace and discovers all eight skills at 0.2.0. Codex lists the 0.2.0 local marketplace entry with one-process configuration overrides; no personal install/settings were changed. [Codex evidence](codex-discovery-v02.json).
+- All four host archives pass CRC, path/dependency exclusion, packaged manifest/link/resource, and 100-entry source-register checks.
+- The director is 805 cl100k_base tokens; director + conditional reel direction + motion entrypoint total 2,521. [Static measurements](reel-context-measurements.json). This is not a live model-token or engagement benchmark.
+
+Linux local validation is recorded here. GitHub Actions runs separate Linux/macOS checks and a treatment smoke render on Linux; remote outcomes are visible in the repository's Actions tab. Optional live cloud execution, a controlled agent A/B study, human listening panel and Instagram audience performance remain unverified.
+
+---
+
+## Archived v0.1.0 baseline
+
 # Validation — 19 October 2026
 
 ## Implemented release

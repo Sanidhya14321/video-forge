@@ -7,6 +7,7 @@ import {
   selectComposition,
   renderMedia,
   renderStill,
+  openBrowser,
 } from "@remotion/renderer";
 import {
   projectSchema,
@@ -31,6 +32,7 @@ import {
   normalizeVoice,
 } from "./media.js";
 import { Budget, speechOpenAI, falGenerate } from "./providers.js";
+import {reviewProject} from "./reel-review.js";
 export const root = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   "..",
@@ -172,6 +174,54 @@ export async function preflight(project: Project, base: string) {
       throw new Error("Transcription requires footage with an audio stream");
   }
 }
+export async function snapshotRenderer(out: string) {
+  for (const [source, dest] of [["renderer/Root.tsx","composition.tsx"],["renderer/Reel.tsx","Reel.tsx"]]) {
+    const text=(await readFile(path.join(root,source),"utf8")).replaceAll("../src/","./");
+    await writeFile(path.join(out,dest),text);
+  }
+  await copyFile(path.join(root,"src/schema.ts"),path.join(out,"schema.ts"));
+  await copyFile(path.join(root,"src/reel-layout.ts"),path.join(out,"reel-layout.ts"));
+}
+
+/** Render storyboard stills without executing narration, edits or cloud jobs. */
+export async function previewProject(file: string, output: string) {
+  const base=path.dirname(path.resolve(file)),project=await loadProject(file);
+  if(project.footage)throw new Error("Storyboard preview supports scene jobs; render footage edits with run");
+  const refs=project.scenes.flatMap(scene=>scene.src?[scene.src]:[]);
+  if(refs.some(ref=>ref.startsWith("generated:")||/^https?:/i.test(ref)))
+    throw new Error("Preview requires local media; it never executes cloud generation");
+  for(const ref of refs)await readable(path.resolve(base,ref));
+  const words=project.captions?.transcript?wordsSchema.parse(await readWords(path.resolve(base,project.captions.transcript))):(project.captions?.words??[]);
+  const out=path.resolve(output);await mkdir(path.dirname(out),{recursive:true});await mkdir(out);
+  const assetsDir=path.join(out,"assets");await mkdir(assetsDir);
+  const ready=structuredClone(project);
+  for(const scene of ready.scenes)if(scene.src){
+    const bytes=await readFile(path.resolve(base,scene.src));
+    const name=createHash("sha256").update(bytes).digest("hex").slice(0,16)+path.extname(scene.src).toLowerCase();
+    await writeFile(path.join(assetsDir,name),bytes);scene.src=name;
+  }
+  const review=reviewProject(project);
+  const props:RenderProps={project:ready,words,durationFrames:Math.round((review.durationSeconds??0)*project.fps)};
+  await snapshotRenderer(out);
+  await writeFile(path.join(out,"render-props.json"),JSON.stringify(props,null,2));
+  const serveUrl=await bundle({entryPoint:path.join(root,"renderer/Root.tsx"),publicDir:assetsDir,outDir:path.join(out,"composition-bundle")});
+  const browser=await openBrowser("chrome",{chromiumOptions:{gl:"swangle"}});
+  const frames=[];
+  try {
+    for(const target of project.exports){
+      const [width,height]=target.width?[target.width,target.height!]:dimensions[target.preset];
+      const composition={...(await selectComposition({serveUrl,id:"VideoForge",inputProps:props,puppeteerInstance:browser})),width,height};
+      for(const shot of review.timeline)for(const [i,frame] of shot.previewFrames.entries()){
+        const name=`${target.preset}-${String(shot.index).padStart(2,"0")}-${["entry","peak","exit"][i]}.png`;
+        await renderStill({serveUrl,composition,inputProps:props,frame,scale:Math.min(1,540/width),output:path.join(out,name),puppeteerInstance:browser});
+        frames.push({file:name,frame,shot:shot.index,phase:["entry","peak","exit"][i]});
+      }
+    }
+  } finally { await browser.close({silent:true}); }
+  await writeFile(path.join(out,"preview.json"),JSON.stringify({review,frames,audio:false,cloudExecuted:false,automaticTranscriptionExecuted:false},null,2));
+  return {output:out,stills:frames.length,warnings:review.warnings};
+}
+
 export async function runProject(file: string, output?: string) {
   const filePath = path.resolve(file),
     base = path.dirname(filePath),
@@ -432,17 +482,8 @@ export async function runProject(file: string, output?: string) {
     path.join(out, "render-props.json"),
     JSON.stringify(props, null, 2),
   );
-  await writeFile(
-    path.join(out, "composition.tsx"),
-    (await readFile(path.join(root, "renderer", "Root.tsx"), "utf8")).replace(
-      "../src/schema",
-      "./schema",
-    ),
-  );
-  await copyFile(
-    path.join(root, "src", "schema.ts"),
-    path.join(out, "schema.ts"),
-  );
+  await snapshotRenderer(out);
+  await writeFile(path.join(out,"creative-review.json"),JSON.stringify(reviewProject(project),null,2));
   await writeFile(
     path.join(out, "asset-manifest.json"),
     JSON.stringify(manifest, null, 2),
@@ -468,6 +509,7 @@ export async function runProject(file: string, output?: string) {
       height,
     };
     const dest = path.join(out, `${target.preset}.mp4`);
+    let lastProgress=-1;
     await renderMedia({
       serveUrl,
       composition,
@@ -481,6 +523,10 @@ export async function runProject(file: string, output?: string) {
       offthreadVideoThreads: 2,
       chromiumOptions: { gl: "swangle" },
       overwrite: false,
+      onProgress: ({progress}) => {
+        const percent=Math.floor(progress*10)*10;
+        if(percent!==lastProgress){lastProgress=percent;process.stderr.write(`${target.preset}: ${percent}%\n`);}
+      },
     });
     const check = await inspect(dest);
     if (Math.abs(check.duration - duration) > Math.max(0.12, 2 / project.fps))

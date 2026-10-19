@@ -17,9 +17,21 @@ export const wordsSchema = z.array(wordSchema).superRefine((words, ctx) => {
                 path: [i],
             });
 });
+export const motionPresets = [
+    "type-impact", "fragment-merge", "orbit-lock", "signal-flow",
+    "ribbon", "frame-morph", "timeline-cut", "waveform",
+    "code-scan", "data-sculpt", "word-pulse", "radial-burst",
+];
+export const motionSchema = z.object({
+    preset: z.enum(motionPresets),
+    invert: z.boolean().default(false),
+    seed: z.number().int().min(0).max(99999).default(7),
+    density: z.number().int().min(3).max(16).default(8),
+    entrance: z.enum(["cut", "push", "scale"]).default("cut"),
+}).strict();
 export const sceneSchema = z
     .object({
-    kind: z.enum(["title", "code", "chart", "algorithm", "image", "video"]),
+    kind: z.enum(["title", "code", "chart", "algorithm", "image", "video", "reel"]),
     duration: z.number().min(0.2).max(600),
     title: z.string().max(100).default(""),
     eyebrow: z.string().max(80).optional(),
@@ -34,9 +46,18 @@ export const sceneSchema = z
     labels: z.array(z.string().max(20)).max(12).optional(),
     highlight: z.array(z.number().int().nonnegative()).optional(),
     note: z.string().max(200).optional(),
+    motion: motionSchema.optional(),
 })
     .strict()
     .superRefine((s, ctx) => {
+    if (s.kind === "reel" && !s.motion)
+        ctx.addIssue({ code: "custom", message: "Reel scene requires motion" });
+    if (s.kind !== "reel" && s.motion)
+        ctx.addIssue({ code: "custom", message: "motion belongs to reel scenes" });
+    if (s.motion?.preset === "code-scan" && !s.code)
+        ctx.addIssue({ code: "custom", message: "code-scan requires code" });
+    if (s.motion?.preset === "data-sculpt" && !s.values)
+        ctx.addIssue({ code: "custom", message: "data-sculpt requires values" });
     if (["image", "video"].includes(s.kind) && !s.src)
         ctx.addIssue({ code: "custom", message: `${s.kind} scene requires src` });
     if (["chart", "algorithm"].includes(s.kind) && !s.values)
@@ -69,11 +90,13 @@ export const projectSchema = z
         "product-demo",
         "algorithm-explainer",
         "footage-repurpose",
+        "short-form-reel",
     ]),
     renderer: z.literal("remotion").default("remotion"),
     fps: z.union([z.literal(24), z.literal(30), z.literal(60)]).default(30),
     theme: z
         .object({
+        surface: z.enum(["flat", "ambient"]).default("flat"),
         background: safeColor.default("#0b1020"),
         foreground: safeColor.default("#f1f5f9"),
         accent: safeColor.default("#68e0cf"),
@@ -84,6 +107,7 @@ export const projectSchema = z
     })
         .strict()
         .default({
+        surface: "flat",
         background: "#0b1020",
         foreground: "#f1f5f9",
         accent: "#68e0cf",
@@ -92,6 +116,10 @@ export const projectSchema = z
         brand: "",
         tagline: "",
     }),
+    reel: z.object({
+        bpm: z.number().min(60).max(200).default(160),
+        safeArea: z.enum(["reels", "clean"]).default("reels"),
+    }).strict().optional(),
     scenes: z.array(sceneSchema).max(100).default([]),
     footage: z
         .object({
@@ -199,6 +227,10 @@ export const projectSchema = z
 })
     .strict()
     .superRefine((p, ctx) => {
+    if (p.workflow === "short-form-reel" && !p.reel)
+        ctx.addIssue({ code: "custom", message: "short-form-reel requires reel pacing settings" });
+    if (p.scenes.some(s => s.kind === "reel") && !p.reel)
+        ctx.addIssue({ code: "custom", message: "Reel scenes require reel settings" });
     if (p.workflow === "footage-repurpose" && !p.footage)
         ctx.addIssue({
             code: "custom",

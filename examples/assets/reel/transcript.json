@@ -1,0 +1,326 @@
+{
+  "version": 1,
+  "timing": "ASR; scripted spelling/punctuation; constrained to synthesis windows",
+  "words": [
+    {
+      "text": "Stop",
+      "start": 0.035,
+      "end": 0.24
+    },
+    {
+      "text": "making",
+      "start": 0.24,
+      "end": 0.54
+    },
+    {
+      "text": "slides.",
+      "start": 0.54,
+      "end": 0.92
+    },
+    {
+      "text": "Make",
+      "start": 1.58,
+      "end": 1.68
+    },
+    {
+      "text": "motion.",
+      "start": 1.68,
+      "end": 2.06
+    },
+    {
+      "text": "Meet",
+      "start": 3.035,
+      "end": 3.2
+    },
+    {
+      "text": "Video",
+      "start": 3.2,
+      "end": 3.5
+    },
+    {
+      "text": "Forge.",
+      "start": 3.5,
+      "end": 3.8
+    },
+    {
+      "text": "Start",
+      "start": 4.535,
+      "end": 4.72
+    },
+    {
+      "text": "with",
+      "start": 4.72,
+      "end": 4.88
+    },
+    {
+      "text": "one",
+      "start": 4.88,
+      "end": 5.06
+    },
+    {
+      "text": "brief.",
+      "start": 5.06,
+      "end": 5.36
+    },
+    {
+      "text": "Use",
+      "start": 6.06,
+      "end": 6.22
+    },
+    {
+      "text": "Claude.",
+      "start": 6.22,
+      "end": 6.66
+    },
+    {
+      "text": "Or",
+      "start": 7.535,
+      "end": 7.62
+    },
+    {
+      "text": "Codex.",
+      "start": 7.62,
+      "end": 8.14
+    },
+    {
+      "text": "Describe",
+      "start": 9.035,
+      "end": 9.36
+    },
+    {
+      "text": "your",
+      "start": 9.36,
+      "end": 9.58
+    },
+    {
+      "text": "idea.",
+      "start": 9.58,
+      "end": 9.84
+    },
+    {
+      "text": "Plan",
+      "start": 10.54,
+      "end": 10.72
+    },
+    {
+      "text": "the",
+      "start": 10.72,
+      "end": 10.86
+    },
+    {
+      "text": "story.",
+      "start": 10.86,
+      "end": 11.14
+    },
+    {
+      "text": "Build",
+      "start": 12.035,
+      "end": 12.2
+    },
+    {
+      "text": "the",
+      "start": 12.2,
+      "end": 12.34
+    },
+    {
+      "text": "motion.",
+      "start": 12.34,
+      "end": 12.68
+    },
+    {
+      "text": "Bring",
+      "start": 13.54,
+      "end": 13.66
+    },
+    {
+      "text": "code",
+      "start": 13.66,
+      "end": 13.94
+    },
+    {
+      "text": "to",
+      "start": 13.94,
+      "end": 14.12
+    },
+    {
+      "text": "life.",
+      "start": 14.12,
+      "end": 14.34
+    },
+    {
+      "text": "Make",
+      "start": 15.06,
+      "end": 15.18
+    },
+    {
+      "text": "data",
+      "start": 15.18,
+      "end": 15.46
+    },
+    {
+      "text": "move.",
+      "start": 15.46,
+      "end": 15.76
+    },
+    {
+      "text": "Cut",
+      "start": 16.56,
+      "end": 16.66
+    },
+    {
+      "text": "the",
+      "start": 16.66,
+      "end": 16.78
+    },
+    {
+      "text": "pauses.",
+      "start": 16.78,
+      "end": 17.2
+    },
+    {
+      "text": "Find",
+      "start": 18.035,
+      "end": 18.22
+    },
+    {
+      "text": "the",
+      "start": 18.22,
+      "end": 18.36
+    },
+    {
+      "text": "right",
+      "start": 18.36,
+      "end": 18.5
+    },
+    {
+      "text": "frame.",
+      "start": 18.5,
+      "end": 18.84
+    },
+    {
+      "text": "Give",
+      "start": 19.535,
+      "end": 19.62
+    },
+    {
+      "text": "it",
+      "start": 19.62,
+      "end": 19.74
+    },
+    {
+      "text": "a",
+      "start": 19.74,
+      "end": 19.8
+    },
+    {
+      "text": "voice.",
+      "start": 19.8,
+      "end": 20.1
+    },
+    {
+      "text": "Put",
+      "start": 21.035,
+      "end": 21.14
+    },
+    {
+      "text": "words",
+      "start": 21.14,
+      "end": 21.34
+    },
+    {
+      "text": "in",
+      "start": 21.34,
+      "end": 21.54
+    },
+    {
+      "text": "sync.",
+      "start": 21.54,
+      "end": 21.86
+    },
+    {
+      "text": "Let",
+      "start": 22.54,
+      "end": 22.62
+    },
+    {
+      "text": "the",
+      "start": 22.62,
+      "end": 22.72
+    },
+    {
+      "text": "rhythm",
+      "start": 22.72,
+      "end": 22.9
+    },
+    {
+      "text": "lead.",
+      "start": 22.9,
+      "end": 23.18
+    },
+    {
+      "text": "Fit",
+      "start": 24.06,
+      "end": 24.16
+    },
+    {
+      "text": "every",
+      "start": 24.16,
+      "end": 24.48
+    },
+    {
+      "text": "screen.",
+      "start": 24.48,
+      "end": 24.8
+    },
+    {
+      "text": "Keep",
+      "start": 25.54,
+      "end": 25.68
+    },
+    {
+      "text": "every",
+      "start": 25.68,
+      "end": 25.98
+    },
+    {
+      "text": "source.",
+      "start": 25.98,
+      "end": 26.24
+    },
+    {
+      "text": "One",
+      "start": 27.035,
+      "end": 27.18
+    },
+    {
+      "text": "connected",
+      "start": 27.18,
+      "end": 27.66
+    },
+    {
+      "text": "workflow.",
+      "start": 27.66,
+      "end": 28.12
+    },
+    {
+      "text": "From",
+      "start": 28.535,
+      "end": 28.66
+    },
+    {
+      "text": "brief",
+      "start": 28.66,
+      "end": 28.9
+    },
+    {
+      "text": "to",
+      "start": 28.9,
+      "end": 29.1
+    },
+    {
+      "text": "film.",
+      "start": 29.1,
+      "end": 29.4
+    }
+  ]
+}

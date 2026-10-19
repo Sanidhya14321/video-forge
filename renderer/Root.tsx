@@ -14,6 +14,8 @@ import {
   staticFile,
 } from "remotion";
 import type { RenderProps, Scene, Word } from "../src/schema";
+import {ReelScene} from "./Reel";
+import {reelLayout,captionGroup} from "../src/reel-layout";
 const sample: any = {
   project: {
     fps: 30,
@@ -203,9 +205,11 @@ function Captions({
   words,
   maxWords,
   theme,
+  reel,
 }: {
   words: Word[];
   maxWords: number;
+  reel?: RenderProps["project"]["reel"];
   theme: RenderProps["project"]["theme"];
 }) {
   const f = useCurrentFrame(),
@@ -213,26 +217,15 @@ function Captions({
     t = f / fps;
   const index = words.findIndex((w) => t >= w.start && t < w.end);
   if (index < 0) return null;
-  // Keep each phrase short enough for a phone; break early on long technical terms.
-  let start = 0,
-    end = 0;
-  while (end <= index) {
-    start = end;
-    let chars = 0;
-    while (end < words.length && end - start < maxWords) {
-      const next = words[end].text.length + 1;
-      if (end > start && chars + next > 34) break;
-      chars += next;
-      end++;
-    }
-  }
+  const {start,end}=captionGroup(words,index,maxWords);
   return (
     <div
       style={{
         position: "absolute",
         left: "8%",
         right: "8%",
-        bottom: height * 0.14,
+        bottom: reel ? height-reelLayout(width,height,reel.safeArea).caption.y-reelLayout(width,height,reel.safeArea).caption.height : height * 0.14,
+        ...(reel ? {left:reelLayout(width,height,reel.safeArea).caption.x, right:width-reelLayout(width,height,reel.safeArea).caption.x-reelLayout(width,height,reel.safeArea).caption.width} : {}),
         display: "flex",
         justifyContent: "center",
       }}
@@ -244,11 +237,11 @@ function Captions({
           flexWrap: "wrap",
           justifyContent: "center",
           gap: "0 .27em",
-          background: "#070c17ed",
+          background: reel ? "#111111" : "#070c17ed",
           border: `1px solid ${theme.accent}44`,
           borderRadius: width * 0.016,
           padding: `${height * 0.012}px ${width * 0.025}px`,
-          fontSize: width * (height > width ? 0.05 : 0.032),
+          fontSize: reel ? Math.min(width*.039,height*.035) : width * (height > width ? 0.05 : 0.032),
           lineHeight: 1.4,
           fontWeight: 700,
           textAlign: "center",
@@ -258,7 +251,9 @@ function Captions({
           <span
             key={start + i}
             style={{
-              color: start + i === index ? theme.accent : theme.foreground,
+              color: reel ? (start+i===index?"#f4f4ef":"#b0b0a8") : start + i === index ? theme.accent : theme.foreground,
+              textDecoration: reel && start+i===index ? "underline" : undefined,
+              textUnderlineOffset: 7,
               maxWidth: "100%",
               overflowWrap: "anywhere",
             }}
@@ -289,12 +284,12 @@ export const Film: React.FC<RenderProps> = ({
         fontFamily: project.theme.font,
       }}
     >
-      <AbsoluteFill
+      {project.theme.surface === "ambient" && !project.reel && <AbsoluteFill
         style={{
           background: `radial-gradient(ellipse at 90% 15%, ${project.theme.accent}18, transparent 60%)`,
         }}
-      />
-      <div
+      />}
+      {!project.reel && <div
         style={{
           position: "absolute",
           left: 0,
@@ -305,7 +300,7 @@ export const Film: React.FC<RenderProps> = ({
           transformOrigin: "left",
           transform: `scaleX(${f / Math.max(1, durationInFrames - 1)})`,
         }}
-      />
+      />}
       {footage ? (
         <AbsoluteFill
           style={{
@@ -329,7 +324,7 @@ export const Film: React.FC<RenderProps> = ({
           cursor += duration;
           return (
             <Sequence key={i} from={from} durationInFrames={duration}>
-              <Panel scene={scene} theme={project.theme} />
+              {scene.kind === "reel" ? <ReelScene scene={scene} project={project}/> : <Panel scene={scene} theme={project.theme} />}
             </Sequence>
           );
         })
@@ -346,8 +341,9 @@ export const Film: React.FC<RenderProps> = ({
         words={words}
         maxWords={project.captions?.maxWords ?? 5}
         theme={project.theme}
+        reel={project.reel}
       />
-      {project.theme.brand && (
+      {project.theme.brand && !project.reel && (
         <div
           style={{
             position: "absolute",

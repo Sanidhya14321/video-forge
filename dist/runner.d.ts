@@ -4,10 +4,11 @@ export declare const python: string;
 export declare function loadProject(file: string): Promise<{
     version: 1;
     name: string;
-    workflow: "product-demo" | "algorithm-explainer" | "footage-repurpose";
+    workflow: "product-demo" | "algorithm-explainer" | "footage-repurpose" | "short-form-reel";
     renderer: "remotion";
     fps: 24 | 30 | 60;
     theme: {
+        surface: "flat" | "ambient";
         background: string;
         foreground: string;
         accent: string;
@@ -17,7 +18,7 @@ export declare function loadProject(file: string): Promise<{
         tagline: string;
     };
     scenes: {
-        kind: "title" | "code" | "chart" | "algorithm" | "image" | "video";
+        kind: "title" | "code" | "chart" | "algorithm" | "image" | "video" | "reel";
         duration: number;
         title: string;
         eyebrow?: string | undefined;
@@ -28,6 +29,13 @@ export declare function loadProject(file: string): Promise<{
         labels?: string[] | undefined;
         highlight?: number[] | undefined;
         note?: string | undefined;
+        motion?: {
+            preset: "type-impact" | "fragment-merge" | "orbit-lock" | "signal-flow" | "ribbon" | "frame-morph" | "timeline-cut" | "waveform" | "code-scan" | "data-sculpt" | "word-pulse" | "radial-burst";
+            invert: boolean;
+            seed: number;
+            density: number;
+            entrance: "cut" | "push" | "scale";
+        } | undefined;
     }[];
     narration: {
         provider: "file" | "none" | "kokoro" | "openai";
@@ -56,6 +64,10 @@ export declare function loadProject(file: string): Promise<{
         license: string;
         credit?: string | undefined;
     }[];
+    reel?: {
+        bpm: number;
+        safeArea: "reels" | "clean";
+    } | undefined;
     footage?: {
         src: string;
         removeSilence: boolean;
@@ -91,6 +103,17 @@ export declare function loadProject(file: string): Promise<{
 }>;
 export declare function doctor(): Promise<Record<string, unknown>>;
 export declare function preflight(project: Project, base: string): Promise<void>;
+export declare function snapshotRenderer(out: string): Promise<void>;
+/** Render storyboard stills without executing narration, edits or cloud jobs. */
+export declare function previewProject(file: string, output: string): Promise<{
+    output: string;
+    stills: number;
+    warnings: {
+        code: string;
+        scene?: number;
+        message: string;
+    }[];
+}>;
 export declare function runProject(file: string, output?: string): Promise<{
     output: string;
     checks: {

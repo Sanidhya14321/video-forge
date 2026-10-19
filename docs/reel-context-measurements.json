@@ -1,0 +1,8 @@
+{
+  "method": "cl100k_base static instruction token counts; not a live agent benchmark",
+  "files": {
+    "skills/video-forge/SKILL.md": 805,
+    "skills/video-forge/references/reels.md": 1356,
+    "skills/video-motion/SKILL.md": 360
+  }
+}
