@@ -1,0 +1,354 @@
+{
+  "version": 1,
+  "editorialHeuristics": true,
+  "engagementPrediction": false,
+  "reel": true,
+  "durationSeconds": 30,
+  "shots": 22,
+  "averageShotSeconds": 1.3636363636363635,
+  "uniqueTreatments": 12,
+  "timeline": [
+    {
+      "index": 1,
+      "startFrame": 0,
+      "endFrame": 34,
+      "seconds": 1.1333333333333333,
+      "treatment": "type-impact",
+      "style": "pop",
+      "title": "IDEA?",
+      "previewFrames": [
+        5,
+        24,
+        33
+      ]
+    },
+    {
+      "index": 2,
+      "startFrame": 34,
+      "endFrame": 68,
+      "seconds": 1.1333333333333333,
+      "treatment": "ribbon",
+      "style": "pop",
+      "title": "LET’S\nGO.",
+      "previewFrames": [
+        39,
+        58,
+        67
+      ]
+    },
+    {
+      "index": 3,
+      "startFrame": 68,
+      "endFrame": 101,
+      "seconds": 1.1,
+      "treatment": "fragment-merge",
+      "style": "pop",
+      "title": "VIDEO\nFORGE",
+      "previewFrames": [
+        73,
+        91,
+        100
+      ]
+    },
+    {
+      "index": 4,
+      "startFrame": 101,
+      "endFrame": 146,
+      "seconds": 1.5,
+      "treatment": "signal-flow",
+      "style": "pop",
+      "title": "BRIEF\nGOES IN.",
+      "previewFrames": [
+        106,
+        132,
+        145
+      ]
+    },
+    {
+      "index": 5,
+      "startFrame": 146,
+      "endFrame": 191,
+      "seconds": 1.5,
+      "treatment": "orbit-lock",
+      "style": "pop",
+      "title": "CLAUDE\nCONNECTED.",
+      "previewFrames": [
+        151,
+        177,
+        190
+      ]
+    },
+    {
+      "index": 6,
+      "startFrame": 191,
+      "endFrame": 236,
+      "seconds": 1.5,
+      "treatment": "orbit-lock",
+      "style": "pop",
+      "title": "CODEX\nREADY.",
+      "previewFrames": [
+        196,
+        222,
+        235
+      ]
+    },
+    {
+      "index": 7,
+      "startFrame": 236,
+      "endFrame": 270,
+      "seconds": 1.1333333333333333,
+      "treatment": "type-impact",
+      "style": "pop",
+      "title": "ONE\nPROMPT.",
+      "previewFrames": [
+        241,
+        260,
+        269
+      ]
+    },
+    {
+      "index": 8,
+      "startFrame": 270,
+      "endFrame": 315,
+      "seconds": 1.5,
+      "treatment": "signal-flow",
+      "style": "pop",
+      "title": "STORY\nUNLOCKED.",
+      "previewFrames": [
+        275,
+        301,
+        314
+      ]
+    },
+    {
+      "index": 9,
+      "startFrame": 315,
+      "endFrame": 360,
+      "seconds": 1.5,
+      "treatment": "fragment-merge",
+      "style": "pop",
+      "title": "SCENES\nASSEMBLE.",
+      "previewFrames": [
+        320,
+        346,
+        359
+      ]
+    },
+    {
+      "index": 10,
+      "startFrame": 360,
+      "endFrame": 405,
+      "seconds": 1.5,
+      "treatment": "code-scan",
+      "style": "pop",
+      "title": "CODE\nDANCES.",
+      "previewFrames": [
+        365,
+        391,
+        404
+      ]
+    },
+    {
+      "index": 11,
+      "startFrame": 405,
+      "endFrame": 439,
+      "seconds": 1.1333333333333333,
+      "treatment": "data-sculpt",
+      "style": "pop",
+      "title": "DATA\nPOPS.",
+      "previewFrames": [
+        410,
+        429,
+        438
+      ]
+    },
+    {
+      "index": 12,
+      "startFrame": 439,
+      "endFrame": 484,
+      "seconds": 1.5,
+      "treatment": "timeline-cut",
+      "style": "pop",
+      "title": "CUT\nTHE BORING.",
+      "previewFrames": [
+        444,
+        470,
+        483
+      ]
+    },
+    {
+      "index": 13,
+      "startFrame": 484,
+      "endFrame": 518,
+      "seconds": 1.1333333333333333,
+      "treatment": "frame-morph",
+      "style": "pop",
+      "title": "ZOOM.\nREFRAME.",
+      "previewFrames": [
+        489,
+        508,
+        517
+      ]
+    },
+    {
+      "index": 14,
+      "startFrame": 518,
+      "endFrame": 562,
+      "seconds": 1.4666666666666666,
+      "treatment": "waveform",
+      "style": "pop",
+      "title": "FIND\nYOUR VOICE.",
+      "previewFrames": [
+        523,
+        549,
+        561
+      ]
+    },
+    {
+      "index": 15,
+      "startFrame": 562,
+      "endFrame": 608,
+      "seconds": 1.5333333333333334,
+      "treatment": "ribbon",
+      "style": "pop",
+      "title": "FEEL\nTHE BEAT.",
+      "previewFrames": [
+        567,
+        594,
+        607
+      ]
+    },
+    {
+      "index": 16,
+      "startFrame": 608,
+      "endFrame": 652,
+      "seconds": 1.4666666666666666,
+      "treatment": "word-pulse",
+      "style": "pop",
+      "title": "WORDS\nKEEP UP.",
+      "previewFrames": [
+        613,
+        639,
+        651
+      ]
+    },
+    {
+      "index": 17,
+      "startFrame": 652,
+      "endFrame": 698,
+      "seconds": 1.5333333333333334,
+      "treatment": "frame-morph",
+      "style": "pop",
+      "title": "EVERY\nFORMAT.",
+      "previewFrames": [
+        657,
+        684,
+        697
+      ]
+    },
+    {
+      "index": 18,
+      "startFrame": 698,
+      "endFrame": 731,
+      "seconds": 1.1,
+      "treatment": "fragment-merge",
+      "style": "pop",
+      "title": "ALL\nEDITABLE.",
+      "previewFrames": [
+        703,
+        721,
+        730
+      ]
+    },
+    {
+      "index": 19,
+      "startFrame": 731,
+      "endFrame": 776,
+      "seconds": 1.5,
+      "treatment": "radial-burst",
+      "style": "pop",
+      "title": "MORE\nPOSSIBLE.",
+      "previewFrames": [
+        736,
+        762,
+        775
+      ]
+    },
+    {
+      "index": 20,
+      "startFrame": 776,
+      "endFrame": 810,
+      "seconds": 1.1333333333333333,
+      "treatment": "orbit-lock",
+      "style": "pop",
+      "title": "ONE\nTOOLKIT.",
+      "previewFrames": [
+        781,
+        800,
+        809
+      ]
+    },
+    {
+      "index": 21,
+      "startFrame": 810,
+      "endFrame": 844,
+      "seconds": 1.1333333333333333,
+      "treatment": "radial-burst",
+      "style": "pop",
+      "title": "ZERO\nSAME-OLD.",
+      "previewFrames": [
+        815,
+        834,
+        843
+      ]
+    },
+    {
+      "index": 22,
+      "startFrame": 844,
+      "endFrame": 900,
+      "seconds": 1.8666666666666667,
+      "treatment": "type-impact",
+      "style": "pop",
+      "title": "MAKE\nSOMETHING.",
+      "previewFrames": [
+        849,
+        883,
+        899
+      ]
+    }
+  ],
+  "warnings": [],
+  "layouts": [
+    {
+      "preset": "vertical",
+      "width": 1080,
+      "height": 1920,
+      "safe": {
+        "x": 86.4,
+        "y": 268.8,
+        "width": 864,
+        "height": 979.2
+      },
+      "content": {
+        "x": 86.4,
+        "y": 268.8,
+        "width": 864,
+        "height": 771.6
+      },
+      "caption": {
+        "x": 86.4,
+        "y": 1064.4,
+        "width": 864,
+        "height": 183.60000000000002
+      },
+      "font": 131.17200000000003,
+      "motif": {
+        "x": 86.4,
+        "y": 577.44,
+        "width": 864,
+        "height": 462.96
+      }
+    }
+  ],
+  "limits": "Timing and layout heuristics do not establish taste, factual accuracy, caption recognition accuracy, retention, or current platform UI coverage."
+}

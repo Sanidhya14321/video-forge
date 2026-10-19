@@ -14,6 +14,7 @@ export declare function reviewProject(project: Project): {
         endFrame: number;
         seconds: number;
         treatment: "type-impact" | "fragment-merge" | "orbit-lock" | "signal-flow" | "ribbon" | "frame-morph" | "timeline-cut" | "waveform" | "code-scan" | "data-sculpt" | "word-pulse" | "radial-burst" | "title" | "code" | "chart" | "algorithm" | "image" | "video" | "reel";
+        style: string;
         title: string;
         previewFrames: number[];
     }[];

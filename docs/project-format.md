@@ -129,3 +129,13 @@ node dist/cli.js run examples/reel-showcase.json --out /new/render-folder
 `review` needs no browser or external requests. It reports exact scene-frame ranges, expected duration, treatment variety, protected bounds and advisory warnings for slow openings, repeated treatments, excessive title cards and dense code. It does not measure retention or rank creative quality. Footage duration is unknown until probed/edited and is reported as null.
 
 `preview` supports scene-based jobs. It stages only referenced local scene media and renders entry, peak and exit stills for every target at up to 540px width. It never calls cloud generation, narration or automatic transcription. Supplied inline/file word timings appear in the previews; automatic captions need a completed run. It preserves a portable renderer snapshot and `preview.json`. The output directory must be new. Full runs additionally retain `creative-review.json`.
+
+### Pop motion (v0.3.0)
+
+`motion.style` selects `minimal` (default, backward compatible) or `pop`. Pop is a separate flat-color illustration/choreography treatment of all twelve presets. `motion.palette` accepts 3–8 six-digit hex colors: background first, then accent colors. Omission uses the theme plus built-in pop accents. `motion.energy` accepts 1–3 (default 2), controlling impact amplitude and seeded confetti count together with density. `invert` uses cream as the background in pop; supplied accents remain intact. `reel.captionStyle` accepts `standard` (default) or `pop`.
+
+```json
+{"kind":"reel","duration":1.5,"title":"MAKE\nIT MOVE.","motion":{"preset":"ribbon","style":"pop","palette":["#5046ef","#ff8c32","#e5ff3d","#ff558e"],"energy":3,"density":12,"seed":91}}
+```
+
+The pop waveform/boombox is illustrative, not an audio analysis. Score and sound effects in the showcase are synthesized locally and are not automatic effects added by the scene renderer. For fractional beat durations, round cumulative beat boundaries to frames and subtract adjacent boundaries before converting to seconds. `examples/pop-showcase.json` demonstrates this at 160 BPM with 22 scenes and exactly 900 frames.

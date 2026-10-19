@@ -175,7 +175,7 @@ export async function preflight(project: Project, base: string) {
   }
 }
 export async function snapshotRenderer(out: string) {
-  for (const [source, dest] of [["renderer/Root.tsx","composition.tsx"],["renderer/Reel.tsx","Reel.tsx"]]) {
+  for (const [source, dest] of [["renderer/Root.tsx","composition.tsx"],["renderer/Reel.tsx","Reel.tsx"],["renderer/PopReel.tsx","PopReel.tsx"]]) {
     const text=(await readFile(path.join(root,source),"utf8")).replaceAll("../src/","./");
     await writeFile(path.join(out,dest),text);
   }

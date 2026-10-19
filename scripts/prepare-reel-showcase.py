@@ -3,9 +3,9 @@ import argparse,json,pathlib
 import numpy as np
 import soundfile as sf
 from kokoro import KPipeline
-parser=argparse.ArgumentParser();parser.add_argument('--out',required=True);args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--out',required=True);parser.add_argument('--project',default='examples/reel-showcase.json');parser.add_argument('--script',default='examples/assets/reel-narration-script.json');parser.add_argument('--style',choices=['minimal','pop'],default='minimal');args=parser.parse_args()
 root=pathlib.Path(__file__).resolve().parents[1];out=pathlib.Path(args.out)
-project=json.loads((root/'examples/reel-showcase.json').read_text());lines=json.loads((root/'examples/assets/reel-narration-script.json').read_text())
+project=json.loads((root/args.project).read_text());lines=json.loads((root/args.script).read_text())
 assert len(lines)==len(project['scenes'])
 sr=24000;total=sum(s['duration'] for s in project['scenes']);voice=np.zeros(round(sr*total),np.float32)
 pipe=KPipeline(lang_code='a');cursor=0;timing=[]
@@ -41,3 +41,33 @@ for b in range(round(total/beat)):
   t=np.arange(round(sr*.13))/sr;add(at,np.sin(2*np.pi*(700*t-1400*t*t))*np.exp(-t*35)*.065)
 t=np.arange(len(audio))/sr;audio*=np.minimum(1,t/.08)*np.minimum(1,(total-t)/.35)
 sf.write(out/'score.wav',audio,sr)
+if args.style=='pop':
+ # Original stereo arcade groove. No samples, external music or paid services.
+ audio=np.zeros((round(total*sr),2));rng=np.random.default_rng(93);cues=[]
+ def stereo(at,samples,gain=1,pan=0):
+  start=round(at*sr);n=min(len(samples),len(audio)-start)
+  if start>=0 and n>0:audio[start:start+n]+=samples[:n,None]*gain*np.array([np.sqrt((1-pan)/2),np.sqrt((1+pan)/2)])
+ def tone(freq,dur=.2):
+  t=np.arange(round(sr*dur))/sr
+  return (np.sin(2*np.pi*freq*t)+.24*np.sin(6*np.pi*freq*t))*(1-np.exp(-t*300))*np.exp(-t*16)
+ for b in range(round(total/beat)):
+  at=b*beat;t=np.arange(round(sr*.22))/sr
+  stereo(at,np.sin(2*np.pi*(48*t+3.2*(1-np.exp(-t*35))))*np.exp(-t*23),.48)
+  if b%2:stereo(at,rng.normal(size=len(t))*np.exp(-t*45),.12)
+  for off in [0,.5]:
+   t=np.arange(round(sr*.04))/sr;stereo(at+off*beat,np.diff(rng.normal(size=len(t)),prepend=0)*np.exp(-t*140),.025,(-1 if off else 1)*.55)
+  bass=[130.81,130.81,155.56,174.61,103.83,103.83,116.54,155.56][b%8];stereo(at,tone(bass,.26),.23)
+  for j in range(2):stereo(at+j*beat/2,tone([523.25,622.25,783.99,1046.5,698.46,783.99,622.25,466.16][(b*2+j)%8],.16),.07,(-1 if j else 1)*.45)
+ cursor=0
+ for i,s in enumerate(project['scenes']):
+  t=np.arange(round(sr*.24))/sr
+  if i%3==0:
+   effect=np.sin(2*np.pi*(220*t+190*(1-np.exp(-t*14))))*np.exp(-t*18);name='spring-zap'
+  elif i%3==1:
+   effect=rng.normal(size=len(t))*np.sin(np.pi*np.minimum(t/.2,1))**2*np.exp(-t*12);name='paper-swish'
+  else:
+   effect=tone(1046.5,.24)+tone(1567.98,.24)*.5;name='arcade-ding'
+  stereo(cursor,effect,.14,(-1 if i%2 else 1)*.55);cues.append({'scene':i+1,'at':round(cursor,6),'effect':name});cursor+=s['duration']
+ t=np.arange(len(audio))/sr;audio*= (np.minimum(1,t/.04)*np.minimum(1,(total-t)/.25))[:,None]
+ sf.write(out/'score.wav',audio,sr)
+ (out/'sound-cues.json').write_text(json.dumps({'bpm':bpm,'original':True,'cues':cues},indent=2)+'\n')

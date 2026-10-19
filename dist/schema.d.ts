@@ -11,6 +11,12 @@ export declare const wordsSchema: z.ZodArray<z.ZodObject<{
 }, z.core.$strict>>;
 export declare const motionPresets: readonly ["type-impact", "fragment-merge", "orbit-lock", "signal-flow", "ribbon", "frame-morph", "timeline-cut", "waveform", "code-scan", "data-sculpt", "word-pulse", "radial-burst"];
 export declare const motionSchema: z.ZodObject<{
+    style: z.ZodDefault<z.ZodEnum<{
+        minimal: "minimal";
+        pop: "pop";
+    }>>;
+    palette: z.ZodOptional<z.ZodArray<z.ZodString>>;
+    energy: z.ZodDefault<z.ZodNumber>;
     preset: z.ZodEnum<{
         "type-impact": "type-impact";
         "fragment-merge": "fragment-merge";
@@ -55,6 +61,12 @@ export declare const sceneSchema: z.ZodObject<{
     highlight: z.ZodOptional<z.ZodArray<z.ZodNumber>>;
     note: z.ZodOptional<z.ZodString>;
     motion: z.ZodOptional<z.ZodObject<{
+        style: z.ZodDefault<z.ZodEnum<{
+            minimal: "minimal";
+            pop: "pop";
+        }>>;
+        palette: z.ZodOptional<z.ZodArray<z.ZodString>>;
+        energy: z.ZodDefault<z.ZodNumber>;
         preset: z.ZodEnum<{
             "type-impact": "type-impact";
             "fragment-merge": "fragment-merge";
@@ -105,6 +117,10 @@ export declare const projectSchema: z.ZodObject<{
     }, z.core.$strict>>;
     reel: z.ZodOptional<z.ZodObject<{
         bpm: z.ZodDefault<z.ZodNumber>;
+        captionStyle: z.ZodDefault<z.ZodEnum<{
+            pop: "pop";
+            standard: "standard";
+        }>>;
         safeArea: z.ZodDefault<z.ZodEnum<{
             reels: "reels";
             clean: "clean";
@@ -131,6 +147,12 @@ export declare const projectSchema: z.ZodObject<{
         highlight: z.ZodOptional<z.ZodArray<z.ZodNumber>>;
         note: z.ZodOptional<z.ZodString>;
         motion: z.ZodOptional<z.ZodObject<{
+            style: z.ZodDefault<z.ZodEnum<{
+                minimal: "minimal";
+                pop: "pop";
+            }>>;
+            palette: z.ZodOptional<z.ZodArray<z.ZodString>>;
+            energy: z.ZodDefault<z.ZodNumber>;
             preset: z.ZodEnum<{
                 "type-impact": "type-impact";
                 "fragment-merge": "fragment-merge";

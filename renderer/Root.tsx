@@ -15,6 +15,7 @@ import {
 } from "remotion";
 import type { RenderProps, Scene, Word } from "../src/schema";
 import {ReelScene} from "./Reel";
+import {PopReelScene} from "./PopReel";
 import {reelLayout,captionGroup} from "../src/reel-layout";
 const sample: any = {
   project: {
@@ -238,7 +239,7 @@ function Captions({
           justifyContent: "center",
           gap: "0 .27em",
           background: reel ? "#111111" : "#070c17ed",
-          border: `1px solid ${theme.accent}44`,
+          border: reel?.captionStyle === "pop" ? "3px solid #fff7e5" : `1px solid ${theme.accent}44`,
           borderRadius: width * 0.016,
           padding: `${height * 0.012}px ${width * 0.025}px`,
           fontSize: reel ? Math.min(width*.039,height*.035) : width * (height > width ? 0.05 : 0.032),
@@ -251,7 +252,7 @@ function Captions({
           <span
             key={start + i}
             style={{
-              color: reel ? (start+i===index?"#f4f4ef":"#b0b0a8") : start + i === index ? theme.accent : theme.foreground,
+              color: reel ? (start+i===index?(reel.captionStyle === "pop"?"#e5ff3d":"#f4f4ef"):"#b0b0a8") : start + i === index ? theme.accent : theme.foreground,
               textDecoration: reel && start+i===index ? "underline" : undefined,
               textUnderlineOffset: 7,
               maxWidth: "100%",
@@ -324,7 +325,7 @@ export const Film: React.FC<RenderProps> = ({
           cursor += duration;
           return (
             <Sequence key={i} from={from} durationInFrames={duration}>
-              {scene.kind === "reel" ? <ReelScene scene={scene} project={project}/> : <Panel scene={scene} theme={project.theme} />}
+              {scene.kind === "reel" ? (scene.motion?.style === "pop" ? <PopReelScene scene={scene} project={project}/> : <ReelScene scene={scene} project={project}/>) : <Panel scene={scene} theme={project.theme} />}
             </Sequence>
           );
         })

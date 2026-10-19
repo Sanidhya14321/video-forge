@@ -72,7 +72,7 @@ test('preview refuses cloud assets before creating an output directory',async()=
 });
 test('renderer snapshot includes portable motion and layout dependencies',async()=>{
  const dir=await mkdtemp(path.join(os.tmpdir(),'vf-snapshot-'));
- try{await snapshotRenderer(dir);for(const name of ['composition.tsx','Reel.tsx','schema.ts','reel-layout.ts'])await access(path.join(dir,name));}
+ try{await snapshotRenderer(dir);for(const name of ['composition.tsx','Reel.tsx','PopReel.tsx','schema.ts','reel-layout.ts'])await access(path.join(dir,name));}
  finally{await rm(dir,{recursive:true,force:true});}
 });
 
@@ -87,4 +87,19 @@ test('subtitle grouping respects character and word limits without stalling on l
  assert.deepEqual(captionGroup(words,1,2),{start:1,end:3});
  assert.deepEqual(captionGroup(words,3,2),{start:3,end:4});
  assert.deepEqual(captionGroup(words,-1,2),{start:0,end:0});
+});
+
+
+test('pop treatment is explicit and backwards compatible with minimal jobs',()=>{
+ const old=projectSchema.parse(base);assert.equal(old.scenes[0].motion?.style,'minimal');assert.equal(old.reel?.captionStyle,'standard');
+ const pop=projectSchema.parse({...base,reel:{...base.reel,captionStyle:'pop'},scenes:[{...base.scenes[0],motion:{preset:'fragment-merge',style:'pop',palette:['#5046ef','#ff8c32','#e5ff3d'],energy:3}}]});
+ assert.equal(pop.scenes[0].motion?.style,'pop');assert.equal(pop.reel?.captionStyle,'pop');
+ for(const motion of [{palette:['#fff','#000','#abc']},{palette:['#111111','#222222']},{energy:4},{style:'unknown'}])assert.throws(()=>projectSchema.parse({...base,scenes:[{...base.scenes[0],motion:{preset:'fragment-merge',...motion}}]}));
+});
+test('creative arcade example rounds cumulative beat boundaries to exactly 900 frames',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const p=projectSchema.parse(JSON.parse(await readFile(new URL('../examples/pop-showcase.json',import.meta.url),'utf8'))),report=reviewProject(p);
+ assert.equal(report.timeline.length,22);assert.equal(report.timeline.at(-1)?.endFrame,900);assert.equal(report.durationSeconds,30);
+ assert.equal(new Set(p.scenes.map(s=>s.motion?.preset)).size,12);
+ assert.ok(p.scenes.every(s=>s.motion?.style==='pop'));assert.ok(new Set(p.scenes.map(s=>s.duration)).size>1);
 });

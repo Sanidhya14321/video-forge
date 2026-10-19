@@ -23,6 +23,9 @@ export const motionPresets = [
   "code-scan", "data-sculpt", "word-pulse", "radial-burst",
 ] as const;
 export const motionSchema = z.object({
+  style: z.enum(["minimal", "pop"]).default("minimal"),
+  palette: z.array(safeColor).min(3).max(8).optional(),
+  energy: z.number().min(1).max(3).default(2),
   preset: z.enum(motionPresets),
   invert: z.boolean().default(false),
   seed: z.number().int().min(0).max(99999).default(7),
@@ -118,6 +121,7 @@ export const projectSchema = z
       }),
     reel: z.object({
       bpm: z.number().min(60).max(200).default(160),
+      captionStyle: z.enum(["standard", "pop"]).default("standard"),
       safeArea: z.enum(["reels", "clean"]).default("reels"),
     }).strict().optional(),
     scenes: z.array(sceneSchema).max(100).default([]),

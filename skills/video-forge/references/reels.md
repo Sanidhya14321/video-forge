@@ -56,3 +56,11 @@ Keep short caption phrases near the protected content band, not at the bottom of
 Review the hook at frame zero, transition neighborhoods, dense proof frames, sound-off comprehension and the loop seam. Describe whether visual review is sampled or full playback. Retention, saves, completion and A/B performance remain unmeasured until actually observed; do not claim a reel is viral or optimized for an algorithm because it contains many cuts.
 
 Sources checked for platform essentials and packaging: [Meta Reels creative guidance](https://www.facebook.com/business/ads/facebook-instagram-reels-ads), [OpenAI skill testing](https://developers.openai.com/plugins/build/skills). The motion library and timing recommendations above are original design guidance, not copied platform claims.
+
+## Color-pop / creative arcade
+
+For a playful maximalist brief, use `motion.style: "pop"` rather than recoloring the minimal treatment. Pop changes the objects, typography, staging and behavior: a play-button character, hinged clapperboard, gear lock, candy-road skateboard, crop window, scissors, boombox, code cartridge, dimensional bars and comic word stamps. All twelve presets have this separate choreography. Match each object to its narrative role.
+
+Set a 3–8 color `motion.palette` (first color is the background, remaining colors are accents) and `energy` from 1–3. Pop defaults to flat solid colors, thick outlines, offset shadows, halftone/checker patterns, squash/stretch, short camera impacts and seeded confetti. `reel.captionStyle: "pop"` adds an outlined caption badge and lime active words. Keep caption/evidence zones clear and review dense entry frames; more effects should not hide the message. Avoid repeated rapid full-screen color flashing.
+
+Use `examples/pop-showcase.json` as a complete reference, including varied beat lengths, local generated speech, measured ASR word timing, original stereo score and scene-aligned synthesized effects. Rebuild optional audio with `npx tsx scripts/prepare-reel-showcase.ts /new/audio-directory --pop`, then point the job at those files. Compare the rendered result with the minimal example at the same phone display size. This is a creative range demonstration, not a controlled engagement experiment.

@@ -24,6 +24,8 @@ jobs:
       - run: npm run build
       - name: Render all native reel treatments
         run: node dist/cli.js run examples/reel-smoke.json --out "$RUNNER_TEMP/reel-smoke"
+      - name: Render all pop treatments
+        run: node dist/cli.js run examples/pop-smoke.json --out "$RUNNER_TEMP/pop-smoke"
       - run: python3 scripts/package.py --out release-assets
       - run: python3 scripts/validate-archives.py release-assets
       - name: Prepare demonstration assets
@@ -31,6 +33,10 @@ jobs:
           VF_VERSION="$(node -p "require('./package.json').version")"
           cp demos/reel-showcase/vertical.mp4 "release-assets/video-forge-reel-${VF_VERSION}.mp4"
           cp demos/reel-showcase/thumbnail.png "release-assets/video-forge-reel-${VF_VERSION}.png"
+          cp demos/pop-showcase/vertical.mp4 "release-assets/video-forge-color-pop-${VF_VERSION}.mp4"
+          cp demos/pop-showcase/thumbnail.png "release-assets/video-forge-color-pop-${VF_VERSION}.png"
+          cp demos/style-comparison/comparison.mp4 "release-assets/video-forge-style-comparison-${VF_VERSION}.mp4"
+          python3 scripts/package-comparison.py --out release-assets
           sha256sum release-assets/*.zip release-assets/*.mp4 release-assets/*.png > release-assets/SHA256SUMS.txt
       - name: Publish GitHub release
         env:

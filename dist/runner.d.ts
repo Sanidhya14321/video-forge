@@ -30,11 +30,14 @@ export declare function loadProject(file: string): Promise<{
         highlight?: number[] | undefined;
         note?: string | undefined;
         motion?: {
+            style: "minimal" | "pop";
+            energy: number;
             preset: "type-impact" | "fragment-merge" | "orbit-lock" | "signal-flow" | "ribbon" | "frame-morph" | "timeline-cut" | "waveform" | "code-scan" | "data-sculpt" | "word-pulse" | "radial-burst";
             invert: boolean;
             seed: number;
             density: number;
             entrance: "cut" | "push" | "scale";
+            palette?: string[] | undefined;
         } | undefined;
     }[];
     narration: {
@@ -66,6 +69,7 @@ export declare function loadProject(file: string): Promise<{
     }[];
     reel?: {
         bpm: number;
+        captionStyle: "pop" | "standard";
         safeArea: "reels" | "clean";
     } | undefined;
     footage?: {

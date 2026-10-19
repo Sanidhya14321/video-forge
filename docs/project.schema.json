@@ -119,6 +119,14 @@
           "minimum": 60,
           "maximum": 200
         },
+        "captionStyle": {
+          "default": "standard",
+          "type": "string",
+          "enum": [
+            "standard",
+            "pop"
+          ]
+        },
         "safeArea": {
           "default": "reels",
           "type": "string",
@@ -130,6 +138,7 @@
       },
       "required": [
         "bpm",
+        "captionStyle",
         "safeArea"
       ],
       "additionalProperties": false
@@ -211,6 +220,29 @@
           "motion": {
             "type": "object",
             "properties": {
+              "style": {
+                "default": "minimal",
+                "type": "string",
+                "enum": [
+                  "minimal",
+                  "pop"
+                ]
+              },
+              "palette": {
+                "minItems": 3,
+                "maxItems": 8,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^#[0-9a-fA-F]{6}$"
+                }
+              },
+              "energy": {
+                "default": 2,
+                "type": "number",
+                "minimum": 1,
+                "maximum": 3
+              },
               "preset": {
                 "type": "string",
                 "enum": [
@@ -255,6 +287,8 @@
               }
             },
             "required": [
+              "style",
+              "energy",
               "preset",
               "invert",
               "seed",

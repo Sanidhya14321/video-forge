@@ -1,0 +1,14 @@
+[
+  {
+    "path": "assets/a18195f9633da344.wav",
+    "sha256": "a18195f9633da344cb463c72195dde2825255456cba2072ad2b614441160dd84",
+    "origin": "Local Kokoro af_heart AI narration, original authored script",
+    "license": "Synthetic model output; Kokoro model terms apply separately"
+  },
+  {
+    "path": "assets/63ecbfacc8e0ee0c.wav",
+    "sha256": "63ecbfacc8e0ee0c384ba44d515526f26e0052e9edc84a220d20f1b9c8b450a4",
+    "origin": "Original sample-free stereo arcade score and beat/scene-aligned synthesized sound effects",
+    "license": "MIT"
+  }
+]

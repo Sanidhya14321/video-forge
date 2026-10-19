@@ -1,0 +1,315 @@
+{
+  "version": 1,
+  "name": "pop-smoke",
+  "workflow": "short-form-reel",
+  "fps": 30,
+  "reel": {
+    "bpm": 160,
+    "safeArea": "reels"
+  },
+  "theme": {
+    "surface": "flat",
+    "background": "#111111",
+    "foreground": "#f4f4ef",
+    "accent": "#f4f4ef",
+    "muted": "#85857f",
+    "font": "Arial, Helvetica, sans-serif"
+  },
+  "scenes": [
+    {
+      "kind": "reel",
+      "duration": 0.4,
+      "title": "STOP\nSLIDES.",
+      "motion": {
+        "preset": "type-impact",
+        "invert": false,
+        "seed": 7,
+        "density": 8,
+        "entrance": "cut",
+        "style": "pop",
+        "energy": 3,
+        "palette": [
+          "#5046ef",
+          "#ff8c32",
+          "#e5ff3d",
+          "#ff558e",
+          "#fff7e5"
+        ]
+      },
+      "note": "Stop making slides."
+    },
+    {
+      "kind": "reel",
+      "duration": 0.4,
+      "title": "MAKE\nMOTION.",
+      "motion": {
+        "preset": "ribbon",
+        "invert": false,
+        "seed": 8,
+        "density": 8,
+        "entrance": "cut",
+        "style": "pop",
+        "energy": 3,
+        "palette": [
+          "#ff8c32",
+          "#5046ef",
+          "#e5ff3d",
+          "#ff558e",
+          "#fff7e5"
+        ]
+      },
+      "note": "Make motion."
+    },
+    {
+      "kind": "reel",
+      "duration": 0.4,
+      "title": "VIDEO\nFORGE",
+      "motion": {
+        "preset": "fragment-merge",
+        "invert": true,
+        "seed": 17,
+        "density": 8,
+        "entrance": "cut",
+        "style": "pop",
+        "energy": 3,
+        "palette": [
+          "#ff558e",
+          "#5046ef",
+          "#e5ff3d",
+          "#ff8c32",
+          "#fff7e5"
+        ]
+      },
+      "note": "Meet Video Forge."
+    },
+    {
+      "kind": "reel",
+      "duration": 0.4,
+      "title": "ONE\nBRIEF.",
+      "motion": {
+        "preset": "signal-flow",
+        "invert": false,
+        "seed": 10,
+        "density": 8,
+        "entrance": "cut",
+        "style": "pop",
+        "energy": 3,
+        "palette": [
+          "#e5ff3d",
+          "#5046ef",
+          "#ff8c32",
+          "#ff558e",
+          "#fff7e5"
+        ]
+      },
+      "note": "Start with one brief."
+    },
+    {
+      "kind": "reel",
+      "duration": 0.4,
+      "title": "CLAUDE.",
+      "motion": {
+        "preset": "orbit-lock",
+        "invert": false,
+        "seed": 17,
+        "density": 8,
+        "entrance": "cut",
+        "style": "pop",
+        "energy": 3,
+        "palette": [
+          "#27ccb1",
+          "#5046ef",
+          "#e5ff3d",
+          "#ff558e",
+          "#fff7e5"
+        ]
+      },
+      "note": "Use Claude.",
+      "body": "/video-forge:video-forge"
+    },
+    {
+      "kind": "reel",
+      "duration": 0.4,
+      "title": "BUILD\nTHE MOTION.",
+      "motion": {
+        "preset": "radial-burst",
+        "invert": false,
+        "seed": 15,
+        "density": 8,
+        "entrance": "cut",
+        "style": "pop",
+        "energy": 3,
+        "palette": [
+          "#5046ef",
+          "#ff8c32",
+          "#e5ff3d",
+          "#ff558e",
+          "#fff7e5"
+        ]
+      },
+      "note": "Build the motion."
+    },
+    {
+      "kind": "reel",
+      "duration": 0.4,
+      "title": "CODE\nCOMES ALIVE.",
+      "motion": {
+        "preset": "code-scan",
+        "invert": true,
+        "seed": 16,
+        "density": 8,
+        "entrance": "cut",
+        "style": "pop",
+        "energy": 3,
+        "palette": [
+          "#ff8c32",
+          "#5046ef",
+          "#e5ff3d",
+          "#ff558e",
+          "#fff7e5"
+        ]
+      },
+      "note": "Bring code to life.",
+      "body": "FRAME-DRIVEN. EDITABLE.",
+      "code": "const f = useCurrentFrame();\nconst x = f * 4;"
+    },
+    {
+      "kind": "reel",
+      "duration": 0.4,
+      "title": "MAKE\nDATA MOVE.",
+      "motion": {
+        "preset": "data-sculpt",
+        "invert": false,
+        "seed": 17,
+        "density": 8,
+        "entrance": "cut",
+        "style": "pop",
+        "energy": 3,
+        "palette": [
+          "#ff558e",
+          "#5046ef",
+          "#e5ff3d",
+          "#ff8c32",
+          "#fff7e5"
+        ]
+      },
+      "note": "Make data move.",
+      "body": "SUPPLIED EXAMPLE DATA",
+      "values": [
+        3,
+        8,
+        5,
+        11
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "highlight": [
+        3
+      ]
+    },
+    {
+      "kind": "reel",
+      "duration": 0.4,
+      "title": "CUT\nTHE PAUSE.",
+      "motion": {
+        "preset": "timeline-cut",
+        "invert": false,
+        "seed": 18,
+        "density": 8,
+        "entrance": "push",
+        "style": "pop",
+        "energy": 3,
+        "palette": [
+          "#e5ff3d",
+          "#5046ef",
+          "#ff8c32",
+          "#ff558e",
+          "#fff7e5"
+        ]
+      },
+      "note": "Cut the pauses."
+    },
+    {
+      "kind": "reel",
+      "duration": 0.4,
+      "title": "FIND\nTHE FRAME.",
+      "motion": {
+        "preset": "frame-morph",
+        "invert": true,
+        "seed": 19,
+        "density": 8,
+        "entrance": "cut",
+        "style": "pop",
+        "energy": 3,
+        "palette": [
+          "#27ccb1",
+          "#5046ef",
+          "#e5ff3d",
+          "#ff558e",
+          "#fff7e5"
+        ]
+      },
+      "note": "Find the right frame."
+    },
+    {
+      "kind": "reel",
+      "duration": 0.4,
+      "title": "GIVE IT\nA VOICE.",
+      "motion": {
+        "preset": "waveform",
+        "invert": false,
+        "seed": 20,
+        "density": 8,
+        "entrance": "cut",
+        "style": "pop",
+        "energy": 3,
+        "palette": [
+          "#5046ef",
+          "#ff8c32",
+          "#e5ff3d",
+          "#ff558e",
+          "#fff7e5"
+        ]
+      },
+      "note": "Give it a voice."
+    },
+    {
+      "kind": "reel",
+      "duration": 0.4,
+      "title": "WORDS\nIN SYNC.",
+      "motion": {
+        "preset": "word-pulse",
+        "invert": true,
+        "seed": 21,
+        "density": 8,
+        "entrance": "cut",
+        "style": "pop",
+        "energy": 3,
+        "palette": [
+          "#ff8c32",
+          "#5046ef",
+          "#e5ff3d",
+          "#ff558e",
+          "#fff7e5"
+        ]
+      },
+      "note": "Put words in sync.",
+      "labels": [
+        "VOICE",
+        "MUSIC",
+        "WORDS"
+      ]
+    }
+  ],
+  "exports": [
+    {
+      "preset": "vertical",
+      "width": 360,
+      "height": 640
+    }
+  ]
+}

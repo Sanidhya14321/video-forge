@@ -1,3 +1,20 @@
+# Validation — v0.3.0
+
+The color-pop release adds a separate native illustration and animation treatment to all twelve reel presets. Existing projects default to the minimal style.
+
+- 26 automated tests, runtime TypeScript and actual renderer TSX checking; eight skill packages and all 100 source records validate.
+- The complete 22-shot native production is exactly 900 video frames / 30 seconds at 1080×1920, H.264/AAC. Full-stream decoding passes; 70 measured word timings fit the video. Final mix measures -16.21 LUFS and -3.70 dBTP. The AAC container is 30.016 seconds.
+- All twelve pop presets render and decode in a local smoke job. The full showcase uses all twelve as well.
+- 66 preview frames reviewed across every shot; a word-stamp/headline overlap was corrected before final render. Final encoded hook, captions and outro were sampled. Visual QA is sampled, not a claim of a complete human playback/listening panel.
+- Claude strict plugin/marketplace validation passes and discovers eight skills at 0.3.0. Codex discovers the available 0.3.0 local marketplace plugin using process-only overrides. No personal plugin configuration changed.
+- [Measured evidence](pop-validation.json), [production and skill-use record](../demos/pop-showcase/PRODUCTION.md), and [comparison](../demos/style-comparison/index.html).
+
+GitHub Actions separately validates Linux/macOS and renders both complete preset vocabularies on Linux before publishing archives. Live cloud execution and audience performance remain unmeasured.
+
+---
+
+## Archived v0.2.0 baseline
+
 # Validation — v0.2.0
 
 The current release adds native reel execution, creative direction, timing/layout review, and preview stills. See [reel evaluation](reel-evaluation.md) for the distinction between executed checks and subjective or unmeasured claims.

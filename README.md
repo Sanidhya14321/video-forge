@@ -2,7 +2,7 @@
 
 An agent-directed video toolkit for technical creators. One portable skill collection consolidates the techniques in a 100-entry video-skills report into focused workflows, with an executable Remotion/FFmpeg core.
 
-**v0.2.0:** fast abstract reels, kinetic typography, product demos, array-based algorithm explainers, and captioned footage repurposing. The agent prepares the story and edit decisions; the CLI renders the explicit job. No account or paid API is needed for the local examples.
+**v0.3.0:** flat-color creative arcade and minimal motion treatments, fast abstract reels, kinetic typography, product demos, array-based algorithm explainers, and captioned footage repurposing. The agent prepares the story and edit decisions; the CLI renders the explicit job. No account or paid API is needed for the local examples.
 
 ## Install in Claude or Codex
 
@@ -15,7 +15,23 @@ In Codex, install Video Forge from that source in the Plugins Directory after re
 
 [![Video Forge reel demo](demos/reel-showcase/thumbnail.png)](https://github.com/Sanidhya14321/video-forge/releases/download/v0.2.0/video-forge-reel-0.2.0.mp4)
 
-[Watch the new reel demo](https://github.com/Sanidhya14321/video-forge/releases/download/v0.2.0/video-forge-reel-0.2.0.mp4)
+[Watch the minimal reel demo](https://github.com/Sanidhya14321/video-forge/releases/download/v0.2.0/video-forge-reel-0.2.0.mp4)
+
+## Same toolkit, contrasting styles
+
+[![Creative Arcade — color-pop reel](demos/pop-showcase/thumbnail.png)](https://github.com/Sanidhya14321/video-forge/releases/download/v0.3.0/video-forge-color-pop-0.3.0.mp4)
+
+[Watch color-pop](https://github.com/Sanidhya14321/video-forge/releases/download/v0.3.0/video-forge-color-pop-0.3.0.mp4) · [Watch side by side](https://github.com/Sanidhya14321/video-forge/releases/download/v0.3.0/video-forge-style-comparison-0.3.0.mp4)
+
+Creative Arcade is a new 30-second, 22-shot film with original flat vector characters, chunky comic typography, clapperboard assembly, gear locks, skateboarding, scissors, pumping boomboxes, particles, scene-aligned sound effects, stereo music and measured captions. No gradients or paid generation are used. The 12 native presets now each support a separate `pop` choreography alongside the original `minimal` style. This is a creative range demonstration; script, music and shot timing differ, so it is not a controlled performance experiment.
+
+```bash
+node dist/cli.js review examples/pop-showcase.json
+node dist/cli.js preview examples/pop-showcase.json --out /tmp/video-forge-pop-preview
+node dist/cli.js run examples/pop-showcase.json --out /tmp/video-forge-pop
+```
+
+The examples include prepared speech/music assets; optional Python models are needed only to regenerate them. [Production and skill-use record](demos/pop-showcase/PRODUCTION.md).
 
 ## Fast reel preview
 
@@ -80,6 +96,6 @@ npm run package
 
 The examples command creates `demos/` and requires the local Python models. Move or remove an earlier generated `demos/` before rerunning; output directories are never overwritten. Releases contain the runtime source, compiled CLI, lockfiles, instructions, references, and examples, excluding installed dependencies and model caches. `npm run package` writes Claude, Codex, standalone, and source archives beside this directory.
 
-The renderer source is in `renderer/Root.tsx` and `renderer/Reel.tsx`. Edit a project copy for custom components. A completed run retains `composition.tsx`, render props, schema types, and a browser composition bundle as an editable/re-renderable snapshot. Detailed instructions are in [the development guide](docs/development.md).
+The renderer source is in `renderer/Root.tsx`, `renderer/Reel.tsx` and `renderer/PopReel.tsx`. Edit a project copy for custom components. A completed run retains `composition.tsx`, render props, schema types, and a browser composition bundle as an editable/re-renderable snapshot. Detailed instructions are in [the development guide](docs/development.md).
 
 The included production tools do not install themselves into personal agent settings or publish social posts. Repository releases distribute the toolkit; publishing a video remains a separate action.

@@ -5,7 +5,7 @@ export function reviewProject(project: Project) {
   const timeline=project.scenes.map((scene,index)=>{
     const start=frame;frame+=Math.round(scene.duration*project.fps);
     return {index:index+1,startFrame:start,endFrame:frame,seconds:(frame-start)/project.fps,
-      treatment:scene.motion?.preset??scene.kind,title:scene.title,
+      treatment:scene.motion?.preset??scene.kind,style:scene.motion?.style??"standard",title:scene.title,
       previewFrames:[Math.min(frame-1,start+Math.max(1,Math.round(project.fps*.18))),Math.min(frame-1,start+Math.round((frame-start)*.70)),frame-1]};
   });
   const warnings:{code:string;scene?:number;message:string}[]=[];
