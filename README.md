@@ -29,7 +29,7 @@ Both are 30 seconds, with original synthesized music, local AI voice and measure
 ### Codex
 
 ```bash
-codex plugin marketplace add Sanidhya14321/video-forge --ref v0.5.0
+codex plugin marketplace add Sanidhya14321/video-forge --ref v0.5.1
 codex plugin add video-forge@video-forge-local
 ```
 

@@ -13,7 +13,7 @@ function Pointer({x,y,local,clickAt,color}:{x:number;y:number;local:number;click
  </svg>;
 }
 function OverlayShot({o,project}:{o:Overlay;project:Project}){
- const f=useCurrentFrame(),{fps,width,height}=useVideoConfig(),t=overlayTiming(f,fps,o.start,o.end);
+ const f=useCurrentFrame(),{fps,width,height,durationInFrames}=useVideoConfig(),t=overlayTiming(f,fps,o.start,o.end,o.end>=durationInFrames/fps);
  if(!t.visible)return null;
  const accent=project.theme.accent,layout=reelLayout(width,height,project.reel?.safeArea),safe=layout.safe,content=layout.content;
  const full=o.layout==='full',light=o.kind==='browser'||o.kind==='brand',scale=width/1080;

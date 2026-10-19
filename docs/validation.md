@@ -1,6 +1,6 @@
-# Validation — v0.5.0
+# Validation — v0.5.1
 
-This release adds six native production overlay kinds: brand, call, browser, steps, CTA and label. Existing jobs keep their defaults. Thirty-three tests pass, including real FFmpeg operations, frame-derived overlay timing, fitted screenshot/pointer geometry and strict asset/time contracts. Runtime TypeScript and the actual renderer TSX both type-check. All nine shared skills and 100 source records validate.
+The final-frame regression now asserts that an outro remains solid through its last visible frame. The v0.5 family adds six native production overlay kinds: brand, call, browser, steps, CTA and label. Existing jobs keep their defaults. Thirty-three tests pass, including real FFmpeg operations, frame-derived overlay timing, fitted screenshot/pointer geometry and strict asset/time contracts. Runtime TypeScript and the actual renderer TSX both type-check. All nine shared skills and 100 source records validate.
 
 A six-second synthetic fixture renders and decodes all six overlay kinds. Prepared-footage previews sample entry, peak and exit for each overlay. Screenshot crops and pointer landings require visual review: structural checks do not establish readability, correct claims, face tracking or live product interaction. A screenshot pointer is an attention cue, not proof of a backend action.
 

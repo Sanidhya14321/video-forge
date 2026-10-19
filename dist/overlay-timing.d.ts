@@ -1,5 +1,5 @@
 /** Frame-derived overlays; pointer coordinates share the screenshot's actual fitted geometry. */
-export declare function overlayTiming(frame: number, fps: number, start: number, end: number): {
+export declare function overlayTiming(frame: number, fps: number, start: number, end: number, holdEnd?: boolean): {
     visible: boolean;
     local: number;
     duration: number;

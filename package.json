@@ -1,6 +1,6 @@
 {
   "name": "@video-forge/toolkit",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Agent-directed video production, abstract motion reels and editable Remotion/FFmpeg workflows",
   "type": "module",
   "license": "MIT",

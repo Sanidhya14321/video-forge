@@ -3,6 +3,8 @@ import {overlayTiming,screenshotRect} from '../src/overlay-timing.js';
 import {projectSchema,overlaySchema} from '../src/schema.js';
 test('overlay timing is frame-derived, end-exclusive and stable under out-of-order rendering',()=>{
  assert.equal(overlayTiming(29,30,1,2).visible,false);assert.equal(overlayTiming(30,30,1,2).visible,true);assert.equal(overlayTiming(60,30,1,2).visible,false);
+ assert.equal(overlayTiming(59,30,1,2,true).opacity,1);
+ assert.equal(overlayTiming(60,30,1,2,true).visible,false);
  assert.deepEqual(overlayTiming(45,30,1,2),overlayTiming(90,60,1,2));
  const reverse=[59,35,45].map(f=>overlayTiming(f,30,1,2));assert.deepEqual(reverse[2],overlayTiming(45,30,1,2));
 });

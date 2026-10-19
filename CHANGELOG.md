@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.1
+
+- Hold overlays that reach the end of the composition through the final frame, preventing the outro from revealing held footage.
+- Clarify switching a pinned Codex marketplace to a different release tag.
+
 ## 0.5.0 — 2026-10-19
 
 - Add reusable brand, call, browser/screenshot, workflow-step, CTA and label overlays on final output time.
