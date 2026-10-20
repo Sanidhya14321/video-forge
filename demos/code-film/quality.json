@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "profile": "final",
+  "gl": "angle",
+  "browser": {
+    "webgl": true,
+    "renderer": "ANGLE (Intel, Vulkan 1.4.335 (Intel(R) UHD Graphics 620 (KBL GT2) (0x00005917)), Intel open-source Mesa driver)",
+    "htmlInCanvas": true,
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.8080.0 Safari/537.36"
+  },
+  "checks": [
+    {
+      "file": "vertical.mp4",
+      "duration": 24,
+      "width": 1080,
+      "height": 1920,
+      "videoCodec": "h264",
+      "audio": true,
+      "audioCodec": "aac",
+      "fps": "60/1",
+      "decoded": true
+    }
+  ],
+  "visualReview": "Moving playback and native-resolution inspection required; technical decoding is not creative acceptance."
+}

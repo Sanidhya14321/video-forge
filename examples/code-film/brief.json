@@ -1,0 +1,20 @@
+{
+  "purpose": "A brief becomes an editable film in Claude Code/Codex",
+  "audience": [
+    "Instagram Reels",
+    "YouTube Shorts",
+    "X"
+  ],
+  "durationSeconds": 24,
+  "width": 1080,
+  "height": 1920,
+  "fps": 60,
+  "constraints": [
+    "solid colors",
+    "no decorative gradients",
+    "actual source/output evidence",
+    "editable code",
+    "readable meaning through motion"
+  ],
+  "visualThesis": "Words become spatial material, then editable source and rendered evidence"
+}

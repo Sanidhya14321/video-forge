@@ -1,3 +1,7 @@
+# Creative authoring
+
+For sophisticated short-form work use [code-motion](code-motion.md) and [version-2 projects](../../../docs/code-projects.md). The structured workflows below remain compatible examples, not creative restrictions.
+
 # Motion and renderer-specific rules
 
 ## Remotion

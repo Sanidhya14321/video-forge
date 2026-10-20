@@ -1,0 +1,14 @@
+{
+  "scope": "Shared packaged-skill workflow resources used for this production; repository-relative paths",
+  "references": [
+    "skills/video-forge/SKILL.md",
+    "skills/video-forge/references/taste.md",
+    "skills/video-forge/references/reels.md",
+    "skills/video-motion/references/code-motion.md",
+    "skills/video-motion/references/cinematography.md",
+    "skills/video-audio/SKILL.md",
+    "skills/video-captions/SKILL.md",
+    "skills/video-delivery/SKILL.md",
+    "docs/code-projects.md"
+  ]
+}

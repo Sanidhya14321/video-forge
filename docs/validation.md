@@ -104,7 +104,7 @@ Visual review samples scene entries, information-dense frames, both aspect ratio
 
 ## Instruction loading
 
-The directing skill is 672 tokens under `cl100k_base`. An illustrative comparison loads the director plus only the relevant focused instructions and references; selected workflow totals are roughly 72–85% below the corresponding inspected upstream entrypoint collections. [Measurement details](context-measurements.json) include baseline files, totals, and limitations. Claude's own component inventory estimates about 305 tokens of always-on metadata.
+The original v0.1 directing skill measured 672 tokens under `cl100k_base`. An illustrative comparison loads the director plus only the relevant focused instructions and references; selected workflow totals are roughly 72–85% below the corresponding inspected upstream entrypoint collections. [Measurement details](context-measurements.json) include baseline files, totals, and limitations. Claude's own component inventory estimates about 305 tokens of always-on metadata.
 
 These are static loading measurements, not a live agent-token benchmark or a claim of equal feature coverage. [Routing cases](routing-cases.md) are manually reviewed expectations; live model-selection behavior has not been evaluated in this delivery.
 
@@ -112,6 +112,12 @@ These are static loading measurements, not a live agent-token benchmark or a cla
 
 Live OpenAI and fal requests have not been made: no cloud keys were configured or required. Mock transport checks do not establish live endpoint availability, output quality, or pricing. The client reservation budget is not an account-wide billing cap.
 
-Linux x64 was tested with Node 24 and the locked Python 3.11 CPU environment. The included CI matrix defines Linux/macOS checks but was not run remotely; macOS and Windows are not claimed as locally verified. Initial model, speech-language-model, browser, and dependency downloads require network access.
+Linux x64 was tested with Node 24 and the locked Python 3.11 CPU environment. The initial release had no remote CI evidence; later releases use the gated Linux/macOS matrix. Windows is not claimed as locally verified. Initial model, speech-language-model, browser, and dependency downloads require network access.
 
 HyperFrames, Manim, avatars, translation, advanced vision/editing, professional application timelines, and publishing connectors remain reference integrations. Source instruction files and the report are research inputs; their execution policies and installation commands are not inherited.
+
+## Version0.7 code workflow
+
+The current director measures875tokens with cl100k_base. A representative custom-motion route (director, motion entrypoint, code-motion, reels and code-project contract) loads3,601tokens; actual task assets/source and extra references add context. [Current measurements](code-context-measurements.json) distinguish these from historical, differently scoped upstream comparisons.
+
+The code path passed45 tests, native optical smoke rendering, a zero-strength lens pixel regression and repeated out-of-order PNG comparisons. The delivered smoke source was rendered again outside the plugin checkout. Browser capabilities are recorded per production. The public24s film and15s studies are1080×1920/60fps; the private22.5s edit uses the same output format and retains all44 measured source words in approved story order. Technical validation and creative critique remain separate. [Public production review](../demos/code-film/PRODUCTION.md), [motion studies](../demos/motion-studies/README.md) and [independent packaged-skill trial](agent-forward-test.md) record actual scope and limitations.

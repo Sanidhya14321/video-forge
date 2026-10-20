@@ -9,7 +9,7 @@ def standalone_director(root):
 
 def companion_files(root):
  files={p.name:p.read_bytes() for p in (root/'adapters/chatgpt').glob('*.md')}
- refs={'taste.md':'skills/video-forge/references/taste.md','platforms.md':'skills/video-forge/references/platforms.md','cinematography.md':'skills/video-motion/references/cinematography.md','editorial.md':'skills/video-editing/references/editorial.md','premiere.md':'skills/video-editing/references/premiere.md','asset-direction.md':'skills/video-generation/references/asset-direction.md','generation-direction.md':'skills/video-generation/references/generation-direction.md','CREATIVE-RESEARCH.md':'sources/CREATIVE-RESEARCH.md'}
+ refs={'code-motion.md':'skills/video-motion/references/code-motion.md','code-projects.md':'docs/code-projects.md','MOTION-RESEARCH.md':'sources/MOTION-RESEARCH.md','taste.md':'skills/video-forge/references/taste.md','platforms.md':'skills/video-forge/references/platforms.md','cinematography.md':'skills/video-motion/references/cinematography.md','editorial.md':'skills/video-editing/references/editorial.md','premiere.md':'skills/video-editing/references/premiere.md','asset-direction.md':'skills/video-generation/references/asset-direction.md','generation-direction.md':'skills/video-generation/references/generation-direction.md','CREATIVE-RESEARCH.md':'sources/CREATIVE-RESEARCH.md'}
  def flatten(text):
   def link(m):
    label,target=m.group(1),m.group(2)
@@ -23,13 +23,14 @@ def companion_files(root):
     if target=='forge.md':target='director.md'
     if target=='forge-setup.md':return label+' (use the local runtime setup guide)'
    elif target.endswith('references/workflows.md'):return label+' (use this module’s recipes below)'
+   elif target.endswith('motion/index.tsx'):target='motion-helpers.tsx'
    elif target.split('#')[0].endswith('project-format.md'):target='project-format.md'+('#'+target.split('#',1)[1] if '#' in target else '')
    elif target.endswith('references/hosts.md'):target='START-HERE.md'
    else:return label+' (see the source repository)'
    return f'[{label}]({target})'
   return re.sub(r'\[([^\]]+)\]\(([^)]+)\)',link,text)
  director=(root/'skills/video-forge/SKILL.md').read_text()
- director=director.replace('4. Locate this plugin\'s root from this file (two parent directories).','4. If a prepared local runtime is available, locate that toolkit directory; companion files do not contain the runtime.')
+ director=director.replace("Locate this plugin's root from this file (two parent directories).",'If a prepared local runtime is available, locate that toolkit directory; companion files do not contain the runtime.')
  files['director.md']=flatten(director).encode()
  for name,source in refs.items():files[name]=flatten((root/source).read_text()).encode()
  for name in ['shot-recipes.json','asset-sources.json']:files['assets/'+name]=(root/'skills/video-forge/assets'/name).read_bytes()
@@ -43,6 +44,9 @@ def companion_files(root):
   files[f'{module}.md']=flatten((folder/'SKILL.md').read_text()+'\n\n'+(folder/'references/workflows.md').read_text()).encode()
  files['project-format.md']=(root/'docs/project-format.md').read_bytes()
  files['project.schema.json']=(root/'docs/project.schema.json').read_bytes()
+ files['code-project.schema.json']=(root/'docs/code-project.schema.json').read_bytes()
+ files['motion-helpers.tsx']=(root/'motion/index.tsx').read_bytes()
+ files['motion-research-v07.json']=(root/'sources/motion-research-v07.json').read_bytes()
  for name in ['reel-smoke.json','pop-smoke.json','product-demo.json']:files['examples/'+name]=(root/'examples'/name).read_bytes()
  files['LICENSE']=(root/'LICENSE').read_bytes();files['NOTICE.md']=(root/'NOTICE.md').read_bytes()
  files['manifest.json']=json.dumps({'version':json.loads((root/'package.json').read_text())['version'],'mode':'planning-and-local-handoff','runtimeIncluded':False,'generatedFrom':'shared skills and project contract','source':'https://github.com/Sanidhya14321/video-forge'},indent=2).encode()

@@ -5,6 +5,8 @@ description: "Export social video variants, inspect playable media, review thumb
 
 # Video Delivery
 
+For version-2 TSX films, CLI `preview` produces moving drafts and `run` delivers the full source tree, critical native frames, media manifest, optional measured transcript/SRT and technical checks. Review complete moving playback and peak motion, not only stills. See [code projects](../../docs/code-projects.md).
+
 Read [delivery workflows](references/workflows.md). Export from the editable composition to each requested aspect ratio. Use explicit dimensions for preview renders and full-resolution presets for delivery.
 
 Run `node <plugin-root>/dist/cli.js inspect /absolute/path/video.mp4`. The runner also writes `quality.json` with codec, dimensions, duration, audio presence, caption count, and full-stream decoding results. These checks do not assess pacing, correctness, visual taste, pronunciation, or accessibility.

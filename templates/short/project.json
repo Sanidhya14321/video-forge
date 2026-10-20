@@ -1,0 +1,1 @@
+{"version":2,"name":"My short film","entryPoint":"src/index.tsx","compositionId":"Film","publicDir":"public","score":"score.json","quality":"final","requires":{"htmlInCanvas":true,"audio":false},"exports":[{"name":"vertical"}]}

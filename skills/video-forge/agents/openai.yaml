@@ -1,4 +1,4 @@
 interface:
   display_name: "Video Forge"
-  short_description: "Direct short films with taste, assets and cinematic motion"
-  default_prompt: "Use $video-forge to develop a visual direction, cast assets and create an editable short film for my audience."
+  short_description: "Author and edit sophisticated short-form videos in code"
+  default_prompt: "Use $video-forge to author and refine an editable short-form video in React/TSX with cinematic motion, actual assets and synchronized sound."

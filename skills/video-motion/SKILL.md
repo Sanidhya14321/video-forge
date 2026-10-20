@@ -1,20 +1,16 @@
 ---
 name: video-motion
-description: "Design editable cinematic 3D camera shots, motion graphics, product evidence, kinetic type and technical explainers with Remotion/Three.js."
+description: "Author sophisticated video-native motion in React/TSX: fluid glass, layered parallax, spatial type/UI traversal, kinetic typography, continuous transitions and rapid editorial effects."
 ---
 
 # Video Motion
 
-Read [creative direction](../video-forge/references/taste.md) for a new visual brief or redesign. Use Remotion for the first-party renderer. Read [motion workflows](references/workflows.md) before choosing templates or writing custom React scenes. Inspect real screenshots and data rather than recreating product details from guesses.
+Use [code-motion recipes](references/code-motion.md) for creative short-form work and [reel choreography](../video-forge/references/reels.md) for pacing. Use Remotion frame time as the clock. Compose HTML/CSS/SVG, images, footage, Canvas and shader passes in a normal editable TSX project created with CLI `init`.
 
-For fast/abstract social work, read [reel direction](../video-forge/references/reels.md). Use its semantic motion mapping, not a heading-card default. The native reel treatments are implemented in `renderer/Reel.tsx` (minimal) and `renderer/PopReel.tsx` (colorful character/comic motion); `src/reel-layout.ts` owns frame/beat math and protected content bounds.
+The original helpers in `motion/index.tsx` are copied into the project's `lib/` directory. They provide frame math, seeded values, split type, depth planes, masks, a refractive/displacement pass and temporal blur. They are composable mechanisms: author new geometry, layout and transitions rather than arranging them as a recurring heading/motif/body template. `useGsapTimeline` supports complex DOM/SVG choreography; numeric shader values come directly from frames.
 
-For real-brand footage or product evidence, read [brand-led editing](../video-forge/references/brand-edits.md). Native `overlays` add animated logos, screenshot/browser inserts, screenshot-aligned pointers, call diagrams, steps and CTAs above footage. Keep captured UI distinct from illustrative motion.
+Use the [version-2 contract](../../docs/code-projects.md) and a frame-based score shared by components and review. Make movement carry a focal subject across shots. Use actual screenshots/data/code for proof. Check assets at the largest intended magnification; protect essential copy without constraining all artwork to a narrow safe box.
 
-For real camera traversal, depth, lens/framing and motivated spatial moves, read [cinematography](references/cinematography.md). Native `kind: world` scenes expose a real Three.js camera path, lit procedural objects and local image planes. Plan a world/shot instead of choosing another heading treatment.
+Render moving drafts with `preview`, then final media with `run`. Inspect peak velocity, optical distortion, type edges, transition continuity, caption placement and the encoded result. Apply blur selectively; keep critical evidence and captions sharp. Time-varying simulation state must be baked or deterministically replayed for out-of-order frame rendering.
 
-The [project contract](../../docs/project-format.md) supports title, image, video, code, chart, algorithm, structured reel and 3D world scenes. `algorithm` visualizes supplied array states; the agent computes and verifies the actual algorithm trace. It is not a generic algorithm solver. Large code excerpts should become multiple scenes.
-
-Drive animation from Remotion frame time. Use fixed assets, stable seeds, and frame-based interpolation. Preserve exact data values and compare rendered labels against input data. Recompose each aspect ratio instead of assuming a center crop is readable.
-
-Run `review` and `preview` through the plugin CLI to inspect creative warnings and entry/peak/exit stills before expensive exports. Use `video-forge run` through the plugin CLI to render built-in scenes. For custom React components, edit `renderer/Root.tsx` in a project copy, build, and render. Check frames at entry, peak content, transitions, and the final state. Read the reference section for optional Manim and HyperFrames integrations; they are separate engines.
+[Legacy workflows](references/workflows.md) describe existing structured scenes. [Cinematography](references/cinematography.md) covers layered camera design and optional mesh worlds. Existing `Reel`, `PopReel` and `World` scenes remain usable examples; their layouts and model vocabulary do not define the creative scope.

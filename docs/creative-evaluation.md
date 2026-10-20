@@ -1,3 +1,7 @@
+# Version0.7 behavior evidence
+
+A fresh independent packaged-skill forward-test generated and rendered a6-second fictional Signal Notes film. See [trial record](agent-forward-test.md). The two authored benchmarks exercise a24-second Video Forge film and a separately delivered private22.5-second footage edit. Technical checks and sampled/moving visual review are recorded separately. This is not an audience experiment.
+
 # Creative evaluation: prompts, artifacts and evidence
 
 This is a host-evaluation protocol, not a claimed taste benchmark. Runtime tests, package discovery and one authored demonstration are recorded separately. No independent Claude/Codex creative trial or audience study has been run for this release.

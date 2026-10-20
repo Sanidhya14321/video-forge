@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.0 — Code-authored short-form video
+
+- First-class custom TSX composition projects, standalone scaffold/lock, moving previews, frame score and full source delivery; version1 remains supported.
+- Original optical refraction/displacement, perspective planes, split type, masks, deterministic temporal sampling and GSAP choreography.
+- Short-form direction rewritten around content, continuity and use-case-dependent dense editing/traversal/montage. Removed mesh-world pacing exemptions.
+- Draft/final finishing profiles, even-sized drafts, measured subtitle sidecars, browser/GPU capability checks and source manifests.
+- New 24-second public film, six motion studies and a separately delivered private footage edit. Public artifacts exclude private user footage and brand captures.
+- Preserved 100-entry register and added pinned motion mechanism research, font/asset attribution and host resources.
+
 ## 0.6.0
 
 - Rebuild directing around taste, cast assets, a visual argument, shot grammar and concrete critique before preset selection.

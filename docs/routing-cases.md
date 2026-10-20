@@ -30,3 +30,12 @@ For behavioral host evaluations, run these cases in clean client sessions with c
 | “Edit these four portrait clips for Instagram, keep order” | Inspect inputs and actual speech, preserve approved source order, prepare one master and native full-frame footage job with measured captions |
 
 These are manually reviewed acceptance cases, not a live cross-model routing benchmark.
+
+## Version0.7 code-first cases
+
+| Prompt | Expected focused route and output | Evidence scope |
+|---|---|---|
+| Turn a messy thought into a three-step plan in a six-second fictional reel | Director/taste → code-motion/reels → version2 init → original TSX/score/audio → moving preview/revision/final | One independent extracted-package trial completed; see agent-forward-test.md. |
+| Explain Video Forge with spatial type, optical glass and actual source/output evidence | Director → code-motion/cinematography → audio/captions/delivery; custom composition, no mesh prerequisite | Authored public benchmark; not an independent model test. |
+| Edit the four supplied OmniDimension clips in approved order | Scout/transcript → preserve complete thoughts → real brand captures → TSX footage/caption/spatial layers → private final | Private authored benchmark; source media excluded from GitHub. |
+| Make a quick structured algorithm/data explainer from exact arrays | Existing version1 path may be suitable; load algorithm/motion guidance and preserve supplied trace | Legacy support remains available; do not silently force arbitrary custom motion into fixed scene kinds. |

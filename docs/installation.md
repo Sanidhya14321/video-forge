@@ -7,7 +7,7 @@ Choose the host first. The full toolkit renders locally with Node, Remotion, FFm
 Register the repository marketplace, then install the plugin. **Adding the marketplace alone does not install it.** Current Codex CLI:
 
 ```bash
-codex plugin marketplace add Sanidhya14321/video-forge --ref v0.6.0
+codex plugin marketplace add Sanidhya14321/video-forge --ref v0.7.0
 codex plugin add video-forge@video-forge-local
 codex plugin list --marketplace video-forge-local --json
 ```
@@ -35,7 +35,7 @@ Ask “Use Video Forge to create a 30-second reel…” and provide the actual p
 
 For **Work with local execution**, use the Codex/OpenAI package and the setup skill in a local-capable session. Local marketplaces and discovery vary by client; see [OpenAI's local plugin instructions](https://developers.openai.com/plugins/build/plugins).
 
-For **chat without the local runtime**, download **video-forge-chatgpt-VERSION.zip**. Extract it and attach `instructions.md` plus the relevant module files, or use them in the instruction/reference-file facilities available in your saved assistant/project surface. `START-HERE.md` explains the workflow. This companion generates briefs, storyboards and version-1 project JSON; it does not install a plugin, run Node or provide a hosted rendering endpoint.
+For **chat without the local runtime**, download **video-forge-chatgpt-VERSION.zip**. Extract it and attach `instructions.md` plus the relevant module files, or use them in the instruction/reference-file facilities available in your saved assistant/project surface. `START-HERE.md` explains the workflow. This companion generates briefs, storyboards, editable TSX and version-1/version-2 project descriptors; it does not install a plugin, run Node or provide a hosted rendering endpoint.
 
 ## Prepare the local runtime
 

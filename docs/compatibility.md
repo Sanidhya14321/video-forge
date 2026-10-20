@@ -38,3 +38,9 @@ All host packages use the same taste, asset, cinematography, Premiere, editorial
 ChatGPT companion generation flattens the new reference links and includes recipe/asset indexes; binary models remain source links rather than falsely bundled local files. Real 3D execution requires the pinned Three.js/R3F dependencies, WebGL-capable headless Chrome and the local runtime. Live Premiere/After Effects, external models with compression decoders, skeletal animation and paid generated-video quality remain separate capabilities.
 
 OpenAI-specific guidance additionally checked 20 October 2026: [building skills](https://developers.openai.com/plugins/build/skills) and [Claude plugin portability](https://developers.openai.com/plugins/guides/submit-claude-plugin). The shared production language remains provider-neutral; product names are kept only in actual host setup/verification instructions. No marketplace submission is implied.
+
+## Version0.7 code authoring
+
+All runtime hosts share version-2 custom TSX projects and the same original motion helpers. Plain HTML/CSS/SVG is authored in JSX; Canvas/WebGL can postprocess content. There is no external-editor requirement. Existing version-1 jobs remain compatible. Ordinary ChatGPT receives the code authoring guide, helper source and schema but no local renderer.
+
+Claude Code is installed locally but currently unauthenticated. Manifest/resource validation does not establish an actual Claude generation trial. Codex is authenticated; its independent trial evidence is recorded separately. Native preview/render uses pinned Chromium157; a normal browser-player preview may require HTML-in-canvas flags. Encoded MP4s need no experimental browser features.

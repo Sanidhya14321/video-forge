@@ -1,0 +1,4 @@
+import React from 'react';import {Composition,registerRoot,AbsoluteFill,useCurrentFrame} from 'remotion';import {Refract,Blur} from '../lib';
+const Content=()=>{const f=useCurrentFrame();return <AbsoluteFill style={{background:'#dfff00',color:'#161719',fontFamily:'Arial',alignItems:'center',justifyContent:'center'}}><div style={{fontWeight:900,fontSize:90,transform:`translateX(${Math.sin(f*.15)*30}px)`}}>FRAME</div></AbsoluteFill>;};
+const Film=({effect='lens',strength=1.5}:{effect?:string;strength?:number})=>{const f=useCurrentFrame();if(effect==='plain')return <Content/>;return <Refract frame={f} strength={strength} displace={effect==='displace'} center={[f/30,.5]}><Content/></Refract>;};
+registerRoot(()=> <Composition id="Smoke" component={Film} width={360} height={640} fps={30} durationInFrames={30}/>);

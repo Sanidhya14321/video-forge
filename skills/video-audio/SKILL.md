@@ -5,6 +5,8 @@ description: "Generate local or optional OpenAI narration, prepare music and sou
 
 # Video Audio
 
+In a version-2 code film, place prepared local audio with Remotion `Audio` and synchronize it to the shared frame score. Mix and inspect the encoded result; keep narration, music, effects and provenance in the editable project. The native version-1 speech/transcription tools below remain available for preparing media.
+
 Read [audio workflows](references/workflows.md). Prefer approved audio or local Kokoro. Verify pronunciation of symbols, names, abbreviations, and code before the full export. A script that reads well may not speak well.
 
 Use `narration.provider: file` for supplied audio, `kokoro` for local synthesis, or `openai` for an explicitly selected paid speech call. OpenAI requires a verified per-character rate and a cloud reservation budget; supported models are documented in the project contract. Credentials belong in environment variables.

@@ -4,7 +4,7 @@ This companion is a portable set of instructions and focused reference files. It
 
 In a chat that can read uploaded files, attach `instructions.md` and the relevant module file(s), then describe your video. For a saved assistant/project setup, use the instruction text in that surface's instruction field and attach the reference files where supported. Do not paste the entire collection into every prompt.
 
-Example: “Using Video Forge, plan a 30-second playful explainer about my product. Bold flat colors, no gradients. Give me a storyboard and a version-1 project JSON for local rendering.” Include the actual product facts and asset filenames.
+Example: “Using Video Forge, plan a 30-second playful explainer about my product. Bold flat colors, no gradients. Give me a storyboard and an editable version-2 React/TSX project and frame score for local rendering.” Include the actual product facts and asset filenames.
 
 For local execution in ChatGPT Work, use the Codex/OpenAI plugin package in a local-capable session and run its setup skill. Ordinary chat can produce production plans and code, but this bundle does not grant a local shell or browser. When those capabilities are missing, hand the project to Codex/Claude Code with the runtime installed.
 

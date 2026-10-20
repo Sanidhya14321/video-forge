@@ -1,4 +1,4 @@
 interface:
   display_name: "Video Motion"
-  short_description: "Video Motion workflows for technical creators"
+  short_description: "Compose spatial type, refraction, parallax and rapid edits"
   default_prompt: "Use $video-motion to help with my video production task."

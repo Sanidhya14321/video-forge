@@ -1,0 +1,16 @@
+{
+  "measurement": "FFmpeg loudnorm input analysis of final AAC",
+  "metrics": {
+    "input_i": "-16.28",
+    "input_tp": "-4.48",
+    "input_lra": "15.20",
+    "input_thresh": "-27.85",
+    "output_i": "-16.36",
+    "output_tp": "-3.95",
+    "output_lra": "8.50",
+    "output_thresh": "-27.20",
+    "normalization_type": "dynamic",
+    "target_offset": "0.36"
+  },
+  "subjectiveListening": "Not independently verified"
+}

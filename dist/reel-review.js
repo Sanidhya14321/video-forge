@@ -13,13 +13,13 @@ export function reviewProject(project) {
     const warnings = [];
     const reel = Boolean(project.reel);
     if (reel) {
-        if (timeline[0]?.seconds > 2 && project.scenes[0].kind !== 'world')
+        if (timeline[0]?.seconds > 2)
             warnings.push({ code: 'slow-opening', scene: 1, message: 'The first shot exceeds 2s. Inspect whether its action delivers the hook before changing its duration.' });
         for (let i = 0; i < project.scenes.length; i++) {
             const s = project.scenes[i];
-            if (s.duration > 2.5 && s.kind !== 'world')
+            if (s.duration > 2.5)
                 warnings.push({ code: 'long-hold', scene: i + 1, message: 'Shot exceeds the fast-reel starting range; inspect action and reading load before trimming it.' });
-            if (s.kind !== 'world' && i >= 2 && timeline[i].treatment === timeline[i - 1].treatment && timeline[i].treatment === timeline[i - 2].treatment)
+            if (i >= 2 && timeline[i].treatment === timeline[i - 1].treatment && timeline[i].treatment === timeline[i - 2].treatment)
                 warnings.push({ code: 'repeated-treatment', scene: i + 1, message: 'Three adjacent shots share one treatment. Change visual grammar or demonstrate a purposeful continuous action.' });
             if (s.title.replace(/\s/g, '').length > 28 || s.title.split('\n').length > 2)
                 warnings.push({ code: 'dense-headline', scene: i + 1, message: 'Headline may crowd the phone layout. Shorten it or author a custom composition.' });
@@ -27,7 +27,7 @@ export function reviewProject(project) {
                 warnings.push({ code: 'unreadable-code', scene: i + 1, message: 'Long code cannot be read at this pace. Isolate a meaningful line or extend this evidence shot.' });
         }
         const families = new Set(timeline.map(s => s.treatment));
-        if (timeline.length >= 6 && families.size < 4 && !project.scenes.some(s => s.world))
+        if (timeline.length >= 6 && families.size < 4)
             warnings.push({ code: 'low-variety', message: 'Few named treatments recur. Inspect framing, assets and shot functions; do not add effects simply to meet a variety quota.' });
         const titleCount = project.scenes.filter(s => s.kind === 'title' || s.motion?.preset === 'type-impact').length;
         if (project.scenes.length >= 6 && titleCount / project.scenes.length > .5)

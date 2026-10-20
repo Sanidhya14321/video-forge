@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-20",
+  "repositories": [
+    {
+      "repository": "drcmda/the-substance",
+      "url": "https://github.com/drcmda/the-substance",
+      "inspectedRevision": "501e0500867b3dddc913fc88a9d9bc583d097ed4",
+      "license": "MIT",
+      "evidence": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/drcmda/the-substance/501e0500867b3dddc913fc88a9d9bc583d097ed4/LICENSE",
+          "sha256": "c1e6e266563517467b1bf874817d23e426f3149252bd7d42758cd697514b8417"
+        },
+        {
+          "path": "src/components/Plane.js",
+          "url": "https://raw.githubusercontent.com/drcmda/the-substance/501e0500867b3dddc913fc88a9d9bc583d097ed4/src/components/Plane.js",
+          "sha256": "3d8ff1e5aba948512ce5ffeaff24b455f6bd5cf3daa40893af4125dc9ea7f312"
+        },
+        {
+          "path": "src/components/CustomMaterial.js",
+          "url": "https://raw.githubusercontent.com/drcmda/the-substance/501e0500867b3dddc913fc88a9d9bc583d097ed4/src/components/CustomMaterial.js",
+          "sha256": "fa27a3f9564a9f3bd9df2fa432c566c985d8ad1a88cdcda0e87e1917b9740af1"
+        },
+        {
+          "path": "src/diamonds/RefractionMaterial.js",
+          "url": "https://raw.githubusercontent.com/drcmda/the-substance/501e0500867b3dddc913fc88a9d9bc583d097ed4/src/diamonds/RefractionMaterial.js",
+          "sha256": "54b29c6e36a4b6a17605b133b5e3fcf75cd6e69f007da4a6bffe995d439922ed"
+        }
+      ],
+      "mechanism": "Depth layout, velocity-based plane bending, refraction; replace incremental useFrame/scroll state with authored curves",
+      "disposition": "reference guidance; original implementations in motion/index.tsx; no upstream media bundled"
+    },
+    {
+      "repository": "codrops/KineticTypePageTransition",
+      "url": "https://github.com/codrops/KineticTypePageTransition",
+      "inspectedRevision": "ebe926e2f1de42950c36ff8a678321155280c1af",
+      "license": "MIT",
+      "evidence": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/codrops/KineticTypePageTransition/ebe926e2f1de42950c36ff8a678321155280c1af/LICENSE",
+          "sha256": "1f6db3d0b162eaa534ff5585db684f00c41f776325f7fd11ebf9373650099ce1"
+        },
+        {
+          "path": "src/js/typeTransition.js",
+          "url": "https://raw.githubusercontent.com/codrops/KineticTypePageTransition/ebe926e2f1de42950c36ff8a678321155280c1af/src/js/typeTransition.js",
+          "sha256": "f03ae81c34aec7e3a42d780a82abd1a4acf7a32b6786c5ec4df7816d1b8f0b46"
+        }
+      ],
+      "mechanism": "Rotating/scaling typographic transition and line stagger; retime for editorial beats",
+      "disposition": "reference guidance; original implementations in motion/index.tsx; no upstream media bundled"
+    },
+    {
+      "repository": "biazo/codrops-animate-shaders-with-gsap",
+      "url": "https://github.com/biazo/codrops-animate-shaders-with-gsap",
+      "inspectedRevision": "bdd17aa4cf4b1464f4bcf526a863ed8dd46d394d",
+      "license": "MIT",
+      "evidence": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/biazo/codrops-animate-shaders-with-gsap/bdd17aa4cf4b1464f4bcf526a863ed8dd46d394d/LICENSE",
+          "sha256": "1cb17a337854c382c7d8b4806480d856fef9310c5c99c2db0e996be326e54c51"
+        },
+        {
+          "path": "src/js/demo1/PlanesMaterial.js",
+          "url": "https://raw.githubusercontent.com/biazo/codrops-animate-shaders-with-gsap/bdd17aa4cf4b1464f4bcf526a863ed8dd46d394d/src/js/demo1/PlanesMaterial.js",
+          "sha256": "f4f1f2e28218c9322e5728f6a0714e08d76859594975afef28b45304eda35e8c"
+        },
+        {
+          "path": "src/js/demo1/base.frag",
+          "url": "https://raw.githubusercontent.com/biazo/codrops-animate-shaders-with-gsap/bdd17aa4cf4b1464f4bcf526a863ed8dd46d394d/src/js/demo1/base.frag",
+          "sha256": "01f8937042fd745be043d6d772cc241f286294963344e7f8e91f0d96f9aa8530"
+        }
+      ],
+      "mechanism": "Ripple and texture reveal uniforms; set uniforms from frame functions",
+      "disposition": "reference guidance; original implementations in motion/index.tsx; no upstream media bundled"
+    }
+  ],
+  "runtime": {
+    "remotion": "4.0.536",
+    "gsap": "3.15.0"
+  },
+  "originalImplementation": "motion/index.tsx"
+}

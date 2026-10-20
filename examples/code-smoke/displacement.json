@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "Displacement pass smoke",
+  "entryPoint": "src/index.tsx",
+  "compositionId": "Smoke",
+  "publicDir": "public",
+  "score": "score.json",
+  "requires": {
+    "htmlInCanvas": true,
+    "audio": false
+  },
+  "exports": [
+    {
+      "name": "vertical"
+    }
+  ],
+  "inputProps": {
+    "effect": "displace"
+  }
+}

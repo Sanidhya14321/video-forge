@@ -1,0 +1,728 @@
+[
+  {
+    "kind": "shot",
+    "label": "One brief",
+    "mechanism": "kinetic-type",
+    "startFrame": 0,
+    "endFrame": 84
+  },
+  {
+    "kind": "reading",
+    "label": "One brief",
+    "startFrame": 20,
+    "endFrame": 76
+  },
+  {
+    "kind": "transition",
+    "label": "One brief continuous reveal",
+    "startFrame": 72,
+    "endFrame": 84
+  },
+  {
+    "kind": "shot",
+    "label": "Make it move",
+    "mechanism": "paper-traversal",
+    "startFrame": 84,
+    "endFrame": 138
+  },
+  {
+    "kind": "transition",
+    "label": "Make it move hard cut",
+    "startFrame": 137,
+    "endFrame": 138
+  },
+  {
+    "kind": "shot",
+    "label": "Words become world",
+    "mechanism": "shape-transition",
+    "startFrame": 138,
+    "endFrame": 204
+  },
+  {
+    "kind": "transition",
+    "label": "Words become world hard cut",
+    "startFrame": 203,
+    "endFrame": 204
+  },
+  {
+    "kind": "shot",
+    "label": "Claude Code and Codex",
+    "mechanism": "gsap-choreography",
+    "startFrame": 204,
+    "endFrame": 330
+  },
+  {
+    "kind": "reading",
+    "label": "Claude Code and Codex",
+    "startFrame": 224,
+    "endFrame": 322
+  },
+  {
+    "kind": "transition",
+    "label": "Claude Code and Codex hard cut",
+    "startFrame": 329,
+    "endFrame": 330
+  },
+  {
+    "kind": "shot",
+    "label": "Editable source",
+    "mechanism": "code-parallax",
+    "startFrame": 330,
+    "endFrame": 432
+  },
+  {
+    "kind": "reading",
+    "label": "Editable source",
+    "startFrame": 350,
+    "endFrame": 424
+  },
+  {
+    "kind": "transition",
+    "label": "Editable source hard cut",
+    "startFrame": 431,
+    "endFrame": 432
+  },
+  {
+    "kind": "shot",
+    "label": "Layer traversal",
+    "mechanism": "depth-traversal",
+    "startFrame": 432,
+    "endFrame": 531
+  },
+  {
+    "kind": "transition",
+    "label": "Layer traversal continuous reveal",
+    "startFrame": 519,
+    "endFrame": 531
+  },
+  {
+    "kind": "shot",
+    "label": "Bend light and type",
+    "mechanism": "refraction",
+    "startFrame": 531,
+    "endFrame": 629
+  },
+  {
+    "kind": "transition",
+    "label": "Bend light and type hard cut",
+    "startFrame": 628,
+    "endFrame": 629
+  },
+  {
+    "kind": "shot",
+    "label": "Edit to the beat",
+    "mechanism": "editorial-bursts",
+    "startFrame": 629,
+    "endFrame": 720
+  },
+  {
+    "kind": "transition",
+    "label": "Edit to the beat hard cut",
+    "startFrame": 719,
+    "endFrame": 720
+  },
+  {
+    "kind": "shot",
+    "label": "Captions and sound",
+    "mechanism": "audio-motion",
+    "startFrame": 720,
+    "endFrame": 825
+  },
+  {
+    "kind": "transition",
+    "label": "Captions and sound continuous reveal",
+    "startFrame": 813,
+    "endFrame": 825
+  },
+  {
+    "kind": "shot",
+    "label": "Actual rendered proof",
+    "mechanism": "video-evidence",
+    "startFrame": 825,
+    "endFrame": 931
+  },
+  {
+    "kind": "reading",
+    "label": "Actual rendered proof",
+    "startFrame": 845,
+    "endFrame": 923
+  },
+  {
+    "kind": "transition",
+    "label": "Actual rendered proof continuous reveal",
+    "startFrame": 919,
+    "endFrame": 931
+  },
+  {
+    "kind": "shot",
+    "label": "Social formats",
+    "mechanism": "format-morph",
+    "startFrame": 931,
+    "endFrame": 1103
+  },
+  {
+    "kind": "reading",
+    "label": "Social formats",
+    "startFrame": 951,
+    "endFrame": 1061
+  },
+  {
+    "kind": "transition",
+    "label": "Social formats hard cut",
+    "startFrame": 1102,
+    "endFrame": 1103
+  },
+  {
+    "kind": "shot",
+    "label": "Every frame",
+    "mechanism": "kinetic-payoff",
+    "startFrame": 1103,
+    "endFrame": 1440
+  },
+  {
+    "kind": "reading",
+    "label": "Every frame",
+    "startFrame": 1123,
+    "endFrame": 1233
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 0,
+    "endFrame": 2
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 24,
+    "endFrame": 26
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 48,
+    "endFrame": 50
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 72,
+    "endFrame": 74
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 96,
+    "endFrame": 98
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 120,
+    "endFrame": 122
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 144,
+    "endFrame": 146
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 168,
+    "endFrame": 170
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 192,
+    "endFrame": 194
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 216,
+    "endFrame": 218
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 240,
+    "endFrame": 242
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 264,
+    "endFrame": 266
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 288,
+    "endFrame": 290
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 312,
+    "endFrame": 314
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 336,
+    "endFrame": 338
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 360,
+    "endFrame": 362
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 384,
+    "endFrame": 386
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 408,
+    "endFrame": 410
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 432,
+    "endFrame": 434
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 456,
+    "endFrame": 458
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 480,
+    "endFrame": 482
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 504,
+    "endFrame": 506
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 528,
+    "endFrame": 530
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 552,
+    "endFrame": 554
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 576,
+    "endFrame": 578
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 600,
+    "endFrame": 602
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 624,
+    "endFrame": 626
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 648,
+    "endFrame": 650
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 672,
+    "endFrame": 674
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 696,
+    "endFrame": 698
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 720,
+    "endFrame": 722
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 744,
+    "endFrame": 746
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 768,
+    "endFrame": 770
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 792,
+    "endFrame": 794
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 816,
+    "endFrame": 818
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 840,
+    "endFrame": 842
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 864,
+    "endFrame": 866
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 888,
+    "endFrame": 890
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 912,
+    "endFrame": 914
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 936,
+    "endFrame": 938
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 960,
+    "endFrame": 962
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 984,
+    "endFrame": 986
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1008,
+    "endFrame": 1010
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1032,
+    "endFrame": 1034
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1056,
+    "endFrame": 1058
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1080,
+    "endFrame": 1082
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1104,
+    "endFrame": 1106
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1128,
+    "endFrame": 1130
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1152,
+    "endFrame": 1154
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1176,
+    "endFrame": 1178
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1200,
+    "endFrame": 1202
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1224,
+    "endFrame": 1226
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1248,
+    "endFrame": 1250
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1272,
+    "endFrame": 1274
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1296,
+    "endFrame": 1298
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1320,
+    "endFrame": 1322
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1344,
+    "endFrame": 1346
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1368,
+    "endFrame": 1370
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1392,
+    "endFrame": 1394
+  },
+  {
+    "kind": "audio",
+    "label": "Original score pulse (150 BPM)",
+    "startFrame": 1416,
+    "endFrame": 1418
+  },
+  {
+    "kind": "accent",
+    "label": "Hook bar/scale accent",
+    "startFrame": 8,
+    "endFrame": 10
+  },
+  {
+    "kind": "accent",
+    "label": "Hook bar/scale accent",
+    "startFrame": 15,
+    "endFrame": 17
+  },
+  {
+    "kind": "accent",
+    "label": "Hook bar/scale accent",
+    "startFrame": 30,
+    "endFrame": 32
+  },
+  {
+    "kind": "accent",
+    "label": "Hook bar/scale accent",
+    "startFrame": 45,
+    "endFrame": 47
+  },
+  {
+    "kind": "accent",
+    "label": "Hook bar/scale accent",
+    "startFrame": 60,
+    "endFrame": 62
+  },
+  {
+    "kind": "accent",
+    "label": "Hook bar/scale accent",
+    "startFrame": 75,
+    "endFrame": 77
+  },
+  {
+    "kind": "accent",
+    "label": "Editorial type/filmstrip match cut",
+    "startFrame": 629,
+    "endFrame": 631
+  },
+  {
+    "kind": "accent",
+    "label": "Editorial type/filmstrip match cut",
+    "startFrame": 644,
+    "endFrame": 646
+  },
+  {
+    "kind": "accent",
+    "label": "Editorial type/filmstrip match cut",
+    "startFrame": 659,
+    "endFrame": 661
+  },
+  {
+    "kind": "accent",
+    "label": "Editorial type/filmstrip match cut",
+    "startFrame": 674,
+    "endFrame": 676
+  },
+  {
+    "kind": "accent",
+    "label": "Editorial type/filmstrip match cut",
+    "startFrame": 689,
+    "endFrame": 691
+  },
+  {
+    "kind": "accent",
+    "label": "Editorial type/filmstrip match cut",
+    "startFrame": 704,
+    "endFrame": 706
+  },
+  {
+    "kind": "accent",
+    "label": "Editorial type/filmstrip match cut",
+    "startFrame": 719,
+    "endFrame": 721
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff typography changes to MAKE/MOVE/RENDER",
+    "startFrame": 1253,
+    "endFrame": 1255
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1319,
+    "endFrame": 1321
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1327,
+    "endFrame": 1329
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1335,
+    "endFrame": 1337
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1343,
+    "endFrame": 1345
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1351,
+    "endFrame": 1353
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1359,
+    "endFrame": 1361
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1367,
+    "endFrame": 1369
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1375,
+    "endFrame": 1377
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1383,
+    "endFrame": 1385
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1391,
+    "endFrame": 1393
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1399,
+    "endFrame": 1401
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1407,
+    "endFrame": 1409
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1415,
+    "endFrame": 1417
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1423,
+    "endFrame": 1425
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1431,
+    "endFrame": 1433
+  },
+  {
+    "kind": "accent",
+    "label": "Payoff moving bar accent",
+    "startFrame": 1439,
+    "endFrame": 1440
+  }
+]

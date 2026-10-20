@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "number",
+      "const": 2
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entryPoint": {
+      "type": "string",
+      "minLength": 1
+    },
+    "compositionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "publicDir": {
+      "default": "public",
+      "type": "string"
+    },
+    "inputProps": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "gl": {
+      "default": "angle",
+      "type": "string",
+      "enum": [
+        "angle",
+        "swangle"
+      ]
+    },
+    "score": {
+      "default": "score.json",
+      "type": "string"
+    },
+    "captions": {
+      "type": "object",
+      "properties": {
+        "transcript": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "transcript"
+      ],
+      "additionalProperties": false
+    },
+    "quality": {
+      "default": "final",
+      "type": "string",
+      "enum": [
+        "draft",
+        "final"
+      ]
+    },
+    "overrides": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "height": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "fps": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 120
+        },
+        "durationInFrames": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "additionalProperties": false
+    },
+    "exports": {
+      "default": [
+        {
+          "name": "vertical"
+        }
+      ],
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+$"
+          },
+          "width": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "height": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "requires": {
+      "default": {
+        "htmlInCanvas": false,
+        "audio": false
+      },
+      "type": "object",
+      "properties": {
+        "htmlInCanvas": {
+          "default": false,
+          "type": "boolean"
+        },
+        "audio": {
+          "default": false,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "htmlInCanvas",
+        "audio"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "version",
+    "name",
+    "entryPoint",
+    "compositionId",
+    "publicDir",
+    "inputProps",
+    "gl",
+    "score",
+    "quality",
+    "overrides",
+    "exports",
+    "requires"
+  ],
+  "additionalProperties": false
+}

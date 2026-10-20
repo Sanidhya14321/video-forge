@@ -1,0 +1,80 @@
+[
+  {
+    "kind": "shot",
+    "label": "REFRACTIVE GLASS",
+    "mechanism": "refractive-glass",
+    "startFrame": 0,
+    "endFrame": 150
+  },
+  {
+    "kind": "reading",
+    "label": "REFRACTIVE GLASS",
+    "startFrame": 35,
+    "endFrame": 110
+  },
+  {
+    "kind": "shot",
+    "label": "SPATIAL TRAVERSAL",
+    "mechanism": "spatial-traversal",
+    "startFrame": 150,
+    "endFrame": 300
+  },
+  {
+    "kind": "reading",
+    "label": "SPATIAL TRAVERSAL",
+    "startFrame": 185,
+    "endFrame": 260
+  },
+  {
+    "kind": "shot",
+    "label": "LAYERED PARALLAX",
+    "mechanism": "layered-parallax",
+    "startFrame": 300,
+    "endFrame": 450
+  },
+  {
+    "kind": "reading",
+    "label": "LAYERED PARALLAX",
+    "startFrame": 335,
+    "endFrame": 410
+  },
+  {
+    "kind": "shot",
+    "label": "KINETIC TYPOGRAPHY",
+    "mechanism": "kinetic-typography",
+    "startFrame": 450,
+    "endFrame": 600
+  },
+  {
+    "kind": "reading",
+    "label": "KINETIC TYPOGRAPHY",
+    "startFrame": 485,
+    "endFrame": 560
+  },
+  {
+    "kind": "shot",
+    "label": "CONTINUOUS TRANSITION",
+    "mechanism": "continuous-transition",
+    "startFrame": 600,
+    "endFrame": 750
+  },
+  {
+    "kind": "reading",
+    "label": "CONTINUOUS TRANSITION",
+    "startFrame": 635,
+    "endFrame": 710
+  },
+  {
+    "kind": "shot",
+    "label": "RAPID EDITORIAL",
+    "mechanism": "rapid-editorial",
+    "startFrame": 750,
+    "endFrame": 900
+  },
+  {
+    "kind": "reading",
+    "label": "RAPID EDITORIAL",
+    "startFrame": 785,
+    "endFrame": 860
+  }
+]

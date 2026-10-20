@@ -36,6 +36,10 @@ jobs:
         run: node dist/cli.js run examples/overlay-smoke.json --out /tmp/video-forge-overlay-smoke
       - if: runner.os == 'Linux'
         run: node dist/cli.js run examples/world-smoke.json --out /tmp/video-forge-world-smoke
+      - if: runner.os == 'Linux'
+        run: node dist/cli.js run examples/code-smoke/project.json --out /tmp/video-forge-code-smoke
+      - if: runner.os == 'Linux'
+        run: node scripts/check-zero-refraction.mjs
       - run: python3 scripts/package.py --out release-assets
       - run: python3 scripts/validate-archives.py release-assets
       - run: python3 scripts/prepare-release.py --out release-assets

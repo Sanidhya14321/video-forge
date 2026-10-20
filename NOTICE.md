@@ -17,3 +17,9 @@ Any user-supplied media and cloud-generated outputs require their own source and
 New guidance and shot recipes are original Video Forge synthesis informed by the pinned repository/documentation record in `sources/creative-research-2026-10-20.json`. Full upstream manuals/skills and research caches are not redistributed. LosslessCut GPL source was inspected for workflow ideas; no GPL implementation is copied. Shotcraft code/media have separate terms; no Shotcraft music, SFX or shot implementation is bundled by this update.
 
 Three.js, React Three Fiber and @remotion/three are pinned dependencies with their own MIT notices distributed by those packages; the core Remotion renderer retains its separate licensing requirements. The included speaker GLB, signal/typography vectors and camera-study score are original MIT fixtures, not models of a real product or publisher assets. The asset-source index is a discovery aid, not a license for every search result.
+
+## Version 0.7 code-authored motion
+
+`motion/index.tsx`, the code-project runner and the new procedural graphics/score are original Video Forge MIT work. Codrops/The Substance sources were inspected for mechanisms; their media/code are not bundled as copied assets. Pinned license/source evidence is in `sources/motion-research-v07.json`. GSAP3.15.0 has its own standard no-charge license; @remotion/gsap and @remotion/motion-blur retain their MIT notices. Remotion core retains its existing terms.
+
+Space Grotesk is bundled from google/fonts under SIL Open Font License1.1. Copyright/license text travels with every scaffold in `templates/short/public/FONT-LICENSE.txt` and each example copy. The0.7 public film's speech is locally synthesized with Kokoro af_heart; its music and effects are original deterministic synthesis. Private OmniDimension footage, logos and website captures are not MIT assets and are excluded from the repository and releases.

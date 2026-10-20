@@ -1,0 +1,81 @@
+{
+  "consistent": true,
+  "samples": [
+    {
+      "frame": 60,
+      "file": "0-60.png",
+      "sha256": "056aa070cee482ac5d0ec99f586ee3c33ca7ebf2374745bf633fa6fc0e70cf87"
+    },
+    {
+      "frame": 5,
+      "file": "1-5.png",
+      "sha256": "36abaf4fee1f749979fdd63c72aca729e1f1bd44d25eab347847aac2b74ac71b"
+    },
+    {
+      "frame": 60,
+      "file": "2-60.png",
+      "sha256": "056aa070cee482ac5d0ec99f586ee3c33ca7ebf2374745bf633fa6fc0e70cf87"
+    },
+    {
+      "frame": 210,
+      "file": "3-210.png",
+      "sha256": "3fd15683cb380042e6bed54c944fd61ca80c80e4275a7f3de381f5bf4f9f4d8c"
+    },
+    {
+      "frame": 160,
+      "file": "4-160.png",
+      "sha256": "9b40e98d80d9ddaa33d1e78bd16ed61a1b75f353c2a2464462d06ee43cfaa861"
+    },
+    {
+      "frame": 210,
+      "file": "5-210.png",
+      "sha256": "3fd15683cb380042e6bed54c944fd61ca80c80e4275a7f3de381f5bf4f9f4d8c"
+    },
+    {
+      "frame": 510,
+      "file": "6-510.png",
+      "sha256": "7739b96765dae2835cc9080f932780890cc497013b94ed095fb6c93e4c1e7eda"
+    },
+    {
+      "frame": 470,
+      "file": "7-470.png",
+      "sha256": "179f72eb5262c6b3633d463f4dd6bfaff1b00b88bad95de0bf0e239971922a2c"
+    },
+    {
+      "frame": 510,
+      "file": "8-510.png",
+      "sha256": "7739b96765dae2835cc9080f932780890cc497013b94ed095fb6c93e4c1e7eda"
+    },
+    {
+      "frame": 650,
+      "file": "9-650.png",
+      "sha256": "88186a94681c709661fab39ffdfcf5dced69f57b40bb49f5f18034bea0aef09b"
+    },
+    {
+      "frame": 610,
+      "file": "10-610.png",
+      "sha256": "f8f74743e232563d2d7808496ab07979dd909d9f648747eac4928bbed3d9c4c8"
+    },
+    {
+      "frame": 650,
+      "file": "11-650.png",
+      "sha256": "88186a94681c709661fab39ffdfcf5dced69f57b40bb49f5f18034bea0aef09b"
+    },
+    {
+      "frame": 820,
+      "file": "12-820.png",
+      "sha256": "1a5b990580b86f1d773dcbdf018099ce3f966c3b46fc408eaf02574188e1b5c3"
+    },
+    {
+      "frame": 780,
+      "file": "13-780.png",
+      "sha256": "e683b17818472cb0811a1c32dd23d0c10fa9a92c2a9a83ff7bbc224e770fe520"
+    },
+    {
+      "frame": 820,
+      "file": "14-820.png",
+      "sha256": "1a5b990580b86f1d773dcbdf018099ce3f966c3b46fc408eaf02574188e1b5c3"
+    }
+  ],
+  "scope": "Exact PNG comparison on this browser/machine. Not a cross-GPU pixel-identical guarantee."
+}

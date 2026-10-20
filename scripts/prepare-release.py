@@ -5,7 +5,7 @@ p=argparse.ArgumentParser();p.add_argument('--out',type=pathlib.Path,required=Tr
 r=pathlib.Path(__file__).resolve().parents[1];v=json.loads((r/'package.json').read_text())['version']
 for host in ['source','claude','codex','standalone','claude-skill','chatgpt']:
  if not (out/f'video-forge-{host}-{v}.zip').is_file():raise SystemExit('Package and validate all six host archives before preparing a release')
-for src,name in [('demos/reel-showcase/vertical.mp4','reel.mp4'),('demos/reel-showcase/thumbnail.png','reel.png'),('demos/pop-showcase/vertical.mp4','color-pop.mp4'),('demos/pop-showcase/thumbnail.png','color-pop.png'),('demos/style-comparison/comparison.mp4','style-comparison.mp4'),('demos/camera-study/vertical.mp4','camera-study.mp4'),('demos/camera-study/thumbnail.png','camera-study.png')]:
+for src,name in [('demos/code-film/vertical.mp4','code-film.mp4'),('demos/code-film/thumbnail.png','code-film.png'),('demos/motion-studies/vertical.mp4','motion-studies.mp4'),('demos/reel-showcase/vertical.mp4','reel.mp4'),('demos/reel-showcase/thumbnail.png','reel.png'),('demos/pop-showcase/vertical.mp4','color-pop.mp4'),('demos/pop-showcase/thumbnail.png','color-pop.png'),('demos/style-comparison/comparison.mp4','style-comparison.mp4'),('demos/camera-study/vertical.mp4','camera-study.mp4'),('demos/camera-study/thumbnail.png','camera-study.png')]:
  stem,ext=name.rsplit('.',1);shutil.copy2(r/src,out/f'video-forge-{stem}-{v}.{ext}')
 subprocess.run([sys.executable,str(r/'scripts/package-comparison.py'),'--out',str(out)],check=True)
 entries=[]

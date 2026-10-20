@@ -1,3 +1,7 @@
+# Video Forge0.7 — code-authored short-form video
+
+Use `node dist/cli.js init /absolute/new-film`, edit its React/TSX and frame score, then `preview` and `run`. See [code projects](docs/code-projects.md) and [motion recipes](skills/video-motion/references/code-motion.md).
+
 # Video Forge runtime
 
 An editable video toolkit with local Remotion/FFmpeg tools and focused agent skills. This install package omits generated demo folders; [watch/download examples on GitHub](https://github.com/Sanidhya14321/video-forge/releases). The source archive retains complete demo material.

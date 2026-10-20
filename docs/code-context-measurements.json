@@ -1,0 +1,14 @@
+{
+  "version": "0.7.0",
+  "encoding": "cl100k_base",
+  "directorTokens": 875,
+  "exampleCustomMotionRoute": {
+    "skills/video-forge/SKILL.md": 875,
+    "skills/video-motion/SKILL.md": 418,
+    "skills/video-motion/references/code-motion.md": 1057,
+    "skills/video-forge/references/reels.md": 506,
+    "docs/code-projects.md": 745
+  },
+  "selectedRouteTokens": 3601,
+  "limits": "Static file-token measurements only. Historical upstream baselines cover different features and are not an equal-capability comparison. Additional assets, source and task-specific references cost additional context."
+}

@@ -1,7 +1,7 @@
 {
   "name": "@video-forge/toolkit",
-  "version": "0.6.0",
-  "description": "Creative video direction, assets, cinematic 3D, editing and local Remotion/FFmpeg production for agents",
+  "version": "0.7.0",
+  "description": "Code-authored short-form video direction, composable motion and editable local production for agents",
   "type": "module",
   "license": "MIT",
   "engines": {
@@ -23,10 +23,13 @@
   "dependencies": {
     "@react-three/fiber": "9.8.2",
     "@remotion/bundler": "4.0.536",
+    "@remotion/gsap": "4.0.536",
+    "@remotion/motion-blur": "4.0.536",
     "@remotion/renderer": "4.0.536",
     "@remotion/three": "4.0.536",
     "ffmpeg-static": "5.3.0",
     "ffprobe-static": "3.1.0",
+    "gsap": "3.15.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "remotion": "4.0.536",

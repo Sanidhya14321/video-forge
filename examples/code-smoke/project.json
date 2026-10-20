@@ -1,0 +1,1 @@
+{"version":2,"name":"Code compositor smoke","entryPoint":"src/index.tsx","compositionId":"Smoke","publicDir":"public","score":"score.json","requires":{"htmlInCanvas":true,"audio":false},"exports":[{"name":"vertical"}]}
