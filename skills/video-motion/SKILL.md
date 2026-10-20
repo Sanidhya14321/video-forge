@@ -1,17 +1,19 @@
 ---
 name: video-motion
-description: "Create editable Remotion product demos, abstract social reels, kinetic typography, code, data, and technical explainers."
+description: "Design editable cinematic 3D camera shots, motion graphics, product evidence, kinetic type and technical explainers with Remotion/Three.js."
 ---
 
 # Video Motion
 
-Use Remotion for the first-party renderer. Read [motion workflows](references/workflows.md) before choosing templates or writing custom React scenes. Inspect real screenshots and data rather than recreating product details from guesses.
+Read [creative direction](../video-forge/references/taste.md) for a new visual brief or redesign. Use Remotion for the first-party renderer. Read [motion workflows](references/workflows.md) before choosing templates or writing custom React scenes. Inspect real screenshots and data rather than recreating product details from guesses.
 
 For fast/abstract social work, read [reel direction](../video-forge/references/reels.md). Use its semantic motion mapping, not a heading-card default. The native reel treatments are implemented in `renderer/Reel.tsx` (minimal) and `renderer/PopReel.tsx` (colorful character/comic motion); `src/reel-layout.ts` owns frame/beat math and protected content bounds.
 
 For real-brand footage or product evidence, read [brand-led editing](../video-forge/references/brand-edits.md). Native `overlays` add animated logos, screenshot/browser inserts, screenshot-aligned pointers, call diagrams, steps and CTAs above footage. Keep captured UI distinct from illustrative motion.
 
-The [project contract](../../docs/project-format.md) supports title, image, video, code, chart, algorithm, and structured reel scenes. `algorithm` visualizes supplied array states; the agent computes and verifies the actual algorithm trace. It is not a generic algorithm solver. Large code excerpts should become multiple scenes.
+For real camera traversal, depth, lens/framing and motivated spatial moves, read [cinematography](references/cinematography.md). Native `kind: world` scenes expose a real Three.js camera path, lit procedural objects and local image planes. Plan a world/shot instead of choosing another heading treatment.
+
+The [project contract](../../docs/project-format.md) supports title, image, video, code, chart, algorithm, structured reel and 3D world scenes. `algorithm` visualizes supplied array states; the agent computes and verifies the actual algorithm trace. It is not a generic algorithm solver. Large code excerpts should become multiple scenes.
 
 Drive animation from Remotion frame time. Use fixed assets, stable seeds, and frame-based interpolation. Preserve exact data values and compare rendered labels against input data. Recompose each aspect ratio instead of assuming a center crop is readable.
 

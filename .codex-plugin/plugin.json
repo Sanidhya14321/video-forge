@@ -1,7 +1,7 @@
 {
   "name": "video-forge",
-  "version": "0.5.1",
-  "description": "Editable video production: reels, demos, explainers and captioned edits with local Remotion/FFmpeg tools",
+  "version": "0.6.0",
+  "description": "Creative direction, cinematic motion, assets and editable short films for Claude, Codex and compatible agents",
   "author": {
     "name": "Video Forge contributors"
   },

@@ -8,6 +8,7 @@ import { projectSchema, wordsSchema, dimensions, } from "./schema.js";
 import { exec, binary, ensureBinary, readable, probe, inspect, readWords, remapWords, srt, detectSpeechSegments, intersectSegments, normalizeVoice, } from "./media.js";
 import { Budget, speechOpenAI, falGenerate } from "./providers.js";
 import { reviewProject } from "./reel-review.js";
+import { inspectGlb } from './assets3d.js';
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 export const python = process.env.VIDEO_FORGE_PYTHON ??
     path.join(root, "python", ".venv", "bin", "python");
@@ -52,6 +53,7 @@ export async function preflight(project, base) {
     await Promise.all([ensureBinary("ffmpeg"), ensureBinary("ffprobe")]);
     const refs = [
         ...project.scenes.map((s) => s.src),
+        ...project.scenes.flatMap(s => s.world?.objects.map(o => o.src) ?? []),
         ...project.overlays.flatMap(o => [o.src, o.logo]),
         project.footage?.src,
         project.narration.provider === "file" ? project.narration.src : undefined,
@@ -70,6 +72,10 @@ export async function preflight(project, base) {
             await readable(path.resolve(base, ref));
         }
     }
+    for (const scene of project.scenes)
+        for (const o of scene.world?.objects ?? [])
+            if (o.shape === 'model')
+                await inspectGlb(path.resolve(base, o.src));
     if (project.narration.provider === "kokoro" || project.captions?.transcribe) {
         const d = await localDoctor();
         if (project.narration.provider === "kokoro" && !d.kokoro)
@@ -124,7 +130,7 @@ export async function preflight(project, base) {
     }
 }
 export async function snapshotRenderer(out) {
-    for (const [source, dest] of [["renderer/Root.tsx", "composition.tsx"], ["renderer/Reel.tsx", "Reel.tsx"], ["renderer/PopReel.tsx", "PopReel.tsx"], ["renderer/Overlays.tsx", "Overlays.tsx"]]) {
+    for (const [source, dest] of [["renderer/Root.tsx", "composition.tsx"], ["renderer/Reel.tsx", "Reel.tsx"], ["renderer/PopReel.tsx", "PopReel.tsx"], ["renderer/Overlays.tsx", "Overlays.tsx"], ["renderer/World.tsx", "World.tsx"]]) {
         const text = (await readFile(path.join(root, source), "utf8")).replaceAll("../src/", "./");
         await writeFile(path.join(out, dest), text);
     }
@@ -132,17 +138,22 @@ export async function snapshotRenderer(out) {
     await copyFile(path.join(root, "src/reel-layout.ts"), path.join(out, "reel-layout.ts"));
     await copyFile(path.join(root, "src/footage-layout.ts"), path.join(out, "footage-layout.ts"));
     await copyFile(path.join(root, "src/overlay-timing.ts"), path.join(out, "overlay-timing.ts"));
+    await copyFile(path.join(root, "src/world.ts"), path.join(out, "world.ts"));
 }
 /** Render storyboard stills without executing narration, edits or cloud jobs. */
 export async function previewProject(file, output) {
     const base = path.dirname(path.resolve(file)), project = await loadProject(file);
     if (project.footage && (project.footage.segments?.length || project.footage.removeSilence))
         throw new Error("Preview footage must be a prepared source without cuts or silence removal; render the edit first");
-    const refs = [...project.scenes.flatMap(scene => scene.src ? [scene.src] : []), ...project.overlays.flatMap(o => [o.src, o.logo].filter((s) => Boolean(s))), ...(project.footage ? [project.footage.src] : [])];
+    const refs = [...project.scenes.flatMap(scene => [scene.src, ...(scene.world?.objects.map(o => o.src) ?? [])].filter((s) => Boolean(s))), ...project.overlays.flatMap(o => [o.src, o.logo].filter((s) => Boolean(s))), ...(project.footage ? [project.footage.src] : [])];
     if (refs.some(ref => ref.startsWith("generated:") || /^https?:/i.test(ref)))
         throw new Error("Preview requires local media; it never executes cloud generation");
     for (const ref of refs)
         await readable(path.resolve(base, ref));
+    for (const scene of project.scenes)
+        for (const o of scene.world?.objects ?? [])
+            if (o.shape === 'model')
+                await inspectGlb(path.resolve(base, o.src));
     const words = project.captions?.transcript ? wordsSchema.parse(await readWords(path.resolve(base, project.captions.transcript))) : (project.captions?.words ?? []);
     const out = path.resolve(output);
     await mkdir(path.dirname(out), { recursive: true });
@@ -159,6 +170,10 @@ export async function previewProject(file, output) {
     for (const scene of ready.scenes)
         if (scene.src)
             scene.src = await previewStage(scene.src);
+    for (const scene of ready.scenes)
+        for (const object of scene.world?.objects ?? [])
+            if (object.src)
+                object.src = await previewStage(object.src);
     for (const o of ready.overlays) {
         if (o.src)
             o.src = await previewStage(o.src);
@@ -189,6 +204,12 @@ export async function previewProject(file, output) {
                     const name = `${target.preset}-${String(shot.index).padStart(2, "0")}-${["entry", "peak", "exit"][i]}.png`;
                     await renderStill({ serveUrl, composition, inputProps: props, frame, scale: Math.min(1, 540 / width), output: path.join(out, name), puppeteerInstance: browser });
                     frames.push({ file: name, frame, shot: shot.index, phase: ["entry", "peak", "exit"][i] });
+                }
+            for (const shot of review.cameraShots)
+                for (const frame of shot.previewFrames) {
+                    const name = `${target.preset}-camera-${String(shot.scene).padStart(2, '0')}-${String(frame).padStart(6, '0')}.png`;
+                    await renderStill({ serveUrl, composition, inputProps: props, frame, scale: Math.min(1, 540 / width), output: path.join(out, name), puppeteerInstance: browser });
+                    frames.push({ file: name, frame, shot: shot.scene, phase: 'camera' });
                 }
         }
     }
@@ -377,6 +398,10 @@ export async function runProject(file, output) {
     for (const scene of ready.scenes)
         if (scene.src)
             scene.src = await stage(scene.src);
+    for (const scene of ready.scenes)
+        for (const object of scene.world?.objects ?? [])
+            if (object.src)
+                object.src = await stage(object.src);
     for (const o of ready.overlays) {
         if (o.src)
             o.src = await stage(o.src);

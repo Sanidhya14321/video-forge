@@ -46,3 +46,11 @@ Keep creative rules in `skills/`; `references/hosts.md` adapts only environment 
 `src/footage-layout.ts` applies bounded, eased punch-ins on final output time; `footage.layout: full-frame` is an opt-in to preserve backward-compatible padded footage. Do not infer face tracking or semantic cut selection. User media for a production belongs outside this repository and is not a release fixture.
 
 Use [the release procedure](releasing.md) for publication and [compatibility](compatibility.md) for tested versus unverified host paths. The workflow uses a reusable Linux/macOS validation job before publishing a complete draft. Release checksums reject modified or unlisted assets.
+
+## Creative library and 3D (v0.6)
+
+`renderer/World.tsx` uses ThreeCanvas and R3F for genuine scene depth. `src/world.ts` defines strict camera/object contracts and pure frame-time samples; `src/assets3d.ts` checks the supported self-contained GLB envelope before loading. Keep live frame loops and interactive camera damping out of capture. Model geometry/materials come from the selected GLB; transform keys do not play skeletal animation.
+
+Snapshots include World.tsx/world.ts beside the existing components. Preview samples camera keys and midpoints; review reports target clearance only, not mesh collision or taste. Run the original `world-smoke.json` to exercise geometry, texture and GLB staging. `scripts/prepare-world-asset.mjs` regenerates the original prop; `prepare-camera-score.py` regenerates the original music/SFX.
+
+Creative references remain conditional. `ideas` loads one authored recipe, while `scout` extracts local source samples without semantic take selection. Keep fetched source caches outside the repo. Use the pinned creative research addendum and preserve the original 100-entry register. [Evaluation cases](creative-evaluation.md) separate structural/technical checks from future host behavior and audience studies.

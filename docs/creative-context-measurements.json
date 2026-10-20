@@ -1,0 +1,22 @@
+{
+  "method": "CLI component inventory and UTF-8 size measurements; not a live LLM token benchmark",
+  "claudeCliEstimatedMetadataTokens": 351,
+  "claudeCliEstimatedDirectorInvokeTokens": 1100,
+  "recipeIndexBytes": 1516,
+  "allRecipesBytes": 12326,
+  "singleRecipeBytes": {
+    "macro-to-context": 1118,
+    "occlusion-traversal": 1092,
+    "exploded-assembly": 1042,
+    "proof-first-screen": 1005,
+    "human-answer": 1065,
+    "process-match": 933,
+    "editorial-collage": 1024,
+    "photo-depth": 1002,
+    "data-consequence": 919,
+    "kinetic-argument": 968,
+    "action-ramp": 976,
+    "generated-coverage": 1028
+  },
+  "loadingPolicy": "Director routes to focused references and a selected recipe. Do not load all sources/recipes by default."
+}

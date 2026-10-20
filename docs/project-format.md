@@ -161,3 +161,21 @@ Multiple input recordings can be normalized/concatenated in the approved source 
 ```
 
 `review` lists the overlay timeline and flags very short screenshot holds. `preview` renders every overlay's entry/peak/exit and can now inspect prepared footage without segments or silence removal. It still performs no cloud generation, narration or automatic transcription. For a cut footage plan, prepare/render the edit first; preview does not silently ignore edits. Native snapshots include `Overlays.tsx` and `overlay-timing.ts`. Reused local assets are staged once per source path with attribution.
+
+## 3D world scenes
+
+`kind: "world"` exposes an authored Three.js scene rather than a fixed motion preset. It uses the project's actual FPS and aspect ratio. A world contains:
+
+- `camera: {interpolation: "linear" | "smooth", keys: [{at, position: [x,y,z], target: [x,y,z], fov?, roll?}, …]}`. At least two strictly increasing keys beginning at zero; seconds are scene-relative. FOV is vertical degrees (15–100), roll is radians. Smooth mode uses time-weighted Hermite interpolation with continuous intermediate velocity and zero endpoint velocity. Linear mode traverses straight segments. Interpolation may overshoot geometry; inspect the path.
+- `objects`: up to 96 distinct IDs, with `shape: box | sphere | torus | cylinder | plane | image | model`, `position`, optional `rotation` (radians), `size` and `scale` triples, `color`, `roughness`, `metalness`, and optional `keys`. Primitive geometry is unit sized before `size × scale`; torus has a 0.5 centerline radius/0.11 tube. Absolute object keys contain `at`, `position`, optional rotation/scale defaults; key poses override the base transform rather than accumulating frame state.
+- Image planes require a local `src`; `size` sets the plane's world dimensions. Their unlit color preserves the source texture. Models require an uncompressed, self-contained local `.glb` v2: external URI resources and unsupported Draco/Meshopt/KTX decoder requirements fail preflight. GLB materials are retained; object `size × scale` multiplies the asset's authored units. No skeletal animation is played. This is a supported-envelope check, not complete glTF conformance validation.
+- `ambient` and up to eight directional `lights: [{position,color,intensity}]` describe lighting. There is no implicit downloaded HDRI or simulation. Background is the project's solid color.
+- `copyPosition: top | bottom | none` (default none) and `copyAt` optionally reveal the scene title/body after a camera landing. Native caption layering remains independent. Inspect contrast, face/evidence placement and copy for the actual format.
+
+Camera/target must differ; key times and copy reveal must fit the scene. The renderer is frame-derived and supports out-of-order frame capture. `preview` includes camera key and midpoint samples in addition to entry/peak/exit frames. `review` reports sampled camera-target clearance, not mesh collisions or cinematographic quality. `examples/camera-traversal.json` demonstrates an original traversal, assembly and hero reveal; `examples/world-smoke.json` is a small CI fixture with a bundled original GLB/image.
+
+No depth-of-field, physical motion blur, volumetric rendering, live camera controls, external application timeline, automatic model search/download, or photoreal generation is implied by this scene contract.
+
+## Creative helpers
+
+`ideas list` returns a compact recipe index; `ideas <id>` returns one original, source-attributed recipe. It performs no inference, rendering or remote request. `scout <local-video> --out <new-directory>` extracts up to twelve source-timed images, media metadata and a local contact-sheet HTML file without changing the input. Scout does not transcribe or select takes semantically; inspect more moments when sparse sampling is inadequate.

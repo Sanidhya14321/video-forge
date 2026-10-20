@@ -72,7 +72,7 @@ test('preview refuses cloud assets before creating an output directory',async()=
 });
 test('renderer snapshot includes portable motion and layout dependencies',async()=>{
  const dir=await mkdtemp(path.join(os.tmpdir(),'vf-snapshot-'));
- try{await snapshotRenderer(dir);for(const name of ['composition.tsx','Reel.tsx','PopReel.tsx','Overlays.tsx','overlay-timing.ts','footage-layout.ts','schema.ts','reel-layout.ts'])await access(path.join(dir,name));}
+ try{await snapshotRenderer(dir);for(const name of ['composition.tsx','Reel.tsx','PopReel.tsx','Overlays.tsx','World.tsx','world.ts','overlay-timing.ts','footage-layout.ts','schema.ts','reel-layout.ts'])await access(path.join(dir,name));}
  finally{await rm(dir,{recursive:true,force:true});}
 });
 

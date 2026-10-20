@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "license": "MIT",
+  "authorship": "Original procedural proxy materials and stage suggestions; actual objects are authored per world scene",
+  "materials": [
+    {
+      "id": "matte-ink",
+      "color": "#151b2c",
+      "roughness": 0.8,
+      "metalness": 0.05
+    },
+    {
+      "id": "warm-ceramic",
+      "color": "#f0e2c9",
+      "roughness": 0.32,
+      "metalness": 0.05
+    },
+    {
+      "id": "electric-coral",
+      "color": "#ff6045",
+      "roughness": 0.36,
+      "metalness": 0.12
+    },
+    {
+      "id": "brushed-cool",
+      "color": "#9bb5c8",
+      "roughness": 0.38,
+      "metalness": 0.7
+    }
+  ],
+  "stages": [
+    {
+      "id": "depth-corridor",
+      "purpose": "Motivated traversal with foreground gates, side stations and an endpoint. Vary spacing and silhouette; do not use for every idea."
+    },
+    {
+      "id": "product-plinth",
+      "purpose": "Clear hero silhouette, contact base and space for macro-to-context camera coverage."
+    },
+    {
+      "id": "layer-assembly",
+      "purpose": "Separate meaningful components on distinct depth planes, then assemble into a legible result."
+    }
+  ],
+  "bundledAssets": [
+    {
+      "path": "../../../examples/assets/speaker-prop.glb",
+      "role": "Original static fictional speaker prop, self-contained GLB v2",
+      "license": "MIT"
+    },
+    {
+      "path": "../../../examples/assets/world-label.svg",
+      "role": "Original typography plane, illustrative artwork",
+      "license": "MIT"
+    }
+  ]
+}

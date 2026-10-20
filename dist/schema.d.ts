@@ -12,8 +12,8 @@ export declare const wordsSchema: z.ZodArray<z.ZodObject<{
 export declare const motionPresets: readonly ["type-impact", "fragment-merge", "orbit-lock", "signal-flow", "ribbon", "frame-morph", "timeline-cut", "waveform", "code-scan", "data-sculpt", "word-pulse", "radial-burst"];
 export declare const motionSchema: z.ZodObject<{
     style: z.ZodDefault<z.ZodEnum<{
-        minimal: "minimal";
         pop: "pop";
+        minimal: "minimal";
     }>>;
     palette: z.ZodOptional<z.ZodArray<z.ZodString>>;
     energy: z.ZodDefault<z.ZodNumber>;
@@ -35,9 +35,9 @@ export declare const motionSchema: z.ZodObject<{
     seed: z.ZodDefault<z.ZodNumber>;
     density: z.ZodDefault<z.ZodNumber>;
     entrance: z.ZodDefault<z.ZodEnum<{
-        cut: "cut";
-        push: "push";
         scale: "scale";
+        push: "push";
+        cut: "cut";
     }>>;
 }, z.core.$strict>;
 export declare const overlaySchema: z.ZodObject<{
@@ -57,9 +57,9 @@ export declare const overlaySchema: z.ZodObject<{
     src: z.ZodOptional<z.ZodString>;
     logo: z.ZodOptional<z.ZodString>;
     layout: z.ZodDefault<z.ZodEnum<{
+        top: "top";
         full: "full";
         "lower-third": "lower-third";
-        top: "top";
     }>>;
     offsetY: z.ZodDefault<z.ZodNumber>;
     labels: z.ZodOptional<z.ZodArray<z.ZodString>>;
@@ -81,13 +81,14 @@ export declare const overlaySchema: z.ZodObject<{
 }, z.core.$strict>;
 export declare const sceneSchema: z.ZodObject<{
     kind: z.ZodEnum<{
-        title: "title";
+        image: "image";
         code: "code";
+        title: "title";
         chart: "chart";
         algorithm: "algorithm";
-        image: "image";
         video: "video";
         reel: "reel";
+        world: "world";
     }>;
     duration: z.ZodNumber;
     title: z.ZodDefault<z.ZodString>;
@@ -101,8 +102,8 @@ export declare const sceneSchema: z.ZodObject<{
     note: z.ZodOptional<z.ZodString>;
     motion: z.ZodOptional<z.ZodObject<{
         style: z.ZodDefault<z.ZodEnum<{
-            minimal: "minimal";
             pop: "pop";
+            minimal: "minimal";
         }>>;
         palette: z.ZodOptional<z.ZodArray<z.ZodString>>;
         energy: z.ZodDefault<z.ZodNumber>;
@@ -124,10 +125,63 @@ export declare const sceneSchema: z.ZodObject<{
         seed: z.ZodDefault<z.ZodNumber>;
         density: z.ZodDefault<z.ZodNumber>;
         entrance: z.ZodDefault<z.ZodEnum<{
-            cut: "cut";
-            push: "push";
             scale: "scale";
+            push: "push";
+            cut: "cut";
         }>>;
+    }, z.core.$strict>>;
+    world: z.ZodOptional<z.ZodObject<{
+        camera: z.ZodObject<{
+            interpolation: z.ZodDefault<z.ZodEnum<{
+                linear: "linear";
+                smooth: "smooth";
+            }>>;
+            keys: z.ZodArray<z.ZodObject<{
+                at: z.ZodNumber;
+                position: z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>;
+                target: z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>;
+                fov: z.ZodDefault<z.ZodNumber>;
+                roll: z.ZodDefault<z.ZodNumber>;
+            }, z.core.$strict>>;
+        }, z.core.$strict>;
+        objects: z.ZodArray<z.ZodObject<{
+            size: z.ZodDefault<z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>>;
+            color: z.ZodDefault<z.ZodString>;
+            roughness: z.ZodDefault<z.ZodNumber>;
+            metalness: z.ZodDefault<z.ZodNumber>;
+            src: z.ZodOptional<z.ZodString>;
+            keys: z.ZodDefault<z.ZodArray<z.ZodObject<{
+                position: z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>;
+                rotation: z.ZodDefault<z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>>;
+                scale: z.ZodDefault<z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>>;
+                at: z.ZodNumber;
+            }, z.core.$strict>>>;
+            position: z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>;
+            rotation: z.ZodDefault<z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>>;
+            scale: z.ZodDefault<z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>>;
+            id: z.ZodString;
+            shape: z.ZodEnum<{
+                box: "box";
+                sphere: "sphere";
+                torus: "torus";
+                cylinder: "cylinder";
+                plane: "plane";
+                image: "image";
+                model: "model";
+            }>;
+        }, z.core.$strict>>;
+        ambient: z.ZodDefault<z.ZodNumber>;
+        lights: z.ZodDefault<z.ZodArray<z.ZodObject<{
+            position: z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>;
+            color: z.ZodDefault<z.ZodString>;
+            intensity: z.ZodDefault<z.ZodNumber>;
+        }, z.core.$strict>>>;
+        copyPosition: z.ZodDefault<z.ZodEnum<{
+            top: "top";
+            bottom: "bottom";
+            none: "none";
+        }>>;
+        copyAt: z.ZodDefault<z.ZodNumber>;
     }, z.core.$strict>>;
 }, z.core.$strict>;
 export declare const projectSchema: z.ZodObject<{
@@ -143,8 +197,8 @@ export declare const projectSchema: z.ZodObject<{
     fps: z.ZodDefault<z.ZodUnion<readonly [z.ZodLiteral<24>, z.ZodLiteral<30>, z.ZodLiteral<60>]>>;
     theme: z.ZodDefault<z.ZodObject<{
         surface: z.ZodDefault<z.ZodEnum<{
-            flat: "flat";
             ambient: "ambient";
+            flat: "flat";
         }>>;
         background: z.ZodDefault<z.ZodString>;
         foreground: z.ZodDefault<z.ZodString>;
@@ -168,13 +222,14 @@ export declare const projectSchema: z.ZodObject<{
     }, z.core.$strict>>;
     scenes: z.ZodDefault<z.ZodArray<z.ZodObject<{
         kind: z.ZodEnum<{
-            title: "title";
+            image: "image";
             code: "code";
+            title: "title";
             chart: "chart";
             algorithm: "algorithm";
-            image: "image";
             video: "video";
             reel: "reel";
+            world: "world";
         }>;
         duration: z.ZodNumber;
         title: z.ZodDefault<z.ZodString>;
@@ -188,8 +243,8 @@ export declare const projectSchema: z.ZodObject<{
         note: z.ZodOptional<z.ZodString>;
         motion: z.ZodOptional<z.ZodObject<{
             style: z.ZodDefault<z.ZodEnum<{
-                minimal: "minimal";
                 pop: "pop";
+                minimal: "minimal";
             }>>;
             palette: z.ZodOptional<z.ZodArray<z.ZodString>>;
             energy: z.ZodDefault<z.ZodNumber>;
@@ -211,10 +266,63 @@ export declare const projectSchema: z.ZodObject<{
             seed: z.ZodDefault<z.ZodNumber>;
             density: z.ZodDefault<z.ZodNumber>;
             entrance: z.ZodDefault<z.ZodEnum<{
-                cut: "cut";
-                push: "push";
                 scale: "scale";
+                push: "push";
+                cut: "cut";
             }>>;
+        }, z.core.$strict>>;
+        world: z.ZodOptional<z.ZodObject<{
+            camera: z.ZodObject<{
+                interpolation: z.ZodDefault<z.ZodEnum<{
+                    linear: "linear";
+                    smooth: "smooth";
+                }>>;
+                keys: z.ZodArray<z.ZodObject<{
+                    at: z.ZodNumber;
+                    position: z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>;
+                    target: z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>;
+                    fov: z.ZodDefault<z.ZodNumber>;
+                    roll: z.ZodDefault<z.ZodNumber>;
+                }, z.core.$strict>>;
+            }, z.core.$strict>;
+            objects: z.ZodArray<z.ZodObject<{
+                size: z.ZodDefault<z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>>;
+                color: z.ZodDefault<z.ZodString>;
+                roughness: z.ZodDefault<z.ZodNumber>;
+                metalness: z.ZodDefault<z.ZodNumber>;
+                src: z.ZodOptional<z.ZodString>;
+                keys: z.ZodDefault<z.ZodArray<z.ZodObject<{
+                    position: z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>;
+                    rotation: z.ZodDefault<z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>>;
+                    scale: z.ZodDefault<z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>>;
+                    at: z.ZodNumber;
+                }, z.core.$strict>>>;
+                position: z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>;
+                rotation: z.ZodDefault<z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>>;
+                scale: z.ZodDefault<z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>>;
+                id: z.ZodString;
+                shape: z.ZodEnum<{
+                    box: "box";
+                    sphere: "sphere";
+                    torus: "torus";
+                    cylinder: "cylinder";
+                    plane: "plane";
+                    image: "image";
+                    model: "model";
+                }>;
+            }, z.core.$strict>>;
+            ambient: z.ZodDefault<z.ZodNumber>;
+            lights: z.ZodDefault<z.ZodArray<z.ZodObject<{
+                position: z.ZodTuple<[z.ZodNumber, z.ZodNumber, z.ZodNumber], null>;
+                color: z.ZodDefault<z.ZodString>;
+                intensity: z.ZodDefault<z.ZodNumber>;
+            }, z.core.$strict>>>;
+            copyPosition: z.ZodDefault<z.ZodEnum<{
+                top: "top";
+                bottom: "bottom";
+                none: "none";
+            }>>;
+            copyAt: z.ZodDefault<z.ZodNumber>;
         }, z.core.$strict>>;
     }, z.core.$strict>>>;
     overlays: z.ZodDefault<z.ZodArray<z.ZodObject<{
@@ -234,9 +342,9 @@ export declare const projectSchema: z.ZodObject<{
         src: z.ZodOptional<z.ZodString>;
         logo: z.ZodOptional<z.ZodString>;
         layout: z.ZodDefault<z.ZodEnum<{
+            top: "top";
             full: "full";
             "lower-third": "lower-third";
-            top: "top";
         }>>;
         offsetY: z.ZodDefault<z.ZodNumber>;
         labels: z.ZodOptional<z.ZodArray<z.ZodString>>;

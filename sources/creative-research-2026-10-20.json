@@ -1,0 +1,507 @@
+{
+  "version": 1,
+  "checkedDate": "2026-10-20",
+  "purpose": "Creative-direction addendum to the preserved 100-entry report register; not a ranking or 11 installed engines.",
+  "inspectionScope": "Pinned source files fetched; relevant mechanisms, APIs and licensing excerpts inspected. Full upstream applications were not executed.",
+  "repositories": [
+    {
+      "id": "remotion-dev-agent-plugin",
+      "repository": "https://github.com/remotion-dev/agent-plugin",
+      "inspectedRevision": "ef892905120340970357997f20bcb8ce9bb341da",
+      "license": "MIT",
+      "scope": "API pattern informs original native world implementation; no complete skill copied.",
+      "distinctiveMechanism": "Frame-driven 3D and transition timing; distinguish ThreeCanvas from CSS perspective.",
+      "destination": "skills/video-motion/references/cinematography.md",
+      "evidence": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/remotion-dev/agent-plugin/ef892905120340970357997f20bcb8ce9bb341da/README.md",
+          "sha256": "691557f1d8830d533b1b8429d94743ea2bf26fbb9dfea74a0329428e5a2e3576",
+          "bytes": 1034
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/remotion-dev/agent-plugin/ef892905120340970357997f20bcb8ce9bb341da/LICENSE",
+          "sha256": "1df205bece1fe707f818658a104844aba9a783e43f716642f5bf1286c18263c0",
+          "bytes": 1065
+        },
+        {
+          "path": "skills/remotion-markup/3d.md",
+          "url": "https://raw.githubusercontent.com/remotion-dev/agent-plugin/ef892905120340970357997f20bcb8ce9bb341da/skills/remotion-markup/3d.md",
+          "sha256": "42cef6d68fb4a266ab495d35df0c60e03672b0d85c043f9b567f6aa7ff00dd0d",
+          "bytes": 2292
+        },
+        {
+          "path": "skills/remotion-markup/transitions.md",
+          "url": "https://raw.githubusercontent.com/remotion-dev/agent-plugin/ef892905120340970357997f20bcb8ce9bb341da/skills/remotion-markup/transitions.md",
+          "sha256": "41d69d0b5c862bcada825a68413064837fd4fcd55f81ad59492931db982a08ad",
+          "bytes": 6882
+        }
+      ]
+    },
+    {
+      "id": "motion-canvas-motion-canvas",
+      "repository": "https://github.com/motion-canvas/motion-canvas",
+      "inspectedRevision": "7b91435c301d530351dcf5ebb91dd139c002e405",
+      "license": "MIT",
+      "scope": "Reference mechanisms; Motion Canvas runtime is not bundled.",
+      "distinctiveMechanism": "Signals coordinate dependent state; all/chain/sequence distinguish parallel, serial and staggered choreography.",
+      "destination": "skills/video-forge/references/taste.md",
+      "evidence": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/motion-canvas/motion-canvas/7b91435c301d530351dcf5ebb91dd139c002e405/README.md",
+          "sha256": "9895daa20be79849a312b5cb5b9ed36db2d1a6dfe9731b5e53a67b222abe9cd9",
+          "bytes": 5266
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/motion-canvas/motion-canvas/7b91435c301d530351dcf5ebb91dd139c002e405/LICENSE",
+          "sha256": "b3f12201916c5d478263cd210cf17f3d0c007d03bd574e0b77cac6307953068e",
+          "bytes": 1070
+        },
+        {
+          "path": "packages/core/src/flow/all.ts",
+          "url": "https://raw.githubusercontent.com/motion-canvas/motion-canvas/7b91435c301d530351dcf5ebb91dd139c002e405/packages/core/src/flow/all.ts",
+          "sha256": "b2b49258158fc1f09c9e8fbba2aad22de8834c600abeda3c52b8e37a549e5b38",
+          "bytes": 552
+        },
+        {
+          "path": "packages/core/src/flow/chain.ts",
+          "url": "https://raw.githubusercontent.com/motion-canvas/motion-canvas/7b91435c301d530351dcf5ebb91dd139c002e405/packages/core/src/flow/chain.ts",
+          "sha256": "ba15383a3bc83f3a5a3af268b3dae6306b24d79593c1225e8229bd6467f96473",
+          "bytes": 1001
+        },
+        {
+          "path": "packages/core/src/flow/sequence.ts",
+          "url": "https://raw.githubusercontent.com/motion-canvas/motion-canvas/7b91435c301d530351dcf5ebb91dd139c002e405/packages/core/src/flow/sequence.ts",
+          "sha256": "f216624486771a9f8f776a8a661378a8ac4a4a9870790bc188bbebb3b1ff312b",
+          "bytes": 874
+        },
+        {
+          "path": "packages/2d/src/lib/components/Camera.ts",
+          "url": "https://raw.githubusercontent.com/motion-canvas/motion-canvas/7b91435c301d530351dcf5ebb91dd139c002e405/packages/2d/src/lib/components/Camera.ts",
+          "sha256": "86fea163c17849796c2108855904d26c44b6fd9fe558b10f15ff39f8c89d1f5d",
+          "bytes": 9802
+        }
+      ]
+    },
+    {
+      "id": "motion-canvas-examples",
+      "repository": "https://github.com/motion-canvas/examples",
+      "inspectedRevision": "8ffefed144368d33de4b0e451894c718eb95d574",
+      "license": "MIT",
+      "scope": "Reference; no example media or scene code copied.",
+      "distinctiveMechanism": "Parallax is explained with scene layers, camera framing and a visible comparison, not a decorative scale tween.",
+      "destination": "skills/video-motion/references/cinematography.md",
+      "evidence": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/motion-canvas/examples/8ffefed144368d33de4b0e451894c718eb95d574/LICENSE",
+          "sha256": "b58b18ec3a622bb72af16058f73634a3c0ef98a81dd0f6f16e2b7d492480f3e3",
+          "bytes": 1069
+        },
+        {
+          "path": "examples/smooth-parallax/src/scenes/parallax.tsx",
+          "url": "https://raw.githubusercontent.com/motion-canvas/examples/8ffefed144368d33de4b0e451894c718eb95d574/examples/smooth-parallax/src/scenes/parallax.tsx",
+          "sha256": "4516c01c7583eec3183d974eb03cfadf7072cfd1c9f101bd69192760a6d174f7",
+          "bytes": 13695
+        }
+      ]
+    },
+    {
+      "id": "manimcommunity-manim",
+      "repository": "https://github.com/ManimCommunity/manim",
+      "inspectedRevision": "b31c77e181d57d66ba30baa617328afaf52eb061",
+      "license": "MIT",
+      "scope": "Reference; Manim runtime is not installed by the plugin.",
+      "distinctiveMechanism": "A tracked camera target, orientation and world-space scene clarify spatial explanations.",
+      "destination": "skills/video-motion/references/cinematography.md",
+      "evidence": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/ManimCommunity/manim/b31c77e181d57d66ba30baa617328afaf52eb061/README.md",
+          "sha256": "41cac8aeb33a726c1b0a70d10233ee06d9cd73c6df0bace8145637d75c5fc283",
+          "bytes": 8378
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/ManimCommunity/manim/b31c77e181d57d66ba30baa617328afaf52eb061/LICENSE",
+          "sha256": "c6a922fc1cfaed7ac0f87aa1dc77ebf5a3c8d1ccc5ab01da33153f0d013bf019",
+          "bytes": 1072
+        },
+        {
+          "path": "manim/scene/three_d_scene.py",
+          "url": "https://raw.githubusercontent.com/ManimCommunity/manim/b31c77e181d57d66ba30baa617328afaf52eb061/manim/scene/three_d_scene.py",
+          "sha256": "d955ca318f9f34bda1c7be6a2f3336e6bfc4dd08be5e5878ef315f0c8cfe0ed1",
+          "bytes": 19678
+        },
+        {
+          "path": "manim/scene/moving_camera_scene.py",
+          "url": "https://raw.githubusercontent.com/ManimCommunity/manim/b31c77e181d57d66ba30baa617328afaf52eb061/manim/scene/moving_camera_scene.py",
+          "sha256": "a6d97a0f8710f7481392ce39c8cc88169371c08306d392a97208c7a560ff6e60",
+          "bytes": 4866
+        }
+      ]
+    },
+    {
+      "id": "pmndrs-drei",
+      "repository": "https://github.com/pmndrs/drei",
+      "inspectedRevision": "bf6f4addf47467d3885de272d94ca5127f6ef68f",
+      "license": "MIT",
+      "scope": "Reference; no Drei dependency or interactive control claimed.",
+      "distinctiveMechanism": "Camera targets/controls and projection are distinct; live damping requires a different capture strategy.",
+      "destination": "skills/video-motion/references/cinematography.md",
+      "evidence": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/pmndrs/drei/bf6f4addf47467d3885de272d94ca5127f6ef68f/LICENSE",
+          "sha256": "2e36b208b403882158daf95cae207087bbb830db4d434a79ebafffca177244c8",
+          "bytes": 1069
+        },
+        {
+          "path": "docs/controls/camera-controls.mdx",
+          "url": "https://raw.githubusercontent.com/pmndrs/drei/bf6f4addf47467d3885de272d94ca5127f6ef68f/docs/controls/camera-controls.mdx",
+          "sha256": "369026ec2023be25b86bfe5b927aaca9f7f1f879b079f249b55c671e9afba3b6",
+          "bytes": 2894
+        },
+        {
+          "path": "docs/cameras/perspective-camera.mdx",
+          "url": "https://raw.githubusercontent.com/pmndrs/drei/bf6f4addf47467d3885de272d94ca5127f6ef68f/docs/cameras/perspective-camera.mdx",
+          "sha256": "3299257040f51830a3b696f59512f07da95cd51be85adeed79e96d34e0b16639",
+          "bytes": 2095
+        }
+      ]
+    },
+    {
+      "id": "pmndrs-react-three-fiber",
+      "repository": "https://github.com/pmndrs/react-three-fiber",
+      "inspectedRevision": "d74622ea8ed717f7212d7e19d65ff3e325508389",
+      "license": "MIT",
+      "scope": "Pinned dependency used by original world renderer; live frame-loop recipes deliberately not imported.",
+      "distinctiveMechanism": "Reuse resources, update projection matrices, distinguish real-time mutation loops from deterministic Remotion frame sampling.",
+      "destination": "skills/video-motion/references/cinematography.md",
+      "evidence": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/pmndrs/react-three-fiber/d74622ea8ed717f7212d7e19d65ff3e325508389/LICENSE",
+          "sha256": "9c35b5de7b7493a707fffe4eb23bd2f7f449153c1911f7c6eefb4e591fd5349a",
+          "bytes": 1072
+        },
+        {
+          "path": "readme.md",
+          "url": "https://raw.githubusercontent.com/pmndrs/react-three-fiber/d74622ea8ed717f7212d7e19d65ff3e325508389/readme.md",
+          "sha256": "29c7319a41a30b95319e68d540672efaa31a2c3bd44bad6ef2e48b93d00d4ab6",
+          "bytes": 14301
+        },
+        {
+          "path": "docs/advanced/pitfalls.mdx",
+          "url": "https://raw.githubusercontent.com/pmndrs/react-three-fiber/d74622ea8ed717f7212d7e19d65ff3e325508389/docs/advanced/pitfalls.mdx",
+          "sha256": "8667456d9d091513bf97141a687857569c32d3ce07beff5211102bfdfce7e17c",
+          "bytes": 7563
+        },
+        {
+          "path": "docs/advanced/scaling-performance.mdx",
+          "url": "https://raw.githubusercontent.com/pmndrs/react-three-fiber/d74622ea8ed717f7212d7e19d65ff3e325508389/docs/advanced/scaling-performance.mdx",
+          "sha256": "6fde9c64f5d61c1cc8bc74a339ce3e406a2e6a518b5d8f6e370b62cce4665b52",
+          "bytes": 16026
+        }
+      ]
+    },
+    {
+      "id": "theatre-js-theatre",
+      "repository": "https://github.com/theatre-js/theatre",
+      "inspectedRevision": "6ea82b938ea49609489f6377ded693ccc6ee8f5b",
+      "license": "Apache-2.0",
+      "scope": "Reference; no Theatre editor integration.",
+      "distinctiveMechanism": "Treat camera, target and lights as separate editable animation tracks.",
+      "destination": "skills/video-motion/references/cinematography.md",
+      "evidence": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/theatre-js/theatre/6ea82b938ea49609489f6377ded693ccc6ee8f5b/LICENSE",
+          "sha256": "32a36fa187169c24228aaf6889371e7ffb4273d327ef37e340994e7ca157879b",
+          "bytes": 45927
+        },
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/theatre-js/theatre/6ea82b938ea49609489f6377ded693ccc6ee8f5b/README.md",
+          "sha256": "a5b6be8fec45220609f12ca629884dbb6567bd545cd4ad849d90ad49fdc564f2",
+          "bytes": 5032
+        },
+        {
+          "path": "packages/playground/src/shared/camera/App.tsx",
+          "url": "https://raw.githubusercontent.com/theatre-js/theatre/6ea82b938ea49609489f6377ded693ccc6ee8f5b/packages/playground/src/shared/camera/App.tsx",
+          "sha256": "bc88037c5b0c409492584dc057e4412c408f13587e1874be7d31720f80d4743b",
+          "bytes": 3317
+        }
+      ]
+    },
+    {
+      "id": "vincentwei1021-video-shotcraft",
+      "repository": "https://github.com/Vincentwei1021/video-shotcraft",
+      "inspectedRevision": "43bd349a136651865ecfa6ea1cf012f6e957d304",
+      "license": "Apache-2.0",
+      "scope": "Original synthesis; do not generalize repository-specific slow pacing or fixed effect quotas. No audio/shot code copied.",
+      "distinctiveMechanism": "Evaluate settled readability, real UI texture quality, motivated camera travel and action-linked sound; examine separate audio attribution.",
+      "destination": "skills/video-forge/references/taste.md",
+      "evidence": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/LICENSE",
+          "sha256": "b2ce9877a55547ada9b870150664d1468ff777e67cc9888806a73927d31c5771",
+          "bytes": 11340
+        },
+        {
+          "path": "SKILL.md",
+          "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/SKILL.md",
+          "sha256": "a94f87f093d07c96ddf3245d442acece7ceb6c544035855c63e26a216a068820",
+          "bytes": 20853
+        },
+        {
+          "path": "references/aesthetic-rules.md",
+          "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/aesthetic-rules.md",
+          "sha256": "0c7cf0d9a36a8c4e7f25fd67743ae8902b6bbbe4df2ebac1ce658b68070fa275",
+          "bytes": 27528
+        },
+        {
+          "path": "references/final-review.md",
+          "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/final-review.md",
+          "sha256": "e6f6710e4f90b794b3a139d6fc7a4d008912c284b74ebfd854d8c3050a245d95",
+          "bytes": 7095
+        },
+        {
+          "path": "references/sound-design.md",
+          "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/sound-design.md",
+          "sha256": "cac6f23c0b360cef7c7d04655f3009cf5e45f79e5f775594a622e680b0301521",
+          "bytes": 27677
+        },
+        {
+          "path": "references/shots/camera/space-camera-moves.md",
+          "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/camera/space-camera-moves.md",
+          "sha256": "69b8c433cbd92ea073b84922cfae7a2c541f31df73cb54d2a115c3116b3f1fba",
+          "bytes": 4480
+        },
+        {
+          "path": "references/shots/camera/depth-layer-moves.md",
+          "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/camera/depth-layer-moves.md",
+          "sha256": "80131fdf2b562c3ee38a9a2eb24dbbf66ccce7a5e4a4a0fc1ae8c3af55807fd7",
+          "bytes": 2608
+        },
+        {
+          "path": "references/shots/rhythm/speed-ramp-freeze.md",
+          "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/rhythm/speed-ramp-freeze.md",
+          "sha256": "31c7939fbfdd6c1ae98c9f004297641d33652c2fc1efb6641cd788305372cc7d",
+          "bytes": 2797
+        },
+        {
+          "path": "assets/audio/ATTRIBUTION.md",
+          "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/assets/audio/ATTRIBUTION.md",
+          "sha256": "7fdc7fdc9bee66fee43e045f799202b08a45455b480ebbf751a1faf59ffe66d2",
+          "bytes": 22401
+        }
+      ]
+    },
+    {
+      "id": "mifi-lossless-cut",
+      "repository": "https://github.com/mifi/lossless-cut",
+      "inspectedRevision": "261019072bd9e4a353a0b9d29185d82949118261",
+      "license": "GPL-2.0",
+      "scope": "Workflow reference only; GPL code is not imported.",
+      "distinctiveMechanism": "Scout thumbnails/waveforms and retain segment decisions; keyframe/lossless cuts differ from frame-accurate editorial choices.",
+      "destination": "skills/video-editing/references/editorial.md",
+      "evidence": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/mifi/lossless-cut/261019072bd9e4a353a0b9d29185d82949118261/LICENSE",
+          "sha256": "ed4033ab1ae27bdff154db7f90a24a2ed166dc52bf0dcdc50f805e837448a802",
+          "bytes": 17958
+        },
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/mifi/lossless-cut/261019072bd9e4a353a0b9d29185d82949118261/README.md",
+          "sha256": "5c0a36e6eaac1d5f739aa3565226a803b25640f3a1ca2424cd315259c83aadac",
+          "bytes": 12768
+        }
+      ]
+    },
+    {
+      "id": "adobedocs-uxp-premiere-pro-samples",
+      "repository": "https://github.com/AdobeDocs/uxp-premiere-pro-samples",
+      "inspectedRevision": "19c05136d17aba95d16f9b5e3e72dee61544373e",
+      "license": "Apache-2.0",
+      "scope": "Reference; no live Premiere application or UXP panel tested.",
+      "distinctiveMechanism": "Official samples show host-owned project/sequence transactions, keyframes and transcript APIs.",
+      "destination": "skills/video-editing/references/premiere.md",
+      "evidence": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/AdobeDocs/uxp-premiere-pro-samples/19c05136d17aba95d16f9b5e3e72dee61544373e/LICENSE",
+          "sha256": "c545deeed4e9001c4a57ec8df044ea86e9e3fd36da1926b59a16f274d0e11ff3",
+          "bytes": 11334
+        },
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/AdobeDocs/uxp-premiere-pro-samples/19c05136d17aba95d16f9b5e3e72dee61544373e/README.md",
+          "sha256": "00c1851c9460cf9725ff96bfd7c0619b77aa902648522d615ea7203f0343e62f",
+          "bytes": 11212
+        },
+        {
+          "path": "sample-panels/premiere-api/src/sequenceEditor.ts",
+          "url": "https://raw.githubusercontent.com/AdobeDocs/uxp-premiere-pro-samples/19c05136d17aba95d16f9b5e3e72dee61544373e/sample-panels/premiere-api/src/sequenceEditor.ts",
+          "sha256": "112f100117b5dda2dc374c464c8f735b0e01ed3177c1e0b7b44957c0fe5fc69d",
+          "bytes": 11560
+        },
+        {
+          "path": "sample-panels/premiere-api/src/keyframe.ts",
+          "url": "https://raw.githubusercontent.com/AdobeDocs/uxp-premiere-pro-samples/19c05136d17aba95d16f9b5e3e72dee61544373e/sample-panels/premiere-api/src/keyframe.ts",
+          "sha256": "989992547fa33388c84ad8873c3aa5e752dcd93a6d0f215e45e8d1cabe5d0612",
+          "bytes": 11433
+        },
+        {
+          "path": "sample-panels/premiere-api/src/transcript.ts",
+          "url": "https://raw.githubusercontent.com/AdobeDocs/uxp-premiere-pro-samples/19c05136d17aba95d16f9b5e3e72dee61544373e/sample-panels/premiere-api/src/transcript.ts",
+          "sha256": "f65cab79089e62c364a2d17cd6d78604358d248833c7192bc34396ec2bf041a4",
+          "bytes": 5411
+        }
+      ]
+    },
+    {
+      "id": "hetpatel-11-adobe_premiere_pro_mcp",
+      "repository": "https://github.com/hetpatel-11/Adobe_Premiere_Pro_MCP",
+      "inspectedRevision": "4ad1d9515ed80c6e6938c379c1dba872f6823539",
+      "license": "MIT",
+      "scope": "Reference only; no bridge installed or application action executed.",
+      "distinctiveMechanism": "Community bridge has its own installation, host connection, version and transport requirements; CEP is its documented production path at the inspected revision.",
+      "destination": "skills/video-editing/references/premiere.md",
+      "evidence": [
+        {
+          "path": "LICENSE.md",
+          "url": "https://raw.githubusercontent.com/hetpatel-11/Adobe_Premiere_Pro_MCP/4ad1d9515ed80c6e6938c379c1dba872f6823539/LICENSE.md",
+          "sha256": "c1e7cd7d5a2c9e10364b9bdc5ab917efbcbcac10cf1efecdac8b7fb0df8d1f43",
+          "bytes": 1073
+        },
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/hetpatel-11/Adobe_Premiere_Pro_MCP/4ad1d9515ed80c6e6938c379c1dba872f6823539/README.md",
+          "sha256": "3f84ad32feb7e72672f2fab2d7e1a9ac1860c99b7c5f8d179692101c3366c485",
+          "bytes": 28628
+        },
+        {
+          "path": "telemetry/README.md",
+          "url": "https://raw.githubusercontent.com/hetpatel-11/Adobe_Premiere_Pro_MCP/4ad1d9515ed80c6e6938c379c1dba872f6823539/telemetry/README.md",
+          "sha256": "c1587aa7ce1e0e0e98f3fd03ed4d62c6c4cdd21abce0c4b56424b5d752d59d79",
+          "bytes": 2040
+        }
+      ]
+    }
+  ],
+  "primaryDocuments": [
+    {
+      "id": "remotion-three",
+      "url": "https://www.remotion.dev/docs/three-canvas",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawSha256": "d029847a7e872989181319d196caab9e48e8d4591f2f2cab603128be7583258e",
+      "rawBytes": 94915
+    },
+    {
+      "id": "adobe-text-edit",
+      "url": "https://helpx.adobe.com/premiere/desktop/edit-projects/edit-video-using-text-based-editing/overview-of-text-based-editing.html",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawFetchStatus": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "adobe-split-edits",
+      "url": "https://helpx.adobe.com/uk/premiere/desktop/edit-projects/trim-clips/perform-j-cuts-and-l-cuts.html",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawFetchStatus": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "adobe-retiming",
+      "url": "https://helpx.adobe.com/premiere/desktop/edit-projects/change-clip-speed/change-clip-speed-using-the-speedduration-option.html",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawFetchStatus": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "adobe-reframe",
+      "url": "https://helpx.adobe.com/premiere/desktop/add-video-effects/commonly-used-effects/auto-reframe-overview.html",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawFetchStatus": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "adobe-camera",
+      "url": "https://helpx.adobe.com/lu_en/after-effects/desktop/work-with-layers/camera-layer/cameras-lights-points-interest.html",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawFetchStatus": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "adobe-uxp",
+      "url": "https://developer.adobe.com/premiere-pro/uxp/introduction/",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawSha256": "9b7803827311c4f22604c90d63236ec04351df277b6fcccd59a5b77dfca9c901",
+      "rawBytes": 5792
+    },
+    {
+      "id": "youtube-shorts",
+      "url": "https://support.google.com/youtube/answer/15424877",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawSha256": "05f3191067088f95e44135ca2bb5bd0f0211678929ae590adb8a99b76651aa1f",
+      "rawBytes": 1628918
+    },
+    {
+      "id": "x-video",
+      "url": "https://help.x.com/en/using-x/x-videos",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawFetchStatus": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "meta-reels",
+      "url": "https://www.facebook.com/business/ads/facebook-instagram-reels-ads",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawSha256": "ceccaec32b81d467b3be02199a288e31a4d1fc818790fc5a806426af8d1b0dc6",
+      "rawBytes": 625570
+    },
+    {
+      "id": "polyhaven-license",
+      "url": "https://polyhaven.com/license",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawSha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+      "rawBytes": 72685
+    },
+    {
+      "id": "kenney-cursors",
+      "url": "https://kenney.nl/assets/cursor-pack",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawSha256": "0752de7451918ab4c749c5ba2ca23eabca150d8edac5a5d714507eba926e32e1",
+      "rawBytes": 17214
+    },
+    {
+      "id": "kenney-fonts",
+      "url": "https://kenney.nl/assets/kenney-fonts",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawSha256": "95ea4ae3fe7ac0d40ee0baa6b8bd6b99aad27da90a117554b5a5c39da4419dae",
+      "rawBytes": 17185
+    },
+    {
+      "id": "kenney-patterns",
+      "url": "https://kenney.nl/assets/pattern-pack",
+      "checkedDate": "2026-10-20",
+      "scope": "Primary documentation/licensing inspected through web research; raw fetch hash recorded where available.",
+      "rawSha256": "c838c8b95fdabd391f112997d2c7743de707262331e8acd78891d76ed9156d8e",
+      "rawBytes": 18791
+    }
+  ]
+}

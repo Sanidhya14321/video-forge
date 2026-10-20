@@ -14,3 +14,5 @@ For reels, run CLI `review` and `preview`, then check key text and captions agai
 Inspect frames at scene changes and information-dense moments. Listen to narration and music together. Test captions on a phone-sized view, and inspect the vertical crop separately. The first export produces a thumbnail frame; it may need a separately designed cover.
 
 Preserve MP4s, source job, composition, manifest, transcript, subtitles, and edit decisions. Finish the publishing draft with a factual hook, relevant asset credits, and generated-voice disclosure. Verify current destination upload limits before publication. This plugin prepares files and text; it does not publish or schedule posts.
+
+For Instagram, YouTube Shorts and X, read [platform direction](../video-forge/references/platforms.md). Recompose evidence, caption positions and cover crops per destination. Current account limits are separate from authored creative starting points; do not turn more cuts into a claim of algorithm optimization.

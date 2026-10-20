@@ -1,0 +1,392 @@
+{
+  "version": 1,
+  "authorship": "Original Video Forge synthesis; cited sources inform mechanisms, not copied templates",
+  "recipes": [
+    {
+      "id": "macro-to-context",
+      "name": "A detail earns its wide reveal",
+      "tags": [
+        "3d",
+        "product",
+        "macro",
+        "launch"
+      ],
+      "assets": [
+        "product geometry or exact product still",
+        "one near foreground edge",
+        "material/light reference"
+      ],
+      "visualArgument": "Open on an interpretable detail, move past a near edge, then reveal the whole object and its use.",
+      "camera": "Three-quarter detail \u2192 lateral dolly with foreground parallax \u2192 stable hero. Keep the target on the relevant feature, then widen the target with the reveal.",
+      "rhythm": "A short accelerating travel lands before the claim; hold the hero while the viewer reads.",
+      "transition": "Carry a silhouette or highlight across a cut; avoid a whole-film orbit.",
+      "sound": "Material-specific foley at the reveal; a restrained low hit at the landing.",
+      "do": [
+        "Show product identity rather than an anonymous glossy blob",
+        "Match lighting and scale to the real asset"
+      ],
+      "avoid": [
+        "Do not spin solely to fill time",
+        "Do not put exact UI copy on a grazing unreadable plane"
+      ],
+      "sourceIds": [
+        "remotion-dev-agent-plugin",
+        "pmndrs-react-three-fiber",
+        "theatre-js-theatre"
+      ]
+    },
+    {
+      "id": "occlusion-traversal",
+      "name": "Travel through a relationship",
+      "tags": [
+        "3d",
+        "camera",
+        "traversal",
+        "abstract"
+      ],
+      "assets": [
+        "foreground gates or architectural edges",
+        "distinct process stations",
+        "one hero endpoint"
+      ],
+      "visualArgument": "Move from fragmented stations toward one coherent output; the camera route is the explanation.",
+      "camera": "Establish a near/mid/far relationship. Truck or dolly past occluders toward a clear endpoint; maintain a stable horizon and look target.",
+      "rhythm": "Continuous velocity through intermediate points; decelerate only when arriving at the important result.",
+      "transition": "Hide a change behind a full passing edge, matching travel direction and speed.",
+      "sound": "Air/space movement can build through the journey; stop the bed or accent at the payoff.",
+      "do": [
+        "Give stations distinct roles",
+        "Leave a proof hold after travel"
+      ],
+      "avoid": [
+        "Do not use a generic endless tunnel for every product",
+        "Do not fly through the only readable evidence"
+      ],
+      "sourceIds": [
+        "theatre-js-theatre",
+        "manimcommunity-manim",
+        "vincentwei1021-video-shotcraft"
+      ]
+    },
+    {
+      "id": "exploded-assembly",
+      "name": "Show what contributes to the result",
+      "tags": [
+        "3d",
+        "assembly",
+        "architecture",
+        "technical"
+      ],
+      "assets": [
+        "meaningful layers or components",
+        "assembled-state reference",
+        "short labels outside moving geometry"
+      ],
+      "visualArgument": "Separate a useful system into its contributing parts, show their roles, then make the assembled consequence visible.",
+      "camera": "A modest arc reveals thickness and ordering; camera movement and part separation run on separate tracks.",
+      "rhythm": "Separate \u2192 brief analysis hold \u2192 reassemble with a stable final state.",
+      "transition": "An assembled edge can match into the actual product or UI; preserve topology/roles.",
+      "sound": "Distinct small placement sounds, one final lock; avoid a pop on every minor object.",
+      "do": [
+        "Use actual component roles",
+        "Preserve a readable silhouette"
+      ],
+      "avoid": [
+        "Do not scatter parts randomly",
+        "Do not claim a procedural proxy is a real product model"
+      ],
+      "sourceIds": [
+        "vincentwei1021-video-shotcraft",
+        "manimcommunity-manim"
+      ]
+    },
+    {
+      "id": "proof-first-screen",
+      "name": "Show the result, then the decisive action",
+      "tags": [
+        "ui",
+        "saas",
+        "demo",
+        "proof"
+      ],
+      "assets": [
+        "real result capture",
+        "one relevant screen action",
+        "high-resolution detail crop"
+      ],
+      "visualArgument": "Begin with an observable result; reveal the action responsible and its consequence.",
+      "camera": "Frontal readable proof. A short push to the relevant control, then a return to a useful context; a browser frame is optional.",
+      "rhythm": "Fast context changes around a longer proof hold; preserve the visible action order.",
+      "transition": "Match a real selected element or mask to the next relevant view.",
+      "sound": "Use a click or state-change cue only where a visible action occurs.",
+      "do": [
+        "Inspect real captures",
+        "Distinguish recorded interaction from illustrative cursors"
+      ],
+      "avoid": [
+        "Do not shrink a whole desktop page into a tiny box",
+        "Do not fabricate private dashboard success"
+      ],
+      "sourceIds": [
+        "remotion-dev-agent-plugin",
+        "vincentwei1021-video-shotcraft"
+      ]
+    },
+    {
+      "id": "human-answer",
+      "name": "A person makes a promise; evidence answers it",
+      "tags": [
+        "footage",
+        "talking-head",
+        "instagram",
+        "edit"
+      ],
+      "assets": [
+        "complete spoken thought",
+        "specific cutaway/evidence",
+        "reaction or useful gesture"
+      ],
+      "visualArgument": "Use the strongest complete question/result first, then show proof under the continuing voice and return for a human payoff.",
+      "camera": "Vary medium/detail and deliberate punch-ins; keep eyes/hands clear and the crop stable through gestures.",
+      "rhythm": "Paper cut on meaning; use an L cut under proof and a J cut to pull the next scene forward.",
+      "transition": "Cut on gesture or sound when possible; a hard cut often communicates best.",
+      "sound": "Dialogue and room continuity first, selective sound punctuation second.",
+      "do": [
+        "Retain qualifiers and approved order",
+        "Choose a cutaway that proves the spoken point"
+      ],
+      "avoid": [
+        "Do not threshold-cut every breath",
+        "Do not cover the entire speaker with redundant headline captions"
+      ],
+      "sourceIds": [
+        "adobedocs-uxp-premiere-pro-samples",
+        "mifi-lossless-cut"
+      ]
+    },
+    {
+      "id": "process-match",
+      "name": "Let real actions carry the edit",
+      "tags": [
+        "footage",
+        "montage",
+        "maker",
+        "youtube"
+      ],
+      "assets": [
+        "clear action starts/ends",
+        "detail and context coverage",
+        "process result"
+      ],
+      "visualArgument": "Show a process through a few causally connected actions and the actual result.",
+      "camera": "Alternate useful wider orientation and detail; match hand/tool travel across the cut.",
+      "rhythm": "Cut inside useful movement; allow a result to settle before another action.",
+      "transition": "Carry direction, shape or a material surface between actions.",
+      "sound": "Use source foley/room tone; music accents reinforce rather than replace action.",
+      "do": [
+        "Check action continuity",
+        "Preserve original speed where it demonstrates the skill"
+      ],
+      "avoid": [
+        "Do not use unrelated stock hands as proof",
+        "Do not hide a missing step with a flash"
+      ],
+      "sourceIds": [
+        "mifi-lossless-cut",
+        "adobedocs-uxp-premiere-pro-samples"
+      ]
+    },
+    {
+      "id": "editorial-collage",
+      "name": "Build a distinct visual argument from cast material",
+      "tags": [
+        "collage",
+        "type",
+        "x",
+        "instagram"
+      ],
+      "assets": [
+        "coherent photos or cutouts",
+        "one type family",
+        "selected texture and exact evidence"
+      ],
+      "visualArgument": "Organize a point of view through contrast, crop and hierarchy; let the assets do more work than UI cards.",
+      "camera": "Mostly stable graphic composition with deliberate crop changes; use depth only when it reveals a relationship.",
+      "rhythm": "Vary a dense image burst with a clean decisive phrase and a proof hold.",
+      "transition": "Use matching edges, masks or type alignment instead of unrelated preset zooms.",
+      "sound": "A coherent percussive palette with intentional empty beats.",
+      "do": [
+        "Cast assets with consistent light/material or an intentional collage logic",
+        "Keep one dominant read"
+      ],
+      "avoid": [
+        "Do not combine random stock styles by accident",
+        "Do not animate every layer equally"
+      ],
+      "sourceIds": [
+        "motion-canvas-motion-canvas",
+        "motion-canvas-examples"
+      ]
+    },
+    {
+      "id": "photo-depth",
+      "name": "Move through a layered image honestly",
+      "tags": [
+        "2.5d",
+        "parallax",
+        "image",
+        "generated"
+      ],
+      "assets": [
+        "authorized high-resolution still",
+        "separated foreground/middle/background",
+        "filled occluded areas"
+      ],
+      "visualArgument": "A modest camera-like move reveals depth and directs attention inside a still.",
+      "camera": "Use different layer depth/speed and a foreground overlap; this remains 2.5D, not a volumetric product scan.",
+      "rhythm": "A short move then a stable subject hold; keep edges and newly exposed regions clean.",
+      "transition": "Match the important subject or dissolve at a stable moment.",
+      "sound": "Atmospheric source-appropriate sound rather than an impact on every layer.",
+      "do": [
+        "Inspect cutout edges and filled regions",
+        "Keep movement within available image coverage"
+      ],
+      "avoid": [
+        "Do not expose empty holes behind cutouts",
+        "Do not label 2.5D parallax as true 3D reconstruction"
+      ],
+      "sourceIds": [
+        "motion-canvas-examples",
+        "motion-canvas-motion-canvas"
+      ]
+    },
+    {
+      "id": "data-consequence",
+      "name": "Make the supplied change visible",
+      "tags": [
+        "data",
+        "technical",
+        "abstract",
+        "x"
+      ],
+      "assets": [
+        "verified values",
+        "semantic shape mapping",
+        "exact labels"
+      ],
+      "visualArgument": "Show an initial state, apply one cause, and reveal the resulting change using the same visual language.",
+      "camera": "Use a frontal or modest spatial view that preserves value comparison; camera can reveal scale after the values read.",
+      "rhythm": "Animate the change, hold the comparison, then isolate its implication.",
+      "transition": "Maintain a shape/value anchor through the transition.",
+      "sound": "One cue for the causal event; let the result breathe.",
+      "do": [
+        "Preserve exact values and units",
+        "Show evidence before an interpretive claim"
+      ],
+      "avoid": [
+        "Do not imply fake statistics",
+        "Do not use perspective to distort a comparison"
+      ],
+      "sourceIds": [
+        "manimcommunity-manim",
+        "motion-canvas-motion-canvas"
+      ]
+    },
+    {
+      "id": "kinetic-argument",
+      "name": "Typography performs the idea",
+      "tags": [
+        "type",
+        "kinetic",
+        "reels",
+        "shorts"
+      ],
+      "assets": [
+        "very short exact copy",
+        "strong type hierarchy",
+        "one supporting graphic or material"
+      ],
+      "visualArgument": "Use words as spatial objects whose behavior makes the statement understandable.",
+      "camera": "Stable view for reading; a decisive reframe can reveal a changed relation between words.",
+      "rhythm": "Anticipate \u2192 transform \u2192 settle; vary word rhythm around actual speech.",
+      "transition": "Carry a letter edge, underline, or word position into the next concept.",
+      "sound": "Emphasize the decisive phrase rather than every syllable.",
+      "do": [
+        "Choose motion semantically",
+        "Keep settled text readable at phone size"
+      ],
+      "avoid": [
+        "Do not use type as a substitute for missing proof",
+        "Do not combine unrelated headline and subtitle sentences at equal weight"
+      ],
+      "sourceIds": [
+        "motion-canvas-motion-canvas",
+        "remotion-dev-agent-plugin"
+      ]
+    },
+    {
+      "id": "action-ramp",
+      "name": "Compress travel, protect the action",
+      "tags": [
+        "footage",
+        "speed-ramp",
+        "energy",
+        "edit"
+      ],
+      "assets": [
+        "sufficient frame-rate action footage",
+        "clear peak action",
+        "usable original sound"
+      ],
+      "visualArgument": "Speed through connective travel, arrive at the meaningful action, and preserve the result.",
+      "camera": "A matched direction or occluder can support the ramp; stabilize the important landing.",
+      "rhythm": "Change speed around actual movement; normal-speed payoff and selective detail hold.",
+      "transition": "Use motion continuity or an occlusion cut rather than a generic flash.",
+      "sound": "Preserve intentional foley timing; ramps should not distort crucial speech.",
+      "do": [
+        "Check source frame rate",
+        "Inspect interpolation artifacts through the whole action"
+      ],
+      "avoid": [
+        "Do not invent missing high-speed frames",
+        "Do not ramp the only proof into unreadability"
+      ],
+      "sourceIds": [
+        "mifi-lossless-cut",
+        "adobedocs-uxp-premiere-pro-samples"
+      ]
+    },
+    {
+      "id": "generated-coverage",
+      "name": "Direct a small coherent coverage set",
+      "tags": [
+        "generation",
+        "cinematic",
+        "b-roll",
+        "continuity"
+      ],
+      "assets": [
+        "authorized identity/look reference",
+        "shot-specific camera note",
+        "provider-compatible inputs"
+      ],
+      "visualArgument": "A contextual view, useful detail/action and consequence form one consistent visual story.",
+      "camera": "One principal camera move per take, anchored start/end framing and screen direction.",
+      "rhythm": "Use short selected takes with enough handles; trim on the actual usable action.",
+      "transition": "Match direction/light/material across generated shots and deterministic graphics.",
+      "sound": "Sound is separately selected/designed unless the provider actually returns usable audio.",
+      "do": [
+        "Keep continuity anchors stable",
+        "Inspect complete takes, not only first frames"
+      ],
+      "avoid": [
+        "Do not claim endpoint success equals visual quality",
+        "Do not reroll blindly after an ambiguous paid request"
+      ],
+      "sourceIds": [
+        "remotion-dev-agent-plugin",
+        "theatre-js-theatre"
+      ]
+    }
+  ]
+}

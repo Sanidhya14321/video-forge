@@ -1,4 +1,20 @@
-# Validation — v0.5.1
+# Validation — v0.6.0
+
+The creative-library rebuild adds genuine Three.js/R3F camera worlds, local GLB/image staging, source scouting and individually loaded shot recipes. Runtime TypeScript and the actual renderer TSX type-check; 39 tests pass. All nine skills, their local resources, the preserved 100-entry register, and the pinned creative-research addendum validate. Six archive variants pass CRC, dependency exclusions, reference resolution and host contracts.
+
+The new tests cover frame-time camera/object interpolation and intermediate velocity, invalid scene/asset/time contracts, self-contained GLB envelopes, rejection of external/unsupported compression dependencies, fail-before-output media checks, a real FFmpeg source scout preserving its input and attributable single-recipe loading. Existing media/caption/provider tests remain in place.
+
+The native 3D smoke covers three distinct worlds, local texture and GLB staging. The complete camera study is 360 video frames / 12 seconds at 1080×1920, H.264/AAC; AAC container padding is reported separately. Entry/peak/exit and camera-key/midpoint previews were sampled. Encoded inspection corrected a distracting edge label, the hero scale and an assembly crop before final delivery. An original procedural GLB prop was improved to make its bevel/silhouette visible. Visual review is sampled; it is not a separate human panel or a claim of photoreal quality.
+
+A native GLB/image/camera frame rendered at indices 300 → 10 → 300 is byte-identical on the tested browser/machine. This is a concrete determinism check, not a promise across GPUs/driver versions. The Three.js dependency emits an upstream Clock deprecation warning through R3F; rendering succeeds and decoding is checked.
+
+Claude Code strict manifest validation and nine-component inventory pass. The host adapters share focused guidance and package resources. Claude's inventory estimates about 351 always-on metadata tokens and 1.1k director invocation tokens; these are CLI estimates, not model usage measurements. Independent host creative trials, Premiere account/application control, live paid generation and social performance remain unverified. [Evaluation cases](creative-evaluation.md), [research decisions](../sources/CREATIVE-RESEARCH.md), [compatibility](compatibility.md).
+
+Release publication is gated by Linux/macOS checks and Linux native smoke renders. Check the release's Actions run for the actual remote result. Installation/runtime evidence for the user's machine stays outside public package contents.
+
+---
+
+# Archived validation — v0.5.1
 
 The final-frame regression now asserts that an outro remains solid through its last visible frame. The v0.5 family adds six native production overlay kinds: brand, call, browser, steps, CTA and label. Existing jobs keep their defaults. Thirty-three tests pass, including real FFmpeg operations, frame-derived overlay timing, fitted screenshot/pointer geometry and strict asset/time contracts. Runtime TypeScript and the actual renderer TSX both type-check. All nine shared skills and 100 source records validate.
 

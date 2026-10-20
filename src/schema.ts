@@ -1,4 +1,5 @@
 import { z } from "zod";
+import {worldSchema} from './world.js';
 const safeColor = z.string().regex(/^#[0-9a-fA-F]{6}$/);
 export const wordSchema = z
   .object({
@@ -57,7 +58,7 @@ export const overlaySchema = z.object({
 });
 export const sceneSchema = z
   .object({
-    kind: z.enum(["title", "code", "chart", "algorithm", "image", "video", "reel"]),
+    kind: z.enum(["title", "code", "chart", "algorithm", "image", "video", "reel", "world"]),
     duration: z.number().min(0.2).max(600),
     title: z.string().max(100).default(""),
     eyebrow: z.string().max(80).optional(),
@@ -73,9 +74,16 @@ export const sceneSchema = z
     highlight: z.array(z.number().int().nonnegative()).optional(),
     note: z.string().max(200).optional(),
     motion: motionSchema.optional(),
+    world: worldSchema.optional(),
   })
   .strict()
   .superRefine((s, ctx) => {
+    if(s.kind==='world'&&!s.world)ctx.addIssue({code:'custom',message:'World scene requires a world'});
+    if(s.kind!=='world'&&s.world)ctx.addIssue({code:'custom',message:'world belongs to world scenes'});
+    if(s.world){
+      if(s.world.camera.keys.at(-1)!.at>s.duration||s.world.copyAt>=s.duration||s.world.objects.some(o=>o.keys.some(k=>k.at>s.duration)))
+        ctx.addIssue({code:'custom',message:'World camera/object/copy timing exceeds the scene duration'});
+    }
     if (s.kind === "reel" && !s.motion)
       ctx.addIssue({code: "custom", message: "Reel scene requires motion"});
     if (s.kind !== "reel" && s.motion)

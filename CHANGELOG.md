@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.0
+
+- Rebuild directing around taste, cast assets, a visual argument, shot grammar and concrete critique before preset selection.
+- Add 12 source-attributed shot recipes and focused Premiere, editing, platform, asset and generation-continuity guidance; inspect 11 repositories/45 pinned files and 14 primary pages.
+- Add genuine frame-derived Three.js worlds, camera/object tracks, local still planes, static self-contained GLB support and actionable unsupported-resource preflight.
+- Add `ideas`, source `scout`, camera-path preview samples and target-clearance review without engagement/quality scores.
+- Bundle original procedural assets and a camera study; adapt resources for Claude, Codex and non-runtime companions.
+
 ## 0.5.1
 
 - Hold overlays that reach the end of the composition through the final frame, preventing the outro from revealing held footage.

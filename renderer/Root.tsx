@@ -18,6 +18,7 @@ import {ReelScene} from "./Reel";
 import {PopReelScene} from "./PopReel";
 import {reelLayout,captionGroup} from "../src/reel-layout";
 import {ProductionOverlays} from "./Overlays";
+import {WorldScene} from './World';
 import {footageScaleAt} from "../src/footage-layout";
 const sample: any = {
   project: {
@@ -331,7 +332,7 @@ export const Film: React.FC<RenderProps> = ({
           cursor += duration;
           return (
             <Sequence key={i} from={from} durationInFrames={duration}>
-              {scene.kind === "reel" ? (scene.motion?.style === "pop" ? <PopReelScene scene={scene} project={project}/> : <ReelScene scene={scene} project={project}/>) : <Panel scene={scene} theme={project.theme} />}
+              {scene.kind==='world'?<WorldScene scene={scene} project={project}/>:scene.kind === "reel" ? (scene.motion?.style === "pop" ? <PopReelScene scene={scene} project={project}/> : <ReelScene scene={scene} project={project}/>) : <Panel scene={scene} theme={project.theme} />}
             </Sequence>
           );
         })

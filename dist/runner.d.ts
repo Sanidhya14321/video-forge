@@ -6,9 +6,9 @@ export declare function loadProject(file: string): Promise<{
     name: string;
     workflow: "product-demo" | "algorithm-explainer" | "footage-repurpose" | "short-form-reel";
     renderer: "remotion";
-    fps: 60 | 30 | 24;
+    fps: 24 | 60 | 30;
     theme: {
-        surface: "flat" | "ambient";
+        surface: "ambient" | "flat";
         background: string;
         foreground: string;
         accent: string;
@@ -18,7 +18,7 @@ export declare function loadProject(file: string): Promise<{
         tagline: string;
     };
     scenes: {
-        kind: "title" | "code" | "chart" | "algorithm" | "image" | "video" | "reel";
+        kind: "image" | "code" | "title" | "chart" | "algorithm" | "video" | "reel" | "world";
         duration: number;
         title: string;
         eyebrow?: string | undefined;
@@ -30,14 +30,52 @@ export declare function loadProject(file: string): Promise<{
         highlight?: number[] | undefined;
         note?: string | undefined;
         motion?: {
-            style: "minimal" | "pop";
+            style: "pop" | "minimal";
             energy: number;
             preset: "type-impact" | "fragment-merge" | "orbit-lock" | "signal-flow" | "ribbon" | "frame-morph" | "timeline-cut" | "waveform" | "code-scan" | "data-sculpt" | "word-pulse" | "radial-burst";
             invert: boolean;
             seed: number;
             density: number;
-            entrance: "cut" | "push" | "scale";
+            entrance: "scale" | "push" | "cut";
             palette?: string[] | undefined;
+        } | undefined;
+        world?: {
+            camera: {
+                interpolation: "linear" | "smooth";
+                keys: {
+                    at: number;
+                    position: [number, number, number];
+                    target: [number, number, number];
+                    fov: number;
+                    roll: number;
+                }[];
+            };
+            objects: {
+                size: [number, number, number];
+                color: string;
+                roughness: number;
+                metalness: number;
+                keys: {
+                    position: [number, number, number];
+                    rotation: [number, number, number];
+                    scale: [number, number, number];
+                    at: number;
+                }[];
+                position: [number, number, number];
+                rotation: [number, number, number];
+                scale: [number, number, number];
+                id: string;
+                shape: "box" | "sphere" | "torus" | "cylinder" | "plane" | "image" | "model";
+                src?: string | undefined;
+            }[];
+            ambient: number;
+            lights: {
+                position: [number, number, number];
+                color: string;
+                intensity: number;
+            }[];
+            copyPosition: "top" | "bottom" | "none";
+            copyAt: number;
         } | undefined;
     }[];
     overlays: {
@@ -45,7 +83,7 @@ export declare function loadProject(file: string): Promise<{
         start: number;
         end: number;
         title: string;
-        layout: "full" | "lower-third" | "top";
+        layout: "top" | "full" | "lower-third";
         offsetY: number;
         fit: "contain" | "cover";
         aspectRatio: number;

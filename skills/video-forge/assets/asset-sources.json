@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "checkedDate": "2026-10-20",
+  "note": "Discovery index; download, inspect and record the selected file before treating it as a prepared asset. No third-party media bundled by this index.",
+  "sources": [
+    {
+      "id": "poly-haven",
+      "url": "https://polyhaven.com/",
+      "licenseUrl": "https://polyhaven.com/license",
+      "roles": [
+        "3D models",
+        "materials",
+        "HDRI lighting"
+      ],
+      "licenseScope": "Official asset CC0 statement checked; website/service terms are separate. Verify selected asset completeness.",
+      "bundled": false
+    },
+    {
+      "id": "kenney-cursors",
+      "url": "https://kenney.nl/assets/cursor-pack",
+      "roles": [
+        "2D interface pointers"
+      ],
+      "licenseScope": "This specific pack lists Creative Commons CC0; preserve the downloaded notice.",
+      "bundled": false
+    },
+    {
+      "id": "kenney-fonts",
+      "url": "https://kenney.nl/assets/kenney-fonts",
+      "roles": [
+        "stylized typography"
+      ],
+      "licenseScope": "This specific pack lists Creative Commons CC0; inspect each chosen font and suitability.",
+      "bundled": false
+    },
+    {
+      "id": "kenney-patterns",
+      "url": "https://kenney.nl/assets/pattern-pack",
+      "roles": [
+        "graphic texture",
+        "seamless patterns"
+      ],
+      "licenseScope": "This specific pack lists Creative Commons CC0; inspect the actual chosen vector/raster.",
+      "bundled": false
+    },
+    {
+      "id": "own-procedural",
+      "url": "./procedural-kit.json",
+      "roles": [
+        "abstract 3D",
+        "stage geometry",
+        "simple graphic materials"
+      ],
+      "licenseScope": "Original bundled Video Forge procedural recipes, MIT; no third-party model identity inferred.",
+      "bundled": true
+    },
+    {
+      "id": "official-product-evidence",
+      "roles": [
+        "real UI",
+        "logo",
+        "brand evidence"
+      ],
+      "licenseScope": "Use the product owner's actual authorized/public material; record origin and terms separately from MIT code. No blanket redistribution license inferred.",
+      "bundled": false
+    },
+    {
+      "id": "user-material",
+      "roles": [
+        "footage",
+        "voice",
+        "photo",
+        "product assets"
+      ],
+      "licenseScope": "User-supplied; retain original provenance. No public redistribution license inferred.",
+      "bundled": false
+    }
+  ]
+}

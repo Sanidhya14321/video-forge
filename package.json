@@ -1,7 +1,7 @@
 {
   "name": "@video-forge/toolkit",
-  "version": "0.5.1",
-  "description": "Agent-directed video production, abstract motion reels and editable Remotion/FFmpeg workflows",
+  "version": "0.6.0",
+  "description": "Creative video direction, assets, cinematic 3D, editing and local Remotion/FFmpeg production for agents",
   "type": "module",
   "license": "MIT",
   "engines": {
@@ -21,19 +21,23 @@
     "schema": "tsx scripts/export-schema.ts"
   },
   "dependencies": {
+    "@react-three/fiber": "9.8.2",
     "@remotion/bundler": "4.0.536",
     "@remotion/renderer": "4.0.536",
-    "remotion": "4.0.536",
+    "@remotion/three": "4.0.536",
+    "ffmpeg-static": "5.3.0",
+    "ffprobe-static": "3.1.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "zod": "4.6.7",
-    "ffmpeg-static": "5.3.0",
-    "ffprobe-static": "3.1.0"
+    "remotion": "4.0.536",
+    "three": "0.186.1",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@types/node": "24.10.0",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
+    "@types/three": "0.186.0",
     "tsx": "4.20.6",
     "typescript": "5.9.3"
   },

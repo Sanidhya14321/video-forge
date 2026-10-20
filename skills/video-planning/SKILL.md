@@ -14,3 +14,5 @@ Read [planning workflows](references/workflows.md). Write a brief and a scene ta
 For reference analysis, record observable shot timing, framing, typography, and sound separately from inferred intent. Sample frames and listen before claiming to understand a recording. The CLI does not download or analyze YouTube videos automatically.
 
 For an executable job, use the director and relevant production module. Never invent benchmark results, product features, quotations, or word timestamps to make a story fit.
+
+For a new concept or redesign, read [creative direction](../video-forge/references/taste.md). Break references down into observable shots, assets, camera, cutting and sound mechanisms. Load [platform direction](../video-forge/references/platforms.md) for Instagram, Shorts or X; use it to adapt the argument and composition, not only the dimensions.

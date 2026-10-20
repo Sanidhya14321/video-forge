@@ -22,10 +22,20 @@ export declare function reviewProject(project: Project): {
         startFrame: number;
         endFrame: number;
         seconds: number;
-        treatment: "type-impact" | "fragment-merge" | "orbit-lock" | "signal-flow" | "ribbon" | "frame-morph" | "timeline-cut" | "waveform" | "code-scan" | "data-sculpt" | "word-pulse" | "radial-burst" | "title" | "code" | "chart" | "algorithm" | "image" | "video" | "reel";
+        treatment: "image" | "code" | "type-impact" | "fragment-merge" | "orbit-lock" | "signal-flow" | "ribbon" | "frame-morph" | "timeline-cut" | "waveform" | "code-scan" | "data-sculpt" | "word-pulse" | "radial-burst" | "title" | "chart" | "algorithm" | "video" | "reel" | "world";
         style: string;
         title: string;
         previewFrames: number[];
+    }[];
+    cameraShots: {
+        scene: number;
+        objects: number;
+        models: number;
+        interpolation: "linear" | "smooth";
+        minimumSampledTargetDistance: number;
+        fovRange: number[];
+        previewFrames: number[];
+        scope: string;
     }[];
     warnings: {
         code: string;

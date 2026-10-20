@@ -30,3 +30,11 @@ Checked 19 October 2026:
 - [Claude custom skills](https://support.claude.com/en/articles/12512180-use-skills-in-claude) and [skill archive structure](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills): upload and code-execution prerequisites.
 
 Account/organization policy and host versions can affect availability. The project has not been submitted to a public plugin directory or deployed as a remote rendering service.
+
+## v0.6 creative resources
+
+All host packages use the same taste, asset, cinematography, Premiere, editorial and platform references. Claude Code keeps namespaced skill discovery; Codex keeps focused skills with its UI metadata. The director selects relevant resources rather than concatenating every source. Individual recipes can be read through the local CLI; non-executing hosts can read the supplied JSON index directly.
+
+ChatGPT companion generation flattens the new reference links and includes recipe/asset indexes; binary models remain source links rather than falsely bundled local files. Real 3D execution requires the pinned Three.js/R3F dependencies, WebGL-capable headless Chrome and the local runtime. Live Premiere/After Effects, external models with compression decoders, skeletal animation and paid generated-video quality remain separate capabilities.
+
+OpenAI-specific guidance additionally checked 20 October 2026: [building skills](https://developers.openai.com/plugins/build/skills) and [Claude plugin portability](https://developers.openai.com/plugins/guides/submit-claude-plugin). The shared production language remains provider-neutral; product names are kept only in actual host setup/verification instructions. No marketplace submission is implied.

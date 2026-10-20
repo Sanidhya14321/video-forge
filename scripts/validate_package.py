@@ -43,6 +43,18 @@ for row in rows:
  check((root/f"skills/video-{row['module']}/references/catalog.md").exists(),'Missing module catalog')
 for example in (root/'examples').glob('*.json'):
  p=json.loads(example.read_text());check(p['version']==1,'Example version')
+creative=json.loads((root/'sources/creative-research-2026-10-20.json').read_text())
+source_ids={s['id'] for s in creative['repositories']}
+for source in creative['repositories']:
+ check(len(source['inspectedRevision'])==40 and bool(source['license']),'Creative source revision/license missing')
+ check((root/source['destination']).exists(),'Creative source destination missing')
+ check(bool(source['scope']) and bool(source['distinctiveMechanism']),'Creative source inspection scope missing')
+ check(all(len(f['sha256'])==64 and f['url'].startswith('https://raw.githubusercontent.com/') for f in source['evidence']),'Creative evidence invalid')
+recipes=json.loads((root/'skills/video-forge/assets/shot-recipes.json').read_text())['recipes']
+check(len({r['id'] for r in recipes})==len(recipes),'Duplicate shot recipe ids')
+for recipe in recipes:
+ check(bool(recipe['assets']) and bool(recipe['camera']) and bool(recipe['avoid']),'Incomplete shot recipe')
+ check(set(recipe['sourceIds'])<=source_ids,'Unresolved recipe source ids')
 check((root/'package-lock.json').exists(),'Missing npm lockfile');check((root/'python/uv.lock').exists(),'Missing Python lockfile')
 if errors:print('\n'.join(errors),file=sys.stderr);raise SystemExit(1)
 print(f'Validated {len(list((root/"skills").iterdir()))} skills, host manifests, links, lockfiles, and all 100 source records.')

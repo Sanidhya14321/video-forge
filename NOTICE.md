@@ -11,3 +11,9 @@ Runtime packages retain their own terms. In particular, Remotion is subject to t
 Optional local speech uses Kokoro and its model/voice terms; transcription uses faster-whisper and its downloaded model terms. Generated voice is synthetic and must be identified accordingly in publishing copy. The sample recording is an original generated animation with synthetic Kokoro narration, not a recording of a real person. No voice cloning was used.
 
 Any user-supplied media and cloud-generated outputs require their own source and usage records. The runner labels missing asset-license information as unspecified rather than inferring rights. For Shotcraft specifically, code/docs, bundled audio, and Remotion have distinct terms; none of Shotcraft's bundled audio is included here.
+
+## Creative research and 3D (v0.6)
+
+New guidance and shot recipes are original Video Forge synthesis informed by the pinned repository/documentation record in `sources/creative-research-2026-10-20.json`. Full upstream manuals/skills and research caches are not redistributed. LosslessCut GPL source was inspected for workflow ideas; no GPL implementation is copied. Shotcraft code/media have separate terms; no Shotcraft music, SFX or shot implementation is bundled by this update.
+
+Three.js, React Three Fiber and @remotion/three are pinned dependencies with their own MIT notices distributed by those packages; the core Remotion renderer retains its separate licensing requirements. The included speaker GLB, signal/typography vectors and camera-study score are original MIT fixtures, not models of a real product or publisher assets. The asset-source index is a discovery aid, not a license for every search result.

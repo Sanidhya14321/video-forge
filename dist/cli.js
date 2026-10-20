@@ -3,10 +3,16 @@ import { doctor, runProject, loadProject, preflight, previewProject } from "./ru
 import { inspect } from "./media.js";
 import path from "node:path";
 import { reviewProject } from "./reel-review.js";
+import { shotIdeas } from './ideas.js';
+import { scoutVideo } from './scout.js';
 const args = process.argv.slice(2);
 const command = args.shift();
 try {
-    if (command === "doctor" && args.length === 0)
+    if (command === 'ideas' && args.length === 1)
+        console.log(JSON.stringify(await shotIdeas(args[0]), null, 2));
+    else if (command === 'scout' && args.length === 3 && args[1] === '--out')
+        console.log(JSON.stringify(await scoutVideo(args[0], args[2]), null, 2));
+    else if (command === "doctor" && args.length === 0)
         console.log(JSON.stringify(await doctor(), null, 2));
     else if (command === "inspect" && args.length === 1)
         console.log(JSON.stringify(await inspect(path.resolve(args[0])), null, 2));
@@ -30,7 +36,7 @@ try {
             console.log(JSON.stringify(await runProject(args[0], outIndex >= 0 ? args[outIndex + 1] : undefined), null, 2));
     }
     else {
-        console.log("Video Forge\n\n  video-forge doctor\n  video-forge run <project.json> [--out <new-directory>] [--dry-run]\n  video-forge inspect <video>\n  video-forge review <project.json>\n  video-forge preview <project.json> --out <new-directory>");
+        console.log("Video Forge\n\n  video-forge doctor\n  video-forge ideas list|<id>\n  video-forge scout <video> --out <new-directory>\n  video-forge run <project.json> [--out <new-directory>] [--dry-run]\n  video-forge inspect <video>\n  video-forge review <project.json>\n  video-forge preview <project.json> --out <new-directory>");
         if (command)
             process.exitCode = 1;
     }
