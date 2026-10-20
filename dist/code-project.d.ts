@@ -20,8 +20,8 @@ export declare const codeProjectSchema: z.ZodObject<{
     publicDir: z.ZodDefault<z.ZodString>;
     inputProps: z.ZodDefault<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     gl: z.ZodDefault<z.ZodEnum<{
-        swangle: "swangle";
         angle: "angle";
+        swangle: "swangle";
     }>>;
     score: z.ZodDefault<z.ZodString>;
     captions: z.ZodOptional<z.ZodObject<{
@@ -57,7 +57,7 @@ export declare function readCodeProject(file: string): Promise<{
     compositionId: string;
     publicDir: string;
     inputProps: Record<string, unknown>;
-    gl: "swangle" | "angle";
+    gl: "angle" | "swangle";
     score: string;
     quality: "draft" | "final";
     overrides: {

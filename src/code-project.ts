@@ -1,4 +1,5 @@
 import {z} from 'zod';
+import {fingerprint} from './file-manifest.js';
 import {wordsSchema} from './schema.js';
 import path from 'node:path';
 import os from 'node:os';
@@ -89,7 +90,7 @@ export async function runCode(file:string,outDir?:string,preview=false){
     await cp(p.base,path.join(out,'source'),{recursive:true,filter:src=>!['node_modules','.git','.cache'].includes(path.basename(src))&&!path.basename(src).startsWith('.env')});
     await cp(p.serveUrl,path.join(out,'composition-bundle'),{recursive:true});
     const manifest=[];
-    for(const f of p.assets)manifest.push({path:path.relative(p.base,f),bytes:(await readFile(f)).length,sha256:createHash('sha256').update(await readFile(f)).digest('hex')});
+    for(const f of p.assets)manifest.push({path:path.relative(p.base,f),...await fingerprint(f)});
     await writeFile(path.join(out,'asset-manifest.json'),JSON.stringify(manifest,null,2));
     await writeFile(path.join(out,'creative-review.json'),JSON.stringify(p.review,null,2));
     for(const target of p.project.exports){

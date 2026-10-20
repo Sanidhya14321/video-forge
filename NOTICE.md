@@ -16,7 +16,7 @@ Any user-supplied media and cloud-generated outputs require their own source and
 
 New guidance and shot recipes are original Video Forge synthesis informed by the pinned repository/documentation record in `sources/creative-research-2026-10-20.json`. Full upstream manuals/skills and research caches are not redistributed. LosslessCut GPL source was inspected for workflow ideas; no GPL implementation is copied. Shotcraft code/media have separate terms; no Shotcraft music, SFX or shot implementation is bundled by this update.
 
-Three.js, React Three Fiber and @remotion/three are pinned dependencies with their own MIT notices distributed by those packages; the core Remotion renderer retains its separate licensing requirements. The included speaker GLB, signal/typography vectors and camera-study score are original MIT fixtures, not models of a real product or publisher assets. The asset-source index is a discovery aid, not a license for every search result.
+Three.js, React Three Fiber and @remotion/three are pinned dependencies with their own MIT notices distributed by those packages; the core Remotion renderer retains its separate licensing requirements. The included speaker GLB and signal/typography vectors are original MIT fixtures, not models of a real product or publisher assets. The historical camera-study score remains in its original release. The asset-source index is a discovery aid, not a license for every search result.
 
 ## Version 0.7 code-authored motion
 

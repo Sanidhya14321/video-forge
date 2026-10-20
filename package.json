@@ -1,6 +1,6 @@
 {
   "name": "@video-forge/toolkit",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Code-authored short-form video direction, composable motion and editable local production for agents",
   "type": "module",
   "license": "MIT",

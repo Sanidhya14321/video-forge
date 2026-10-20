@@ -1,14 +1,14 @@
 # Release maintenance
 
-Use semantic versions. Never move a published tag or replace published archives to hide a fix. Keep older media/releases available; mark only the newest stable release as latest. A correction to documentation or packaging receives a new version when the distributable changes.
+Use semantic versions; never move published tags or silently replace published assets.
 
-1. Update `package.json`, the lockfile root package and all three plugin manifests together. Update the changelog, compatibility/installation instructions and `docs/releases/vX.Y.Z.md`.
-2. Run `npm run check`, `npm run build`, all affected native smoke/production jobs and relevant visual review. Skill changes need frontmatter/link validation and realistic routing review; host metadata is not proof of live account invocation.
-3. Build into a separate directory: `python3 scripts/package.py --out /new/release-assets`. Validate all six packages with `python3 scripts/validate-archives.py /new/release-assets`.
-4. Run `python3 scripts/prepare-release.py --out /new/release-assets`, then `python3 scripts/verify-release.py /new/release-assets`. This collects both demos, the comparison, archives, a JSON asset manifest and checksums.
-5. Commit, push the reviewed changes, and push an annotated version tag. The release workflow first calls the Linux/macOS validation workflow, then packages that tag and creates a **draft** release. It publishes only after all uploads complete. Existing published tags are not overwritten.
-6. Verify remote CI, the published asset list and GitHub SHA-256 digests against local files. Verify a clean host install and native render; keep that machine-specific evidence outside distributable packages. Choose the new pin explicitly when updating an installed production plugin.
+1. Update package/lock and all three plugin manifests, changelog, installation pin and `docs/releases/vX.Y.Z.md`.
+2. Run `npm run build`, `npm run check`, affected native smoke renders and relevant visual review. Confirm `git diff -- dist` contains the intended build. Stage all maintained source changes.
+3. Package into an empty directory outside the checkout: `python3 scripts/package.py --out /new/packages`. Validate all six archives with `python3 scripts/validate-archives.py /new/packages`.
+4. Run `prepare-release.py --out /new/packages`, then `verify-release.py /new/packages`. Unexpected or stale assets fail preparation. The release contains current packages and SHA256 manifests; unchanged demonstrations remain in their original release.
+5. Commit/push reviewed changes, then push an annotated version tag. GitHub runs Linux/macOS gates, uploads a draft, and publishes only when every upload succeeds.
+6. Verify remote CI and published asset sizes/digests against local files. Verify the installed host version/resources and a native render. Keep machine-specific results outside distributable source.
 
-The `source` archive includes saved demo outputs; install archives exclude generated demos but retain prepared example inputs, runtime, skill references and provenance. The `claude-skill` archive has a root director; the `chatgpt` archive has instruction/reference files and no local renderer. Archives exclude dependency/model caches and browser bundles.
+The explicit inventory in `scripts/package_policy.py` excludes production output, caches, environment files and unlisted binary media. Source archives include development tooling; host archives omit GitHub workflows, showcase output and host-inapplicable metadata. ChatGPT is an instruction/code companion without a renderer. Shared example helpers/locks are generated from canonical sources before packaging; each delivered example stays editable.
 
-Release preparation never makes provider calls, installs personal plugins, submits marketplace listings or publishes social posts. Those are separate actions. GitHub distribution is distinct from public plugin-directory submission.
+Old production media, attribution and reports remain available from [demonstrations](../demos/README.md), immutable tags and historical releases. Git history is preserved. Marketplace submission and social publishing remain separate actions.

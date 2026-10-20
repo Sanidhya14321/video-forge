@@ -1,6 +1,6 @@
 # Composable motion for a video timeline
 
-Read the project [contract](../../../docs/code-projects.md). Executable source: [motion helpers](../../../motion/index.tsx), [starter Film](../../../templates/short/src/Film.tsx). Moving studies and source are in [motion studies](../../../demos/motion-studies/README.md). The helpers are original MIT code, not copies of upstream demos.
+Read the project [contract](../../../docs/code-projects.md). Executable source: [motion helpers](../../../motion/index.tsx), [starter Film](../../../templates/short/src/Film.tsx). Moving studies and source are in [motion studies](../../../examples/motion-studies/README.md). The helpers are original MIT code, not copies of upstream demos.
 
 ## Choose the mechanism
 

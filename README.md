@@ -6,9 +6,9 @@
 
 ## See the motion
 
-[![Video Forge — every frame](demos/code-film/thumbnail.png)](https://github.com/Sanidhya14321/video-forge/releases/download/v0.7.0/video-forge-code-film-0.7.0.mp4)
+[![Video Forge — every frame](https://github.com/Sanidhya14321/video-forge/releases/download/v0.7.0/video-forge-code-film-0.7.0.png)](https://github.com/Sanidhya14321/video-forge/releases/download/v0.7.0/video-forge-code-film-0.7.0.mp4)
 
-A 24-second code-authored film: spatial typography, optical refraction, layered traversal, fast cuts, actual rendered evidence, local narration and measured captions. [Editable project](examples/code-film) · [Production review](demos/code-film/PRODUCTION.md) · [Six motion studies](demos/motion-studies)
+A 24-second code-authored film: spatial typography, optical refraction, layered traversal, fast cuts, actual rendered evidence, local narration and measured captions. [Editable film project](https://github.com/Sanidhya14321/video-forge/tree/v0.7.0/examples/code-film) · [Production review](https://github.com/Sanidhya14321/video-forge/blob/v0.7.0/demos/code-film/PRODUCTION.md) · [Six motion studies](examples/motion-studies)
 
 Video Forge teaches agents **how to choose and compose motion**, then lets them write the film. Each focused reference explains a mechanism, its timing and continuity, appropriate assets, failure cases and implementation boundaries. A moving preview helps judge the result before final export. There is no required heading-card layout or external editing application.
 
@@ -17,7 +17,7 @@ Video Forge teaches agents **how to choose and compose motion**, then lets them 
 ### Codex CLI / desktop
 
 ```bash
-codex plugin marketplace add Sanidhya14321/video-forge --ref v0.7.0
+codex plugin marketplace add Sanidhya14321/video-forge --ref v0.7.1
 codex plugin add video-forge@video-forge-local
 ```
 
@@ -73,14 +73,16 @@ Edit the new project's `src/Film.tsx`, local assets and frame score. Its standal
 - **Editable delivery:** full local source tree, dependency lock, score, public media, checksummed asset manifest and render reports. Captions/transcripts remain alongside sources.
 - **Local/optional audio:** supplied narration or Kokoro, faster-whisper timing, original music/SFX and budget-gated OpenAI/fal adapters. Paid-provider tests are mocked unless separately identified as live.
 
-Previous version-1 projects, native reel/pop scenes, diagrams, supplied-state algorithms, overlays and mesh worlds remain supported. [Legacy contract](docs/project-format.md) · [Older studies](demos/camera-study/PRODUCTION.md)
+Previous version-1 projects, native reel/pop scenes, diagrams, supplied-state algorithms, overlays and mesh worlds remain supported. [Legacy contract](docs/project-format.md) · [Older studies](https://github.com/Sanidhya14321/video-forge/blob/v0.7.0/demos/camera-study/PRODUCTION.md)
 
 ## Evidence and limits
 
 [New motion research](sources/MOTION-RESEARCH.md) records inspected mechanisms, pinned revisions and licensing. The original [100-entry PDF register](sources/INDEX.md) preserves explicit dispositions; it does not represent100 installed engines. Media rights are separate from source-code licenses.
 
-Technical checks establish playable media and reproducible frame sampling. Creative review examines continuity, rhythm, evidence, readability and finishing. Neither check predicts reach or retention. Supplied low-resolution footage retains its source-detail limits. [Validation](docs/validation.md) · [Creative evaluation](docs/creative-evaluation.md)
+Technical checks establish playable media and reproducible frame sampling. Creative review examines continuity, rhythm, evidence, readability and finishing. Neither check predicts reach or retention. Supplied low-resolution footage retains its source-detail limits. [Validation](docs/validation.md) · [Independent trial](docs/agent-forward-test.md)
 
-Release archives include Claude, Codex, standalone, Claude-skill, ChatGPT companion and full source packages, plus public demonstrations and SHA256 manifests. Installed dependencies/caches are excluded. Private user footage and its edit are never release assets. [Releases](https://github.com/Sanidhya14321/video-forge/releases) · [Changelog](CHANGELOG.md)
+Release archives include Claude, Codex, standalone, Claude-skill, ChatGPT companion and full source packages with SHA256 manifests. Published demonstrations stay in their original releases. Installed dependencies/caches are excluded. Private user footage and its edit are never release assets. [Releases](https://github.com/Sanidhya14321/video-forge/releases) · [Changelog](CHANGELOG.md)
 
 Code is MIT; dependencies, models, fonts and other assets retain their terms. [Notices](NOTICE.md). Run `npm run check` and `npm run build` to contribute. Long-form production and external-editor integrations are outside the0.7 focus.
+
+Repository layout: reusable code and small fixtures are maintained here; [rendered productions](demos/README.md) remain in immutable releases. Example helpers and dependency locks are generated from canonical sources during build.

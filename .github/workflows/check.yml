@@ -26,6 +26,7 @@ jobs:
       - run: npm run setup:binaries
       - run: npm run check
       - run: npm run build
+      - run: git diff --exit-code -- dist
       - if: runner.os == 'Linux'
         run: node dist/cli.js run examples/product-demo.json --out /tmp/video-forge-demo
       - if: runner.os == 'Linux'

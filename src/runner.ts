@@ -1,7 +1,8 @@
+import {fingerprint} from './file-manifest.js';
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readFile, writeFile, mkdir, copyFile } from "node:fs/promises";
-import { createHash, randomUUID } from "node:crypto";
+import { randomUUID } from "node:crypto";
 import { bundle } from "@remotion/bundler";
 import {
   selectComposition,
@@ -205,9 +206,10 @@ export async function previewProject(file: string, output: string) {
   const assetsDir=path.join(out,"assets");await mkdir(assetsDir);
   const ready=structuredClone(project);
   const previewStage=async(ref:string)=>{
-    const bytes=await readFile(path.resolve(base,ref));
-    const name=createHash("sha256").update(bytes).digest("hex").slice(0,16)+path.extname(ref).toLowerCase();
-    await writeFile(path.join(assetsDir,name),bytes);return name;
+    const source=path.resolve(base,ref);
+    const {sha256}=await fingerprint(source);
+    const name=sha256.slice(0,16)+path.extname(ref).toLowerCase();
+    await copyFile(source,path.join(assetsDir,name));return name;
   };
   for(const scene of ready.scenes)if(scene.src)scene.src=await previewStage(scene.src);
   for(const scene of ready.scenes)for(const object of scene.world?.objects??[])if(object.src)object.src=await previewStage(object.src);
@@ -285,8 +287,7 @@ export async function runProject(file: string, output?: string) {
     const source = generated.get(ref) ?? path.resolve(base, ref);
     const cached=stagedRefs.get(source);if(cached)return cached;
     await readable(source);
-    const bytes = await readFile(source);
-    const hash = createHash("sha256").update(bytes).digest("hex");
+    const {sha256: hash} = await fingerprint(source);
     const name = `${hash.slice(0, 16)}${path.extname(source).toLowerCase()}`;
     await copyFile(source, path.join(assetsDir, name));
     const credit =

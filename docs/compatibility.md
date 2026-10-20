@@ -17,7 +17,7 @@ Claude Code plugins have `.claude-plugin/plugin.json`. The portable OpenAI packa
 
 ChatGPT companion files are intentionally a planning/handoff adapter. They do not install the plugin or provision Node, Chrome or FFmpeg. They are generated from the same maintained skill/reference source and contain no credentials or demo binaries. Read only the modules relevant to the current request. In a local-capable Work session, use the full plugin instead.
 
-Runtime archives exclude generated demo folders. The prepared example inputs, sources, scripts, renderer, lockfiles, licenses and full 100-entry register remain included. The source archive preserves all tracked demo outputs. An install archive is not a dependency bundle; `npm ci` and first-render browser provisioning still require network access.
+Runtime archives exclude generated demo folders. The prepared example inputs, sources, scripts, renderer, lockfiles, licenses and full 100-entry register remain included. Historical demo outputs remain in their immutable release; current source archives contain maintained code and small fixtures. An install archive is not a dependency bundle; `npm ci` and first-render browser provisioning still require network access.
 
 ## Current primary documentation
 

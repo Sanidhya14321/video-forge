@@ -2,20 +2,13 @@
 """Build portable host archives; dependencies are installed after extraction."""
 import pathlib,zipfile,json,hashlib,argparse,os,re
 from host_adapters import standalone_director,companion_files
+from package_policy import collect_files
 parser=argparse.ArgumentParser();parser.add_argument('--out',type=pathlib.Path);args=parser.parse_args()
 root=pathlib.Path(__file__).resolve().parents[1];out=(args.out or root.parent).resolve();version=json.loads((root/'package.json').read_text())['version']
 if out==root:raise SystemExit('Use an output directory separate from the toolkit root')
 out.mkdir(parents=True,exist_ok=True)
-exclude={'node_modules','.venv','.cache','.git','__pycache__','runs','composition-bundle','release-assets'}
-files=[]
-for current,dirs,names in os.walk(root):
- current=pathlib.Path(current)
- dirs[:]=[d for d in dirs if d not in exclude and current/d!=out]
- for name in names:
-  p=current/name
-  if p.is_symlink() or p.suffix in {'.zip','.pyc'} or p.name.startswith('.env'):continue
-  files.append(p)
-files.sort()
+if any(out.iterdir()):raise SystemExit('Use an empty output directory to avoid stale release assets')
+files=collect_files(root)
 def runtime_text(file):
  """Keep documentation useful when large demos are separate release assets."""
  text=file.read_text()
@@ -23,7 +16,7 @@ def runtime_text(file):
   label,target=m.group(1),m.group(2)
   if target.startswith(('https:','http:','#','mailto:')):return m.group(0)
   dest=(file.parent/target.split('#')[0]).resolve()
-  if dest.is_relative_to(root/'demos'):
+  if dest.is_relative_to(root/'demos') or dest.is_relative_to(root/'docs/releases'):
    return f'[{label}](https://github.com/Sanidhya14321/video-forge/blob/v{version}/{dest.relative_to(root).as_posix()})'
   return m.group(0)
  return re.sub(r'\[([^\]]+)\]\(([^)]+)\)',replace,text).encode()

@@ -833,18 +833,9 @@
       "license": "MIT"
     },
     {
-      "path": "assets/camera-score.wav",
-      "origin": "Original 120 BPM score and camera-aligned SFX, scripts/prepare-camera-score.py",
-      "license": "MIT"
-    },
-    {
       "path": "assets/world-signal.svg",
       "origin": "Original Video Forge signal illustration",
       "license": "MIT"
     }
-  ],
-  "music": {
-    "src": "assets/camera-score.wav",
-    "volume": 0.9
-  }
+  ]
 }

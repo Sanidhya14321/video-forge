@@ -98,7 +98,7 @@ test('pop treatment is explicit and backwards compatible with minimal jobs',()=>
 });
 test('creative arcade example rounds cumulative beat boundaries to exactly 900 frames',async()=>{
  const {readFile}=await import('node:fs/promises');
- const p=projectSchema.parse(JSON.parse(await readFile(new URL('../examples/pop-showcase.json',import.meta.url),'utf8'))),report=reviewProject(p);
+ const p=projectSchema.parse(JSON.parse(await readFile(new URL('./fixtures/pop-beat-score.json',import.meta.url),'utf8'))),report=reviewProject(p);
  assert.equal(report.timeline.length,22);assert.equal(report.timeline.at(-1)?.endFrame,900);assert.equal(report.durationSeconds,30);
  assert.equal(new Set(p.scenes.map(s=>s.motion?.preset)).size,12);
  assert.ok(p.scenes.every(s=>s.motion?.style==='pop'));assert.ok(new Set(p.scenes.map(s=>s.duration)).size>1);

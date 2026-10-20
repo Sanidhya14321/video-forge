@@ -1,6 +1,0 @@
-{
-  "score": "Original generated numpy synthesis; seed71;150BPM",
-  "voice": "Local Kokoro af_heart; synthetic narration; text in narration.txt",
-  "mix": "FFmpeg loudnorm target\u221216LUFS/\u22121.5dBTP",
-  "noThirdPartyMusic": true
-}

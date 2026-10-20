@@ -120,10 +120,10 @@ Optional `motion` inputs: `seed` (0–99999 integer, default 7), `density` (3–
 The `reels` layout preset protects a conservative central content band in vertical output: 14% at the top, 35% at the bottom, 8% at the left and 12% at the right. These are project margins, not guaranteed dimensions for every current app interface. `clean` uses a larger content area for ordinary viewing. Other aspect ratios recompose inside their own bounds. Headline length, caption grouping and proof readability still require actual visual review.
 
 ```bash
-node dist/cli.js review examples/reel-showcase.json
-node dist/cli.js preview examples/reel-showcase.json --out /new/storyboard-folder
-node dist/cli.js run examples/reel-showcase.json --dry-run
-node dist/cli.js run examples/reel-showcase.json --out /new/render-folder
+node dist/cli.js review examples/reel-smoke.json
+node dist/cli.js preview examples/reel-smoke.json --out /new/storyboard-folder
+node dist/cli.js run examples/reel-smoke.json --dry-run
+node dist/cli.js run examples/reel-smoke.json --out /new/render-folder
 ```
 
 `review` needs no browser or external requests. It reports exact scene-frame ranges, expected duration, treatment variety, protected bounds and advisory warnings for slow openings, repeated treatments, excessive title cards and dense code. It does not measure retention or rank creative quality. Footage duration is unknown until probed/edited and is reported as null.
@@ -138,7 +138,7 @@ node dist/cli.js run examples/reel-showcase.json --out /new/render-folder
 {"kind":"reel","duration":1.5,"title":"MAKE\nIT MOVE.","motion":{"preset":"ribbon","style":"pop","palette":["#5046ef","#ff8c32","#e5ff3d","#ff558e"],"energy":3,"density":12,"seed":91}}
 ```
 
-The pop waveform/boombox is illustrative, not an audio analysis. Score and sound effects in the showcase are synthesized locally and are not automatic effects added by the scene renderer. For fractional beat durations, round cumulative beat boundaries to frames and subtract adjacent boundaries before converting to seconds. `examples/pop-showcase.json` demonstrates this at 160 BPM with 22 scenes and exactly 900 frames.
+The pop waveform/boombox is illustrative, not an audio analysis. Score and sound effects in the showcase are synthesized locally and are not automatic effects added by the scene renderer. For fractional beat durations, round cumulative beat boundaries to frames and subtract adjacent boundaries before converting to seconds. The historical [Creative Arcade score](https://github.com/Sanidhya14321/video-forge/blob/v0.7.0/examples/pop-showcase.json) demonstrates this at 160 BPM with 22 scenes and exactly 900 frames.
 
 
 ### Full-frame footage and editorial punch-ins (v0.4.0)

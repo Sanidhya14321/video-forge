@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.1 — Repository and runtime cleanup
+
+- Move generated productions, duplicate audio and historical reports out of the working source tree; preserve immutable release links and Git history.
+- Maintain one motion helper and scaffold lock; derive example copies at build time.
+- Use explicit release inventories and reject stale package output; stop republishing unchanged media.
+- Load CLI modules on demand and stream media hashes with bounded memory.
+- Clarify code-first editing instructions and current validation/development guidance.
+
 ## 0.7.0 — Code-authored short-form video
 
 - First-class custom TSX composition projects, standalone scaffold/lock, moving previews, frame score and full source delivery; version1 remains supported.

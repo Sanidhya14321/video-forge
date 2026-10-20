@@ -12,3 +12,12 @@ runs/
 # Re-renderable browser bundles are generated artifacts.
 composition-bundle/
 release-assets/
+
+# Derived example resources: generated from motion/ and templates/short/.
+examples/code-smoke/lib/
+examples/motion-studies/lib/
+examples/motion-studies/package.json
+examples/motion-studies/package-lock.json
+# Production output belongs in a workspace outside this checkout.
+demos/*
+!demos/README.md

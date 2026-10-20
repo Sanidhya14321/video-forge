@@ -1,6 +1,6 @@
 {
   "name": "video-forge",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Code-authored short-form video, sophisticated motion, editing and local rendering for Claude Code and Codex",
   "author": {
     "name": "Video Forge contributors"

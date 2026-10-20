@@ -1,19 +1,30 @@
 #!/usr/bin/env python3
-"""Collect validated archives/media and emit machine-readable release checksums."""
-import argparse,pathlib,json,hashlib,shutil,subprocess,sys
-p=argparse.ArgumentParser();p.add_argument('--out',type=pathlib.Path,required=True);a=p.parse_args();out=a.out.resolve();out.mkdir(parents=True,exist_ok=True)
-r=pathlib.Path(__file__).resolve().parents[1];v=json.loads((r/'package.json').read_text())['version']
-for host in ['source','claude','codex','standalone','claude-skill','chatgpt']:
- if not (out/f'video-forge-{host}-{v}.zip').is_file():raise SystemExit('Package and validate all six host archives before preparing a release')
-for src,name in [('demos/code-film/vertical.mp4','code-film.mp4'),('demos/code-film/thumbnail.png','code-film.png'),('demos/motion-studies/vertical.mp4','motion-studies.mp4'),('demos/reel-showcase/vertical.mp4','reel.mp4'),('demos/reel-showcase/thumbnail.png','reel.png'),('demos/pop-showcase/vertical.mp4','color-pop.mp4'),('demos/pop-showcase/thumbnail.png','color-pop.png'),('demos/style-comparison/comparison.mp4','style-comparison.mp4'),('demos/camera-study/vertical.mp4','camera-study.mp4'),('demos/camera-study/thumbnail.png','camera-study.png')]:
- stem,ext=name.rsplit('.',1);shutil.copy2(r/src,out/f'video-forge-{stem}-{v}.{ext}')
-subprocess.run([sys.executable,str(r/'scripts/package-comparison.py'),'--out',str(out)],check=True)
-entries=[]
-for f in sorted(out.iterdir()):
- if f.is_file() and f.name not in ['SHA256SUMS.txt','release-manifest.json']:
-  entries.append({'name':f.name,'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()})
-manifest={'version':v,'tag':'v'+v,'repository':'https://github.com/Sanidhya14321/video-forge','archives':['source','claude','codex','standalone','claude-skill','chatgpt'],'assets':entries}
-(out/'release-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
-entries.append({'name':'release-manifest.json','sha256':hashlib.sha256((out/'release-manifest.json').read_bytes()).hexdigest()})
-(out/'SHA256SUMS.txt').write_text(''.join(f"{e['sha256']}  {e['name']}\n" for e in entries))
-print('Prepared release',v,'with',len(entries),'checksummed assets')
+"""Publish the six current packages; demonstrations stay in their original release."""
+import argparse, pathlib, json, hashlib
+
+p = argparse.ArgumentParser()
+p.add_argument('--out', type=pathlib.Path, required=True)
+out = p.parse_args().out.resolve()
+r = pathlib.Path(__file__).resolve().parents[1]
+v = json.loads((r / 'package.json').read_text())['version']
+hosts = ['source', 'claude', 'codex', 'standalone', 'claude-skill', 'chatgpt']
+expected = {f'video-forge-{host}-{v}.zip' for host in hosts}
+expected |= {'video-forge-SHA256SUMS.txt', f'video-forge-SHA256SUMS-{v}.txt'}
+actual = {f.name for f in out.iterdir() if f.is_file()}
+if expected - actual:
+    raise SystemExit('Package and validate all six host archives before preparing a release')
+if actual - expected - {'SHA256SUMS.txt', 'release-manifest.json'}:
+    raise SystemExit('Unexpected or stale release assets; use a clean package output directory')
+
+def digest(file):
+    with file.open('rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+entries = [{'name': name, 'bytes': (out / name).stat().st_size, 'sha256': digest(out / name)} for name in sorted(expected)]
+manifest = {'version': v, 'tag': 'v' + v, 'repository': 'https://github.com/Sanidhya14321/video-forge',
+            'archives': hosts, 'assets': entries,
+            'demonstrations': 'https://github.com/Sanidhya14321/video-forge/releases/tag/v0.7.0'}
+(out / 'release-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+entries.append({'name': 'release-manifest.json', 'sha256': digest(out / 'release-manifest.json')})
+(out / 'SHA256SUMS.txt').write_text(''.join(f"{e['sha256']}  {e['name']}\n" for e in entries))
+print('Prepared release', v, 'with', len(entries), 'checksummed assets')
