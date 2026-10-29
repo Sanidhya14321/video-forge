@@ -6,7 +6,7 @@
 
 ## See the motion
 
-[![Video Forge — every frame](https://github.com/Sanidhya14321/video-forge/releases/download/v0.7.0/video-forge-code-film-0.7.0.png)](https://github.com/Sanidhya14321/video-forge/releases/download/v0.7.0/video-forge-code-film-0.7.0.mp4)
+https://github.com/user-attachments/assets/6390ce1e-12bd-4088-8257-62b150961c4a
 
 A 24-second code-authored film: spatial typography, optical refraction, layered traversal, fast cuts, actual rendered evidence, local narration and measured captions. [Editable film project](https://github.com/Sanidhya14321/video-forge/tree/v0.7.0/examples/code-film) · [Production review](https://github.com/Sanidhya14321/video-forge/blob/v0.7.0/demos/code-film/PRODUCTION.md) · [Six motion studies](examples/motion-studies)
 
